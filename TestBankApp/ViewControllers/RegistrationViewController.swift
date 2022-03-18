@@ -14,7 +14,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var regEmailTF: UITextField!
     @IBOutlet weak var regPasswordTF: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    
+    var subscription : String = "false"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,7 +55,13 @@ class RegistrationViewController: UIViewController {
     }
     
     
-    @IBAction func subSwitch(_ sender: Any) {
+    @IBAction func subSwitch(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            subscription = "true"
+        }else{
+            subscription = "false"
+        }
     }
     
     @IBAction func registrationSubmit(_ sender: Any) {
