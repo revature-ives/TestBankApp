@@ -18,6 +18,8 @@
 		4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFED27E37BFE00DC43F9 /* Quizz.swift */; };
 		4524FFF027E37C5900DC43F9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFEF27E37C5900DC43F9 /* Question.swift */; };
 		4524FFF227E37CA700DC43F9 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFF127E37CA700DC43F9 /* Admin.swift */; };
+		8449CB2027E4CD5F003BD60F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB1F27E4CD5F003BD60F /* Validation.swift */; };
+		8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		4524FFED27E37BFE00DC43F9 /* Quizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz.swift; sourceTree = "<group>"; };
 		4524FFEF27E37C5900DC43F9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		4524FFF127E37CA700DC43F9 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		8449CB1F27E4CD5F003BD60F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +73,13 @@
 				4524FFEA27E37B5C00DC43F9 /* Model */,
 				4524FF1827DFEA4600DC43F9 /* AppDelegate.swift */,
 				4524FF1A27DFEA4600DC43F9 /* SceneDelegate.swift */,
-				4524FF1C27DFEA4600DC43F9 /* ViewController.swift */,
+				8449CB2427E4CEA2003BD60F /* ViewControllers */,
 				4524FF1E27DFEA4600DC43F9 /* Main.storyboard */,
 				4524FF2427DFEA4600DC43F9 /* Assets.xcassets */,
 				4524FF2627DFEA4600DC43F9 /* LaunchScreen.storyboard */,
 				4524FF2927DFEA4600DC43F9 /* Info.plist */,
 				4524FF2127DFEA4600DC43F9 /* TestBankApp.xcdatamodeld */,
+				8449CB2327E4CE62003BD60F /* Utilities */,
 			);
 			path = TestBankApp;
 			sourceTree = "<group>";
@@ -88,6 +93,23 @@
 				4524FFF127E37CA700DC43F9 /* Admin.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8449CB2327E4CE62003BD60F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8449CB1F27E4CD5F003BD60F /* Validation.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8449CB2427E4CEA2003BD60F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4524FF1C27DFEA4600DC43F9 /* ViewController.swift */,
+				8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +187,8 @@
 				4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */,
 				4524FF2327DFEA4600DC43F9 /* TestBankApp.xcdatamodeld in Sources */,
 				4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */,
+				8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */,
+				8449CB2027E4CD5F003BD60F /* Validation.swift in Sources */,
 				4524FFEC27E37B7500DC43F9 /* User.swift in Sources */,
 				4524FFF027E37C5900DC43F9 /* Question.swift in Sources */,
 				4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */,
