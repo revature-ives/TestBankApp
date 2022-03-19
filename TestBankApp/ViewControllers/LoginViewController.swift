@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginSubmit(_ sender: Any) {
         // Remove whitespace and new lines from email and password textfield values
-        let email = loginEmailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+      /*  let email = loginEmailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = loginPasswordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         //Replace below snippet with query to SQLite
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
                     showError("Incorrect credentials, please try again.")
                 }
             }
-        }
+        }*/
     }
     
     func showError(_ message:String) {
