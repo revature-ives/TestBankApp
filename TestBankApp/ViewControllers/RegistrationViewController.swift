@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SQLite3
 
 class RegistrationViewController: UIViewController {
 
@@ -15,11 +16,26 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var regPasswordTF: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     var subscription : String = "false"
+    
+    
+    var DBhelper = DBHelper()
+    
+    let cpointer = DBHelper.dataBase
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var f1 = DBhelper.prepareDatabaseFile()
+        print("Data base phat is :", f1)
+       // var url = URL(string: f1)
+        //Open the Data base or create it
+    
+        if sqlite3_open(f1, &DBHelper.dataBase) != SQLITE_OK{
+            print("Can not open data base")
+        }
         
-            
+        DBhelper.addUserToDataBase(name: "tupac", password: "1996", subscribed: "yes", ranking: "0", mail: "tupac@gmail.com")
         
     }
     
