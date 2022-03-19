@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-   /* @IBAction func loginSubmit(_ sender: Any) {
+    @IBAction func loginSubmit(_ sender: Any) {
         // Remove whitespace and new lines from email and password textfield values
         let email = loginEmailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = loginPasswordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-    }*/
+    }
     
     func showError(_ message:String) {
         

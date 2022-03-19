@@ -18,24 +18,11 @@
 		4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFED27E37BFE00DC43F9 /* Quizz.swift */; };
 		4524FFF027E37C5900DC43F9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFEF27E37C5900DC43F9 /* Question.swift */; };
 		4524FFF227E37CA700DC43F9 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFF127E37CA700DC43F9 /* Admin.swift */; };
-		4524FFFE27E4ECFF00DC43F9 /* TestBankAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFFD27E4ECFF00DC43F9 /* TestBankAppTests.swift */; };
-		4597C46A27E54A4C00D9CBB2 /* QuizzAppDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 4597C46927E54A4C00D9CBB2 /* QuizzAppDB.db */; };
-		4597C46C27E54A7700D9CBB2 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4597C46B27E54A7700D9CBB2 /* DBHelper.swift */; };
 		8449CB2027E4CD5F003BD60F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB1F27E4CD5F003BD60F /* Validation.swift */; };
 		8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */; };
 		8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2527E4DC13003BD60F /* LoginViewController.swift */; };
 		8449CB2827E4E5ED003BD60F /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		4524FFFF27E4ECFF00DC43F9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4524FF0D27DFEA4600DC43F9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4524FF1427DFEA4600DC43F9;
-			remoteInfo = TestBankApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4524FF1527DFEA4600DC43F9 /* TestBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,10 +38,6 @@
 		4524FFED27E37BFE00DC43F9 /* Quizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz.swift; sourceTree = "<group>"; };
 		4524FFEF27E37C5900DC43F9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		4524FFF127E37CA700DC43F9 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
-		4524FFFB27E4ECFF00DC43F9 /* TestBankAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestBankAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4524FFFD27E4ECFF00DC43F9 /* TestBankAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBankAppTests.swift; sourceTree = "<group>"; };
-		4597C46927E54A4C00D9CBB2 /* QuizzAppDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuizzAppDB.db; sourceTree = "<group>"; };
-		4597C46B27E54A7700D9CBB2 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		8449CB1F27E4CD5F003BD60F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8449CB2527E4DC13003BD60F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -69,13 +52,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4524FFF827E4ECFF00DC43F9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				4524FF1727DFEA4600DC43F9 /* TestBankApp */,
-				4524FFFC27E4ECFF00DC43F9 /* TestBankAppTests */,
 				4524FF1627DFEA4600DC43F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				4524FF1527DFEA4600DC43F9 /* TestBankApp.app */,
-				4524FFFB27E4ECFF00DC43F9 /* TestBankAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,22 +91,12 @@
 		4524FFEA27E37B5C00DC43F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4597C46927E54A4C00D9CBB2 /* QuizzAppDB.db */,
 				4524FFEB27E37B7500DC43F9 /* User.swift */,
 				4524FFED27E37BFE00DC43F9 /* Quizz.swift */,
 				4524FFEF27E37C5900DC43F9 /* Question.swift */,
 				4524FFF127E37CA700DC43F9 /* Admin.swift */,
-				4597C46B27E54A7700D9CBB2 /* DBHelper.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		4524FFFC27E4ECFF00DC43F9 /* TestBankAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				4524FFFD27E4ECFF00DC43F9 /* TestBankAppTests.swift */,
-			);
-			path = TestBankAppTests;
 			sourceTree = "<group>";
 		};
 		8449CB2327E4CE62003BD60F /* Utilities */ = {
@@ -174,24 +138,6 @@
 			productReference = 4524FF1527DFEA4600DC43F9 /* TestBankApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4524FFFA27E4ECFF00DC43F9 /* TestBankAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4524000327E4ECFF00DC43F9 /* Build configuration list for PBXNativeTarget "TestBankAppTests" */;
-			buildPhases = (
-				4524FFF727E4ECFF00DC43F9 /* Sources */,
-				4524FFF827E4ECFF00DC43F9 /* Frameworks */,
-				4524FFF927E4ECFF00DC43F9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4524000027E4ECFF00DC43F9 /* PBXTargetDependency */,
-			);
-			name = TestBankAppTests;
-			productName = TestBankAppTests;
-			productReference = 4524FFFB27E4ECFF00DC43F9 /* TestBankAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,10 +150,6 @@
 				TargetAttributes = {
 					4524FF1427DFEA4600DC43F9 = {
 						CreatedOnToolsVersion = 13.2.1;
-					};
-					4524FFFA27E4ECFF00DC43F9 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 4524FF1427DFEA4600DC43F9;
 					};
 				};
 			};
@@ -225,7 +167,6 @@
 			projectRoot = "";
 			targets = (
 				4524FF1427DFEA4600DC43F9 /* TestBankApp */,
-				4524FFFA27E4ECFF00DC43F9 /* TestBankAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,14 +179,6 @@
 				4524FF2827DFEA4600DC43F9 /* LaunchScreen.storyboard in Resources */,
 				4524FF2527DFEA4600DC43F9 /* Assets.xcassets in Resources */,
 				4524FF2027DFEA4600DC43F9 /* Main.storyboard in Resources */,
-				4597C46A27E54A4C00D9CBB2 /* QuizzAppDB.db in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4524FFF927E4ECFF00DC43F9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,27 +201,10 @@
 				4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */,
 				4524FFF227E37CA700DC43F9 /* Admin.swift in Sources */,
 				8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */,
-				4597C46C27E54A7700D9CBB2 /* DBHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4524FFF727E4ECFF00DC43F9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4524FFFE27E4ECFF00DC43F9 /* TestBankAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4524000027E4ECFF00DC43F9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4524FF1427DFEA4600DC43F9 /* TestBankApp */;
-			targetProxy = 4524FFFF27E4ECFF00DC43F9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4524FF1E27DFEA4600DC43F9 /* Main.storyboard */ = {
@@ -310,42 +226,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4524000127E4ECFF00DC43F9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BV8QQX5M8Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = algoives.TestBankAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestBankApp.app/TestBankApp";
-			};
-			name = Debug;
-		};
-		4524000227E4ECFF00DC43F9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BV8QQX5M8Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = algoives.TestBankAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestBankApp.app/TestBankApp";
-			};
-			name = Release;
-		};
 		4524FF2A27DFEA4600DC43F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -523,15 +403,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4524000327E4ECFF00DC43F9 /* Build configuration list for PBXNativeTarget "TestBankAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4524000127E4ECFF00DC43F9 /* Debug */,
-				4524000227E4ECFF00DC43F9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4524FF1027DFEA4600DC43F9 /* Build configuration list for PBXProject "TestBankApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
