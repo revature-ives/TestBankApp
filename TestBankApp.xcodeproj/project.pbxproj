@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451AB5FA27E63C930071295E /* QuizzAppDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 451AB5F927E63C930071295E /* QuizzAppDB.db */; };
+		451AB5FC27E63CAB0071295E /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AB5FB27E63CAB0071295E /* DBHelper.swift */; };
 		4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FF1827DFEA4600DC43F9 /* AppDelegate.swift */; };
 		4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FF1A27DFEA4600DC43F9 /* SceneDelegate.swift */; };
 		4524FF1D27DFEA4600DC43F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FF1C27DFEA4600DC43F9 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		451AB5F927E63C930071295E /* QuizzAppDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuizzAppDB.db; sourceTree = "<group>"; };
+		451AB5FB27E63CAB0071295E /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		4524FF1527DFEA4600DC43F9 /* TestBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4524FF1827DFEA4600DC43F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4524FF1A27DFEA4600DC43F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,10 +95,12 @@
 		4524FFEA27E37B5C00DC43F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				451AB5F927E63C930071295E /* QuizzAppDB.db */,
 				4524FFEB27E37B7500DC43F9 /* User.swift */,
 				4524FFED27E37BFE00DC43F9 /* Quizz.swift */,
 				4524FFEF27E37C5900DC43F9 /* Question.swift */,
 				4524FFF127E37CA700DC43F9 /* Admin.swift */,
+				451AB5FB27E63CAB0071295E /* DBHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +185,7 @@
 				4524FF2827DFEA4600DC43F9 /* LaunchScreen.storyboard in Resources */,
 				4524FF2527DFEA4600DC43F9 /* Assets.xcassets in Resources */,
 				4524FF2027DFEA4600DC43F9 /* Main.storyboard in Resources */,
+				451AB5FA27E63C930071295E /* QuizzAppDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +208,7 @@
 				4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */,
 				4524FFF227E37CA700DC43F9 /* Admin.swift in Sources */,
 				8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */,
+				451AB5FC27E63CAB0071295E /* DBHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
