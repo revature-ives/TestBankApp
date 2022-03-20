@@ -54,6 +54,9 @@ class DBHelper {
     }
     
     
+    //Method to add users to database
+    
+    
     func addUserToDataBase(name: String,password: String,subscribed: String,ranking: String,mail: String){
         let userName = name as! NSString
         let userPassword = password as! NSString
@@ -110,6 +113,8 @@ class DBHelper {
     }
     
     
+    
+    //Method to add a quizz to the database
     func addQuizz(technology: String){
         
         let tech = technology as! NSString
@@ -140,10 +145,12 @@ class DBHelper {
         }
         
         
-        print("data save")
+        print("quizz added to database")
         
     }
     
+    
+    //Method to add questions to the dta base
     func addQuestionToDatabase(questionAsked: String,option1: String,option2: String,option3: String,answer: String,quizId: Int){
        
         
@@ -206,7 +213,95 @@ class DBHelper {
         print("Question added to quiz \(quizId)")
         
     }
+    
+    
+    //Method to fetch user
+    //this method still have a bug not ready
+    
+    func fetchUserByEmail(emailToFetch: String){
+        
+        let emailFech = emailToFetch as! NSString
+        
+        let query = "SELECT * FROM Users WHERE email = ?"
+        
+        var stmt: OpaquePointer?
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK {
+            
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+            
+        }
+        
+        //Bind the requeste email
+        
+        let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
+        if sqlite3_bind_text(stmt,Int32(index),emailFech.utf8String,-1,nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW) {
+            
+            let id = sqlite3_column_int(stmt, 0)
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let password = String(cString: sqlite3_column_text(stmt, 2))
+            let Rakin = String(cString: sqlite3_column_text(stmt, 3))
+            let subscribed = String(cString: sqlite3_column_text(stmt, 4))
+            let email = String(cString: sqlite3_column_text(stmt, 5))
+            
+            usersList.append(User(id: Int(id), name: name, password: password, subscribed: subscribed, ranking: Rakin, email: email))
+        }
+        
+        for list in usersList{
+            print("ID is \(list.id) the name is \(list.name) password \(list.password) subscribed \(list.subscribed) rankin \(list.ranking) emai is : \(list.email)")
+        }
+        
+    }
   
-    
-    
+    //Fetch Quizzes By technology
+    //This method still have a bug
+    func fetchQuizessByTechnoilogy(technologyToFetch: String){
+        
+        let tech = technologyToFetch as! NSString
+        
+        let query = "SELECT * FROM Quizzes WHERE technology = technology"
+        
+        var stmt: OpaquePointer?
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK {
+            
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+            
+        }
+        
+        //Bind the requeste tech
+        
+        let index : Int = Int (sqlite3_bind_parameter_index(stmt, "tech"))
+        if sqlite3_bind_text(stmt,5,tech.utf8String,-1,nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW) {
+            
+            let id = sqlite3_column_int(stmt, 0)
+            let techy = String(cString: sqlite3_column_text(stmt, 1))
+            
+            
+            quizzesList.append(Quizz(id: Int(id), tech: techy))
+        }
+        
+        for list in quizzesList{
+            print(" quizz id \(list.id) tech is : \(list.technology)")
+        }
+        
+    }
 }
