@@ -34,7 +34,11 @@ class RegistrationViewController: UIViewController {
             print("Can not open data base")
         }
         
-        databaseHelper.addQuestionToDatabase(questionAsked: "Is a Framework from IOS", option1: "Spring", option2: "AVFoundation", option3: "Mockito", answer: "option2", quizId: 3)
+       // databaseHelper.addQuestionToDatabase(questionAsked: "Is a Framework from IOS", option1: "Spring", option2: "AVFoundation", option3: "Mockito", answer: "option2", quizId: 3)
+        
+     // databaseHelper.fetchUserByEmail(emailToFetch: " ")
+      //  databaseHelper.fetchUserByEmail(emailToFetch: "tupac@gmail.com")
+        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "swift")
         
     }
     
