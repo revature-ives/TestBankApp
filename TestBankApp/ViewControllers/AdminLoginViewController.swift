@@ -45,15 +45,45 @@ class AdminLoginViewController: UIViewController {
         
         let adminEmail = adminEmailTF.text!
         let adminPassword = adminPasswordTF.text!
+        var tempAdmin : Admin = Admin(id: 0, name: "", email: "", password: "")
         
-        let tempAdmin = databaseHelper.retrieveAdminInfo()
+        databaseHelper.retrieveAdminInfo()
+        
+        for list in databaseHelper.adminList{
+            tempAdmin = Admin(id: list.id, name: list.name, email: list.email, password: list.password)
+        }
+        
+        
         
         if adminEmail == tempAdmin.email && adminPassword == tempAdmin.password {
-            
+            transitionToAdmin()
         }
+        else{
+               showError("This information is incorrect")
+        }
+        
+        print("admin info \(tempAdmin.email)  and \(tempAdmin.password)")
         
         
     }
     
-
+    func showError(_ message:String) {
+        
+        ErrorLabel.text = message
+        ErrorLabel.alpha = 1
+    }
+    
+    func transitionToAdmin() {
+        
+        let startViewController = self.storyboard?.instantiateViewController(identifier: "Admin Nav Controller") as? UINavigationController
+        
+        let transition = CATransition()
+        transition.type = .push
+        transition.duration = 0.25
+        view.window?.layer.add(transition, forKey: kCATransition)
+        
+        view.window?.rootViewController = startViewController
+        view.window?.makeKeyAndVisible()
+    }
+    
 }

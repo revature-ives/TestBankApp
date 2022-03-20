@@ -15,6 +15,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var regEmailTF: UITextField!
     @IBOutlet weak var regPasswordTF: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var registrationButtonOut: UIButton!
+    
     var subscription : String = "false"
     
     
@@ -41,6 +43,12 @@ class RegistrationViewController: UIViewController {
      // databaseHelper.fetchUserByEmail(emailToFetch: " ")
       //  databaseHelper.fetchUserByEmail(emailToFetch: "tupac@gmail.com")
        // databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "swift")
+        
+        Utilities.styleFilledButton(registrationButtonOut)
+        Utilities.styleTextField(regUsernameTF, placeHolderString: "enter Username")
+        Utilities.styleTextField(regEmailTF, placeHolderString: "enter Email")
+        Utilities.styleTextField(regPasswordTF, placeHolderString: "enter Password")
+        Utilities.styleErrorLabel(errorLabel)
         
     }
     

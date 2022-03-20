@@ -13,12 +13,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginEmailTF: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var loginPasswordTF: UITextField!
-    
+    @IBOutlet weak var registerBtnOut: UIButton!
+    @IBOutlet weak var loginBtnOut: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Setting up styles for buttons.
+        Utilities.styleErrorLabel(errorLabel)
+        Utilities.styleFilledButton(loginBtnOut)
+        Utilities.styleFilledButton(registerBtnOut)
+        Utilities.styleTextField(loginEmailTF, placeHolderString: "enter Email")
+        Utilities.styleTextField(loginPasswordTF, placeHolderString: "enter Password")
     }
     
     @IBAction func loginSubmit(_ sender: Any) {

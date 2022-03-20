@@ -27,6 +27,7 @@
 		8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2527E4DC13003BD60F /* LoginViewController.swift */; };
 		8449CB2827E4E5ED003BD60F /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */; };
 		8449CBA227E78D21003BD60F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CBA127E78D21003BD60F /* Utilities.swift */; };
+		8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CBA327E792AD003BD60F /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		8449CB2527E4DC13003BD60F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginViewController.swift; sourceTree = "<group>"; };
 		8449CBA127E78D21003BD60F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		8449CBA327E792AD003BD60F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */,
 				8449CB2527E4DC13003BD60F /* LoginViewController.swift */,
 				8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */,
+				8449CBA327E792AD003BD60F /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				4524FF1D27DFEA4600DC43F9 /* ViewController.swift in Sources */,
 				4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */,
 				4524FF2327DFEA4600DC43F9 /* TestBankApp.xcdatamodeld in Sources */,
+				8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */,
 				4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */,
 				8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */,
 				8449CB2027E4CD5F003BD60F /* Validation.swift in Sources */,

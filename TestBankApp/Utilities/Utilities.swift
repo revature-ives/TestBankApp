@@ -33,7 +33,7 @@ class Utilities {
         
         
         let attributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 30)
         ]
         textfield.attributedPlaceholder = NSAttributedString(string: placeHolderString, attributes: attributes)
@@ -101,7 +101,7 @@ class Utilities {
         // Hide the error label
         label.alpha = 0
         // Set background color to black
-        label.backgroundColor = .black //UIColor(white: 0.0, alpha: 1.0)
+        label.backgroundColor = UIColor.white
         // Give label border rounded edges
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
