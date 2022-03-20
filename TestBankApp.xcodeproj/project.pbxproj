@@ -26,6 +26,7 @@
 		8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */; };
 		8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2527E4DC13003BD60F /* LoginViewController.swift */; };
 		8449CB2827E4E5ED003BD60F /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */; };
+		8449CBA227E78D21003BD60F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CBA127E78D21003BD60F /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8449CB2527E4DC13003BD60F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginViewController.swift; sourceTree = "<group>"; };
+		8449CBA127E78D21003BD60F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				8449CB1F27E4CD5F003BD60F /* Validation.swift */,
+				8449CBA127E78D21003BD60F /* Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */,
 				8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */,
 				8449CB2027E4CD5F003BD60F /* Validation.swift in Sources */,
+				8449CBA227E78D21003BD60F /* Utilities.swift in Sources */,
 				8449CB2827E4E5ED003BD60F /* AdminLoginViewController.swift in Sources */,
 				451AB60127E6CF170071295E /* QuizzCollectionViewCell.swift in Sources */,
 				451AB5FE27E6BB120071295E /* QuizzTechSelectionViewController.swift in Sources */,

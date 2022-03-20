@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JcU-PY-M5Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9p-sR-Lw8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -79,12 +79,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="adminLoginButton:" destination="xKz-iM-RYx" eventType="touchUpInside" id="Hua-0U-THX"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwB-sW-Oh6">
+                                <rect key="frame" x="80" y="406" width="254" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bZW-bY-Vj6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Pk-on-CFb"/>
+                    <connections>
+                        <outlet property="AdminLoginBtn" destination="0fM-tc-Wo2" id="syr-5m-dNL"/>
+                        <outlet property="ErrorLabel" destination="SwB-sW-Oh6" id="J0q-Oe-VmO"/>
+                        <outlet property="adminEmailTF" destination="LgA-Mg-lHt" id="Ur6-ys-PmD"/>
+                        <outlet property="adminPasswordTF" destination="ze1-Ss-6xU" id="5O7-c9-hAV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpu-76-ybO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -741,10 +757,10 @@
             </objects>
             <point key="canvasLocation" x="4242.0289855072469" y="-48.214285714285715"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--HomeNavController-->
         <scene sceneID="nwU-US-Cze">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i9p-sR-Lw8" sceneMemberID="viewController">
+                <navigationController title="HomeNavController" automaticallyAdjustsScrollViewInsets="NO" id="i9p-sR-Lw8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ntr-bM-jJo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

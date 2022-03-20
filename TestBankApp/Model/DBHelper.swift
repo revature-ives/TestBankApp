@@ -304,4 +304,28 @@ class DBHelper {
         }
         
     }
+    
+    func retrieveAdminInfo() -> Admin{
+        let query = "select * from admin"
+        var stmt : OpaquePointer?
+        var admin : Admin = Admin(id: 0, name: "", email: "", password: "")
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -2, &stmt, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return admin
+        }
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+           var admin = Admin(id: Int(sqlite3_column_int(stmt, 0)), name: String(cString: sqlite3_column_text(stmt,1)), email: String(cString: sqlite3_column_text(stmt, 2)), password: String(cString: sqlite3_column_text(stmt, 3)))
+            
+            
+           /* admin.id = sqlite3_column_int(stmt, 0)
+            admin.name = String(cString: sqlite3_column_text(stmt,1))
+            admin.email = String(cString: sqlite3_column_text(stmt, 2))
+            admin.password = String(cString: sqlite3_column_text(stmt, 3))
+            */
+           
+        }
+        return admin
+    }
 }
