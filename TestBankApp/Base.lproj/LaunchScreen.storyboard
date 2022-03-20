@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fourWelcome" translatesAutoresizingMaskIntoConstraints="NO" id="q0O-xO-btw">
-                                <rect key="frame" x="0.0" y="95" width="414" height="792"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestBankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="q0O-xO-btw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="843"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -27,11 +27,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13" y="99"/>
+            <point key="canvasLocation" x="11.594202898550726" y="98.4375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="fourWelcome" width="278" height="181"/>
+        <image name="TestBankLogo" width="204" height="247"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
