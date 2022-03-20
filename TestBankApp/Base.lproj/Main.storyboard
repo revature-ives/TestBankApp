@@ -87,7 +87,7 @@
                                 <rect key="frame" x="140" y="506" width="140" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                 <connections>
                                     <action selector="adminLoginButton:" destination="xKz-iM-RYx" eventType="touchUpInside" id="Hua-0U-THX"/>
                                 </connections>
@@ -453,13 +453,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdi-aF-3sh">
-                                <rect key="frame" x="81" y="171" width="255" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Se-bQ-oZr">
                                 <rect key="frame" x="101" y="366" width="205" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -478,6 +471,17 @@
                                     <segue destination="JcU-PY-M5Z" kind="show" id="CKT-pd-gJ8"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestMeLogoBanner" translatesAutoresizingMaskIntoConstraints="NO" id="zhn-QI-RPA">
+                                <rect key="frame" x="0.0" y="43" width="414" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome User!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdi-aF-3sh">
+                                <rect key="frame" x="80" y="229" width="255" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Ba-0V-jKn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -486,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQQ-4U-T1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4155" y="-794"/>
+            <point key="canvasLocation" x="4152.1739130434789" y="-794.19642857142856"/>
         </scene>
         <!--Quiz/Technology Selection -->
         <scene sceneID="W3C-Q2-YQb">
@@ -818,10 +822,10 @@
             </objects>
             <point key="canvasLocation" x="2918.840579710145" y="656.25"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--User Nav Controller-->
         <scene sceneID="mig-nE-Sbu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nK1-Eq-5B7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="User Nav Controller" title="User Nav Controller" automaticallyAdjustsScrollViewInsets="NO" id="nK1-Eq-5B7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oMQ-8G-udh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
