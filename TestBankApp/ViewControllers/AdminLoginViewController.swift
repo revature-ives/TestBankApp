@@ -54,7 +54,6 @@ class AdminLoginViewController: UIViewController {
         }
         
         
-        
         if adminEmail == tempAdmin.email && adminPassword == tempAdmin.password {
             transitionToAdmin()
         }
@@ -62,7 +61,7 @@ class AdminLoginViewController: UIViewController {
                showError("This information is incorrect")
         }
         
-        print("admin info \(tempAdmin.email)  and \(tempAdmin.password)")
+        
         
         
     }

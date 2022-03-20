@@ -222,7 +222,7 @@ class DBHelper {
         
         let emailFetch = emailToFetch as! NSString
         
-        let query = "SELECT * FROM Users WHERE email = \(emailFetch)"
+        let query = "SELECT * FROM Users WHERE email = '\(emailFetch)'"
         
         var stmt: OpaquePointer?
         
