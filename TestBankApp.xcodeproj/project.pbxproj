@@ -22,6 +22,10 @@
 		4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFED27E37BFE00DC43F9 /* Quizz.swift */; };
 		4524FFF027E37C5900DC43F9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFEF27E37C5900DC43F9 /* Question.swift */; };
 		4524FFF227E37CA700DC43F9 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FFF127E37CA700DC43F9 /* Admin.swift */; };
+		456595B327E8E71100FAEE6B /* SelctionQuizzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456595B227E8E71100FAEE6B /* SelctionQuizzViewController.swift */; };
+		456595B527E8EC5F00FAEE6B /* QuizIOSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456595B427E8EC5F00FAEE6B /* QuizIOSCollectionViewCell.swift */; };
+		456595B727E8EDEB00FAEE6B /* QuizzSwiftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456595B627E8EDEB00FAEE6B /* QuizzSwiftCollectionViewCell.swift */; };
+		456595B927E8EE0200FAEE6B /* QuizzXcodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456595B827E8EE0200FAEE6B /* QuizzXcodeCollectionViewCell.swift */; };
 		8449CB2027E4CD5F003BD60F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB1F27E4CD5F003BD60F /* Validation.swift */; };
 		8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */; };
 		8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2527E4DC13003BD60F /* LoginViewController.swift */; };
@@ -48,6 +52,10 @@
 		4524FFED27E37BFE00DC43F9 /* Quizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz.swift; sourceTree = "<group>"; };
 		4524FFEF27E37C5900DC43F9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		4524FFF127E37CA700DC43F9 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		456595B227E8E71100FAEE6B /* SelctionQuizzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelctionQuizzViewController.swift; sourceTree = "<group>"; };
+		456595B427E8EC5F00FAEE6B /* QuizIOSCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizIOSCollectionViewCell.swift; sourceTree = "<group>"; };
+		456595B627E8EDEB00FAEE6B /* QuizzSwiftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzSwiftCollectionViewCell.swift; sourceTree = "<group>"; };
+		456595B827E8EE0200FAEE6B /* QuizzXcodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzXcodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		8449CB1F27E4CD5F003BD60F /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		8449CB2127E4CE57003BD60F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8449CB2527E4DC13003BD60F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +80,10 @@
 			children = (
 				451AB5FD27E6BB120071295E /* QuizzTechSelectionViewController.swift */,
 				451AB60027E6CF170071295E /* QuizzCollectionViewCell.swift */,
+				456595B227E8E71100FAEE6B /* SelctionQuizzViewController.swift */,
+				456595B427E8EC5F00FAEE6B /* QuizIOSCollectionViewCell.swift */,
+				456595B627E8EDEB00FAEE6B /* QuizzSwiftCollectionViewCell.swift */,
+				456595B827E8EE0200FAEE6B /* QuizzXcodeCollectionViewCell.swift */,
 			);
 			path = quizzSelection;
 			sourceTree = "<group>";
@@ -220,7 +232,9 @@
 				4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */,
 				4524FF2327DFEA4600DC43F9 /* TestBankApp.xcdatamodeld in Sources */,
 				8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */,
+				456595B727E8EDEB00FAEE6B /* QuizzSwiftCollectionViewCell.swift in Sources */,
 				4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */,
+				456595B327E8E71100FAEE6B /* SelctionQuizzViewController.swift in Sources */,
 				8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */,
 				8449CB2027E4CD5F003BD60F /* Validation.swift in Sources */,
 				8449CBA227E78D21003BD60F /* Utilities.swift in Sources */,
@@ -230,7 +244,9 @@
 				4524FFEC27E37B7500DC43F9 /* User.swift in Sources */,
 				4524FFF027E37C5900DC43F9 /* Question.swift in Sources */,
 				4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */,
+				456595B927E8EE0200FAEE6B /* QuizzXcodeCollectionViewCell.swift in Sources */,
 				4524FFF227E37CA700DC43F9 /* Admin.swift in Sources */,
+				456595B527E8EC5F00FAEE6B /* QuizIOSCollectionViewCell.swift in Sources */,
 				8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */,
 				451AB5FC27E63CAB0071295E /* DBHelper.swift in Sources */,
 			);
