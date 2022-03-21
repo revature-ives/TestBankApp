@@ -104,7 +104,7 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
         
         //Get a cell from the indext path
         let cell = collectionView.cellForItem(at: indexPath) as! QuizzCollectionViewCell
-        
+        print(indexPath.item)
         //set the Quizz Id on the la
         
     }

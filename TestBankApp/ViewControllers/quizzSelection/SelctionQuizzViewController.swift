@@ -34,8 +34,44 @@ class SelctionQuizzViewController: UIViewController {
      var swiftQuizzes = [Quizz]()
      var xcodeQuizzes = [Quizz]()
     
+    //Mock Data to Test
     
-
+    let quizzIOS1 = Quizz(id: 1, tech: "IOS")
+    let quizzIOS2 = Quizz(id: 2, tech: "IOS")
+    let quizzIOS3 = Quizz(id: 3, tech: "IOS")
+    let quizzIOS4 = Quizz(id: 4, tech: "IOS")
+    let quizzIOS5 = Quizz(id: 5, tech: "IOS")
+    let quizzST1 = Quizz(id: 6, tech: "swift")
+    let quizzST2 = Quizz(id: 7, tech: "swift")
+    let quizzST3 = Quizz(id: 8, tech: "swift")
+    let quizzST4 = Quizz(id: 9, tech: "swift")
+    let quizzST5 = Quizz(id: 10, tech: "swift")
+    let quizzX1 = Quizz(id: 11, tech: "xcode")
+    let quizzX2 = Quizz(id: 12, tech: "xcode")
+    let quizzX3 = Quizz(id: 13, tech: "xcode")
+    let quizzX4 = Quizz(id: 14, tech: "xcode")
+    let quizzX5 = Quizz(id: 15, tech: "xcode")
+    
+    //PopulateLisk whit mock data
+    func fillLists(){
+        iosQuizzes.append(quizzIOS1)
+        iosQuizzes.append(quizzIOS3)
+        iosQuizzes.append(quizzIOS4)
+        iosQuizzes.append(quizzIOS5)
+        swiftQuizzes.append(quizzST1)
+        swiftQuizzes.append(quizzST2)
+        swiftQuizzes.append(quizzST3)
+        swiftQuizzes.append(quizzST4)
+        swiftQuizzes.append(quizzST5)
+        xcodeQuizzes.append(quizzX1)
+        xcodeQuizzes.append(quizzX2)
+        xcodeQuizzes.append(quizzX3)
+        xcodeQuizzes.append(quizzX4)
+        xcodeQuizzes.append(quizzX5)
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +101,10 @@ class SelctionQuizzViewController: UIViewController {
       //  iosQuizzes = databaseHelper.quizzesList
        // print(iosQuizzes)
        */
+        
+        
+        //Call method to fill whit mock data
+        fillLists()
     }
     
 
@@ -74,19 +114,22 @@ class SelctionQuizzViewController: UIViewController {
 extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        
+       
+       
         switch collectionView {
                    //count of xcode quizzess
                   case xcodeQuizzesCollection:
-                     // return xcodeQuizzes.count
-                        return 10
+                      return xcodeQuizzes.count
+                      //  return 10
                   //count of ios quizzes
                   case iosQuizzesCollection:
-                      //return iosQuizzes.count
-                      return 8
+                      return iosQuizzes.count
+                      //return 8
                   //count of swift quizzes
                   case swiftQuizzesCollection:
-                      //return swiftQuizzes.count
-                      return 6
+                      return swiftQuizzes.count
+                     // return 6
 
                   default:
                       return 1
@@ -115,12 +158,18 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                   case xcodeQuizzesCollection:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellXcodeQuizz", for: indexPath) as! QuizzXcodeCollectionViewCell
 
+                      
+                         
                       return cell
 
 
                   //IOS
                   case iosQuizzesCollection:
                       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
+                      
+                      cell.quizzImage.backgroundColor = UIColor.cyan
+                      cell.idLabel.backgroundColor = UIColor.orange
+                      
                       return cell
 
                  //Swift
@@ -155,6 +204,8 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                case xcodeQuizzesCollection:
                    let cell = collectionView.cellForItem(at: indexPath) as! QuizzXcodeCollectionViewCell
 
+            print(indexPath.item)
+                     
                    //transition to Quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
                    print("xcode quizz selected")
