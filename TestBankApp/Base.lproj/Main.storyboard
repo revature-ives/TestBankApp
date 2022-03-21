@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9p-sR-Lw8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -459,6 +458,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Take Quizzes"/>
+                                <connections>
+                                    <segue destination="WCe-bp-yNO" kind="show" id="Tow-nw-9VC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-zQ-dJc">
                                 <rect key="frame" x="134" y="524" width="141" height="31"/>
@@ -490,12 +492,55 @@
             </objects>
             <point key="canvasLocation" x="4152.1739130434789" y="-794.19642857142856"/>
         </scene>
+        <!--Quiz/Technology Selection -->
+        <scene sceneID="W3C-Q2-YQb">
+            <objects>
+                <viewController title="Quiz/Technology Selection " id="WCe-bp-yNO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="esn-cp-c02">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-ly-uUa">
+                                <rect key="frame" x="0.0" y="105" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xbL-JX-Vg8">
+                                <rect key="frame" x="20" y="298" width="374" height="294"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ddj-en-tZR">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kFX-Io-XNz">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="muf-UT-GmH">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DFr-gn-3JR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Rl-TL-ckf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlY-vW-ftt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5228" y="-794"/>
+        </scene>
         <!--Quiz Screen-->
         <scene sceneID="4s0-wt-9s3">
             <objects>
-                <viewController storyboardIdentifier="QuizzBuilder" title="Quiz Screen" id="Job-P4-5OW" sceneMemberID="viewController">
+                <viewController title="Quiz Screen" id="Job-P4-5OW" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d2W-SX-qhD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Qeustion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2u-eH-J3z">
@@ -567,11 +612,10 @@
                         <viewLayoutGuide key="safeArea" id="ztZ-Y5-Tuz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fXn-KQ-uJ3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igd-Ta-5Ts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4978" y="-72"/>
+            <point key="canvasLocation" x="6171" y="-794"/>
         </scene>
         <!--Results Screen-->
         <scene sceneID="xeT-nv-Bkz">
@@ -659,154 +703,6 @@
             </objects>
             <point key="canvasLocation" x="8062" y="-794"/>
         </scene>
-        <!--Selection Quizz View Controller-->
-        <scene sceneID="ung-5w-Nn6">
-            <objects>
-                <viewController id="Ec6-r4-bis" customClass="SelectionQuizzViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bvW-mi-qzP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select A Quizz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5D-Qg-JnO">
-                                <rect key="frame" x="129.5" y="91" width="155" height="27.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vqi-VE-Bdz">
-                                <rect key="frame" x="0.0" y="251" width="414" height="182"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1000" id="chx-Kb-2Kj">
-                                    <size key="itemSize" width="190" height="170"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellIOSQuizz" id="sOk-Zv-mpF" customClass="IOSCollectionViewCell" customModule="TestBankApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6" width="190" height="170"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e9B-9X-4eL">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="170"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aia-cq-hgu">
-                                                    <rect key="frame" x="8" y="8" width="163" height="119"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.1477991196" green="0.55778905310000004" blue="0.14740927619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqM-3e-QVA">
-                                                    <rect key="frame" x="42" y="135" width="95" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="190" height="170"/>
-                                        <connections>
-                                            <outlet property="quizzImage" destination="Aia-cq-hgu" id="kYW-Zf-uOK"/>
-                                            <outlet property="quizzLabel" destination="WqM-3e-QVA" id="O3T-GN-hsj"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aJj-BA-GFb">
-                                <rect key="frame" x="0.0" y="483" width="414" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1000" id="thC-u1-hbD">
-                                    <size key="itemSize" width="190" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellSwiftQuizz" id="9u3-qQ-ENY" customClass="SwiftCollectionViewCell" customModule="TestBankApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="190" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OcJ-1p-KQP">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufz-1g-1oY">
-                                                    <rect key="frame" x="18" y="91" width="102" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-tO-8Zj">
-                                                    <rect key="frame" x="8" y="8" width="160" height="83"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.98039215690000003" green="0.71372549019999998" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </imageView>
-                                            </subviews>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="quizzIDLabel" destination="ufz-1g-1oY" id="RVu-GQ-UKf"/>
-                                            <outlet property="quizzImage" destination="Xdd-tO-8Zj" id="O2F-xc-IeG"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dVZ-jC-wDu">
-                                <rect key="frame" x="0.0" y="687" width="414" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1000" id="l7u-VT-gcE">
-                                    <size key="itemSize" width="190" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellXcodeQuizz" id="dQm-Bo-Wy5" customClass="XcodeCollectionViewCell" customModule="TestBankApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="190" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="f45-7N-9oP">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FWg-6S-4Ua">
-                                                    <rect key="frame" x="8" y="8" width="157" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lV-Rc-kEj">
-                                                    <rect key="frame" x="19" y="91" width="101" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="quizzIDLabel" destination="4lV-Rc-kEj" id="7gZ-D2-Bt8"/>
-                                            <outlet property="quizzImage" destination="FWg-6S-4Ua" id="mYe-fL-SVS"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="0VN-fa-O9Y"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="iosQuizzesCollection" destination="Vqi-VE-Bdz" id="8uJ-ZY-CPw"/>
-                        <outlet property="swiftQuizzesCollection" destination="aJj-BA-GFb" id="Moe-mY-ESG"/>
-                        <outlet property="xcodeQuizzesCollection" destination="dVZ-jC-wDu" id="qDO-cb-PdP"/>
-                        <segue destination="Job-P4-5OW" kind="show" identifier="segueSelectedtoAttempt" id="Hrn-Wg-GP4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cMc-ha-SrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4003" y="-71"/>
-        </scene>
         <!--Rating Page-->
         <scene sceneID="Rbv-0l-rmr">
             <objects>
@@ -820,48 +716,53 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJH-T9-6Ma">
-                                <rect key="frame" x="135" y="280" width="148" height="128"/>
+                                <rect key="frame" x="135" y="310" width="148" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px7-pw-CTH">
-                                <rect key="frame" x="116" y="416" width="186" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Top Raking " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px7-pw-CTH">
+                                <rect key="frame" x="164" y="446" width="186" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UQN-eZ-ZKk">
-                                <rect key="frame" x="-9" y="480" width="403" height="396"/>
+                                <rect key="frame" x="2" y="568" width="412" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.32030687270000002" green="0.43529411759999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JrM-0W-Jl2">
-                                    <size key="itemSize" width="86" height="87"/>
+                                    <size key="itemSize" width="262" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="quizzCell" id="b9U-8s-wfC" customClass="QuizzCollectionViewCell" customModule="TestBankApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="87"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="262" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q6M-tX-X3n">
-                                            <rect key="frame" x="0.0" y="0.0" width="86" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="262" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="switlogo3" translatesAutoresizingMaskIntoConstraints="NO" id="g2c-Zm-Md3">
-                                                    <rect key="frame" x="0.0" y="25" width="78" height="54"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="swiftLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="g2c-Zm-Md3">
+                                                    <rect key="frame" x="0.0" y="-10" width="262" height="152"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1r-WG-gfh">
-                                                    <rect key="frame" x="27" y="8" width="35" height="39"/>
+                                                    <rect key="frame" x="94" y="8" width="103" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <color key="textColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="g2c-Zm-Md3" firstAttribute="leading" secondItem="q6M-tX-X3n" secondAttribute="leading" id="Nfe-rw-tgS"/>
+                                                <constraint firstItem="g2c-Zm-Md3" firstAttribute="top" secondItem="q6M-tX-X3n" secondAttribute="top" id="O43-Zo-hSR"/>
+                                                <constraint firstAttribute="trailing" secondItem="g2c-Zm-Md3" secondAttribute="trailing" id="UfA-c9-zxd"/>
+                                                <constraint firstAttribute="bottom" secondItem="g2c-Zm-Md3" secondAttribute="bottom" id="p1P-jI-bDZ"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="86" height="87"/>
+                                        <size key="customSize" width="262" height="128"/>
                                         <connections>
                                             <outlet property="quizzCellImage" destination="g2c-Zm-Md3" id="Lnj-2b-5cu"/>
                                             <outlet property="quizzIDLabel" destination="W1r-WG-gfh" id="sbA-HK-wVo"/>
@@ -883,7 +784,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNV-Yl-25e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6297" y="-1091"/>
+            <point key="canvasLocation" x="4242.0289855072469" y="-48.214285714285715"/>
         </scene>
         <!--HomeNavController-->
         <scene sceneID="nwU-US-Cze">
@@ -941,12 +842,9 @@
         </scene>
     </scenes>
     <resources>
-
-        
         <image name="TestBankLogo" width="204" height="247"/>
         <image name="TestMeLogoBanner" width="3637" height="1144"/>
         <image name="swiftLogo2" width="284" height="177"/>
-
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
