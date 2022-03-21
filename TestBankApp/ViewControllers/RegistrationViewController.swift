@@ -15,17 +15,21 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var regEmailTF: UITextField!
     @IBOutlet weak var regPasswordTF: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var registrationButtonOut: UIButton!
+    
     var subscription : String = "false"
     
+    
+    var databaseHelper = DBHelper()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var databaseHelper = DBHelper()
         
         var f1 = databaseHelper.prepareDatabaseFile()
+        
         print("Data base phat is :", f1)
        // var url = URL(string: f1)
         //Open the Data base or create it
@@ -38,7 +42,13 @@ class RegistrationViewController: UIViewController {
         
      // databaseHelper.fetchUserByEmail(emailToFetch: " ")
       //  databaseHelper.fetchUserByEmail(emailToFetch: "tupac@gmail.com")
-        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "swift")
+       // databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "swift")
+        
+        Utilities.styleFilledButton(registrationButtonOut)
+        Utilities.styleTextField(regUsernameTF, placeHolderString: "enter Username")
+        Utilities.styleTextField(regEmailTF, placeHolderString: "enter Email")
+        Utilities.styleTextField(regPasswordTF, placeHolderString: "enter Password")
+        Utilities.styleErrorLabel(errorLabel)
         
     }
     
@@ -103,12 +113,9 @@ class RegistrationViewController: UIViewController {
             let email = regEmailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = regPasswordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            // check if user with email already exists
-            // Replace this : if ModelController.getUsersByEmail(email: email)!.count == 0 {
-                // user does not already exist
                 // Create the user
-               // Replace : ModelController.createUser(firstName: firstName, lastName: lastName, email: email, password: password)
-               // transitionLogin()
+            databaseHelper.addUserToDataBase(name: uname!, password: password, subscribed: subscription, ranking: "0", mail: email)
+            transitionLogin()
             //}
            // else {
                 // user email already exists
@@ -133,7 +140,7 @@ class RegistrationViewController: UIViewController {
     
     func transitionLogin() {
         
-        let loginViewController = self.storyboard?.instantiateViewController(identifier: "loginView") as? LoginViewController
+        let loginViewController = self.storyboard?.instantiateViewController(identifier: "User Login") as? LoginViewController
         
         let transition = CATransition()
         transition.type = .push

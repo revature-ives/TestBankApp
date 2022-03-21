@@ -18,7 +18,7 @@ class DBHelper {
     
     //creat the arrays to store the entities
     var usersList = [User]()
-    var adminsList = [Admin]()
+    var adminList = [Admin]()
     var quizzesList = [Quizz]()
     var questionsList = [Question]()
     
@@ -220,9 +220,9 @@ class DBHelper {
     
     func fetchUserByEmail(emailToFetch: String){
         
-        let emailFech = emailToFetch as! NSString
+        let emailFetch = emailToFetch as! NSString
         
-        let query = "SELECT * FROM Users WHERE email = ?"
+        let query = "SELECT * FROM Users WHERE email = '\(emailFetch)'"
         
         var stmt: OpaquePointer?
         
@@ -237,7 +237,7 @@ class DBHelper {
         //Bind the requeste email
         
         let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
-        if sqlite3_bind_text(stmt,Int32(index),emailFech.utf8String,-1,nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt,Int32(index),emailFetch.utf8String,-1,nil) != SQLITE_OK{
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             
         }
@@ -302,6 +302,31 @@ class DBHelper {
         for list in quizzesList{
             print(" quizz id \(list.id) tech is : \(list.technology)")
         }
+        
+    }
+    
+    func retrieveAdminInfo(){
+        let query = "select * from admin"
+        var stmt : OpaquePointer?
+        
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -2, &stmt, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+        }
+        while(sqlite3_step(stmt) == SQLITE_ROW){
+//           var admin = Admin(id: Int(sqlite3_column_int(stmt, 0)), name: String(cString: sqlite3_column_text(stmt,1)), email: String(cString: sqlite3_column_text(stmt, 2)), password: String(cString: sqlite3_column_text(stmt, 3)))
+            
+            
+            let id = sqlite3_column_int(stmt, 0)
+            let name = String(cString: sqlite3_column_text(stmt,1))
+            let email = String(cString: sqlite3_column_text(stmt, 2))
+            let password = String(cString: sqlite3_column_text(stmt, 3))
+            
+            adminList.append(Admin(id: Int(id), name: name, email: email, password: password))
+        }
+        
         
     }
 }
