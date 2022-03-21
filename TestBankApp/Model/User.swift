@@ -14,7 +14,7 @@ class User{
     var subscribed : String
     var ranking : String
     var email: String
-    
+    var quizzes :[Quizz]
     
     init(id: Int,name: String,password: String,subscribed: String,ranking: String,email: String){
         self.id = id
@@ -23,7 +23,7 @@ class User{
         self.subscribed = subscribed
         self.ranking = ranking
         self.email = email
-        //self.quizzez = quizzes
+        self.quizzes = [Quizz]()
     }
     
 }
