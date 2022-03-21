@@ -268,7 +268,7 @@ class DBHelper {
         
         let tech = technologyToFetch as! NSString
         
-        let query = "SELECT * FROM Quizzes WHERE technology = technology"
+        let query = "SELECT * FROM Quizzes WHERE technology = '\(tech)'"
         
         var stmt: OpaquePointer?
         
@@ -283,7 +283,7 @@ class DBHelper {
         //Bind the requeste tech
         
         let index : Int = Int (sqlite3_bind_parameter_index(stmt, "tech"))
-        if sqlite3_bind_text(stmt,5,tech.utf8String,-1,nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt,Int32(index),tech.utf8String,-1,nil) != SQLITE_OK{
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             
         }
@@ -304,6 +304,11 @@ class DBHelper {
         }
         
     }
+    
+    
+    
+    
+    
     
     func retrieveAdminInfo(){
         let query = "select * from admin"
