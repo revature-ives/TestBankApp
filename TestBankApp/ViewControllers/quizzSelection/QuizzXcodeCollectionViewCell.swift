@@ -9,4 +9,7 @@ import UIKit
 
 class QuizzXcodeCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var quizzIDLabel: UILabel!
+    
+    @IBOutlet weak var quizzImage: UIImageView!
 }
