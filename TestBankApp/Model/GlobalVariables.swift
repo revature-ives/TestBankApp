@@ -8,7 +8,7 @@
 import Foundation
 
 class GlobalVariables {
-    static var userLoguedIn : User = User(id: 0, name: "", password: "", subscribed: "", ranking: "", email: "")
+    static var userLoguedIn : User = User(id: 0, name: "", password: "", subscribed: "", ranking: "", email: "", blocked: "false")
     
     static var quizzSelected : Quizz = Quizz(id: 0, tech: "")
     
