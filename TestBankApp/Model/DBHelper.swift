@@ -21,8 +21,12 @@ class DBHelper {
     var adminList = [Admin]()
     var quizzesList = [Quizz]()
     var questionsList = [Question]()
+  
     
-    
+    //This lists are to test the funcionality whit mock data
+    var questionsListIOS = [Question]()
+    var questionsListSwift = [Question]()
+    var questionsListXcode = [Question]()
     
     
     //Data base preparation
@@ -526,17 +530,33 @@ class DBHelper {
         
         switch quizId{
         case 1:
+           /* questionsList[0] = question1
+            questionsList[1] = question2
+            questionsList[2] = question3
+            questionsList[3] = question4
+            questionsList[4] = question5*/
+            
             questionsList.append(question1)
             questionsList.append(question2)
             questionsList.append(question3)
             questionsList.append(question4)
-            questionsList.append(question15)
+            questionsList.append(question5)
+            
+        
         case 2:
             questionsList.append(question5)
             questionsList.append(question6)
             questionsList.append(question7)
             questionsList.append(question8)
             questionsList.append(question9)
+            
+           /* questionsList[5] = question6
+            questionsList[6] = question7
+            questionsList[7] = question8
+            questionsList[8] = question9
+            questionsList[9] = question10*/
+            
+            
         case 3:
         
             questionsList.append(question10)
@@ -545,18 +565,39 @@ class DBHelper {
             questionsList.append(question13)
             questionsList.append(question14)
             
+            /*questionsList[10] = question11
+            questionsList[11] = question12
+            questionsList[12] = question13
+            questionsList[13] = question14
+            questionsList[14] = question15*/
+            
+            
         case 4:
-            questionsList.append(question15)
+          questionsList.append(question15)
             questionsList.append(question16)
             questionsList.append(question17)
             questionsList.append(question18)
             questionsList.append(question19)
+            
+         /*   questionsList[15] = question16
+            questionsList[16] = question17
+            questionsList[17] = question18
+            questionsList[18] = question19
+            questionsList[19] = question20*/
         case 5:
+            
             questionsList.append(question20)
             questionsList.append(question21)
             questionsList.append(question22)
             questionsList.append(question23)
             questionsList.append(question24)
+           /* questionsList[20] = question21
+            questionsList[21] = question22
+            questionsList[22] = question23
+            questionsList[23] = question24
+            questionsList[24] = question25*/
+            
+            
         case 6:
         
             questionsList.append(question25)
@@ -565,13 +606,27 @@ class DBHelper {
             questionsList.append(question28)
             questionsList.append(question29)
             
+           /* questionsList[25] = question26
+            questionsList[26] = question27
+            questionsList[27] = question28
+            questionsList[28] = question29
+            questionsList[29] = question30*/
+            
         case 7:
             questionsList.append(question30)
             questionsList.append(question31)
             questionsList.append(question32)
             questionsList.append(question33)
             questionsList.append(question34)
+            
+        /*   questionsList[30] = question31
+            questionsList[31] = question32
+            questionsList[32] = question33
+            questionsList[33] = question34
+            questionsList[34] = question35*/
+            
         case 8:
+            
         
             questionsList.append(question35)
             questionsList.append(question11)
@@ -579,8 +634,11 @@ class DBHelper {
             questionsList.append(question13)
             questionsList.append(question14)
             
-            
-            
+          /*  questionsList[35] = question6
+            questionsList[36] = question7
+            questionsList[37] = question8
+            questionsList[38] = question9
+            questionsList[39] = question10*/
             
             
         default:

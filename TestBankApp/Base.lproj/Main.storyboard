@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9p-sR-Lw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9p-sR-Lw8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -579,7 +579,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zs-xR-wNM">
-                                <rect key="frame" x="111" y="709" width="194" height="42"/>
+                                <rect key="frame" x="97" y="534" width="194" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
@@ -614,6 +614,16 @@
                                     <action selector="answerOneButtonPressed:" destination="Job-P4-5OW" eventType="touchUpInside" id="A6H-dT-EHG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVe-c2-jkX">
+                                <rect key="frame" x="115" y="611" width="181" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="submit quizz"/>
+                                <connections>
+                                    <action selector="submitQuizzPressedAction:" destination="Job-P4-5OW" eventType="touchUpInside" id="K7R-lk-2yf"/>
+                                    <segue destination="anq-wH-kLw" kind="show" id="qeF-on-T7y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ztZ-Y5-Tuz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -627,16 +637,17 @@
                         <outlet property="answerTwoButton" destination="eEO-8T-Ag3" id="1Zz-ND-Dq1"/>
                         <outlet property="answerTwoLabel" destination="oXg-3K-NkJ" id="60c-xd-CP7"/>
                         <outlet property="questionLabel" destination="j2u-eH-J3z" id="Myv-eQ-EY5"/>
+                        <outlet property="submitQuizzButton" destination="KVe-c2-jkX" id="uUc-2S-jTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igd-Ta-5Ts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6055" y="-794"/>
+            <point key="canvasLocation" x="5885.507246376812" y="-794.19642857142856"/>
         </scene>
         <!--Results Screen-->
         <scene sceneID="xeT-nv-Bkz">
             <objects>
-                <viewController title="Results Screen" id="anq-wH-kLw" sceneMemberID="viewController">
+                <viewController title="Results Screen" id="anq-wH-kLw" customClass="ResultViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w1B-DM-2Qz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -667,6 +678,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Return to Quizzes"/>
+                                <connections>
+                                    <action selector="returnToQuizzSelection:" destination="anq-wH-kLw" eventType="touchUpInside" id="IMF-fS-Vmz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qm4-2A-Rlv">
                                 <rect key="frame" x="96" y="711" width="230" height="31"/>
@@ -678,6 +692,7 @@
                         <viewLayoutGuide key="safeArea" id="waU-sa-dyz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="242-xx-yaJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5N0-tn-uHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -722,20 +737,20 @@
         <!--Selction Quizz View Controller-->
         <scene sceneID="2LX-AZ-ERB">
             <objects>
-                <viewController id="2yH-U2-NlP" customClass="SelctionQuizzViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="quizzSelection" id="2yH-U2-NlP" customClass="SelctionQuizzViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Clf-CA-3ca">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT A QUIZZ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJW-WI-TRl">
-                                <rect key="frame" x="97" y="125" width="233" height="47"/>
+                                <rect key="frame" x="79" y="269" width="233" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GQA-n6-ujB">
-                                <rect key="frame" x="0.0" y="237" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="344" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1000" id="uEB-7q-Lxh">
@@ -774,7 +789,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-M9-bql">
-                                <rect key="frame" x="0.0" y="414" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="499" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1000" id="VmN-cZ-iHF">
@@ -813,7 +828,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yhb-ng-OhK">
-                                <rect key="frame" x="0.0" y="602" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="659" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="1000" id="W7r-Bj-Q8A">
@@ -851,6 +866,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userLogged" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtm-DO-Qlo">
+                                <rect key="frame" x="20" y="148" width="128" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quizz Attempt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3N-RM-mUL">
+                                <rect key="frame" x="257" y="121" width="128" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="subscribed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsF-hX-ALA">
+                                <rect key="frame" x="257" y="217" width="128" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5yc-9H-hRY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -858,6 +894,9 @@
                     <navigationItem key="navigationItem" id="6UM-Mm-MJL"/>
                     <connections>
                         <outlet property="iosQuizzesCollection" destination="GQA-n6-ujB" id="7gO-8P-VYI"/>
+                        <outlet property="nameUserLoggedIn" destination="wtm-DO-Qlo" id="epi-o7-ZYF"/>
+                        <outlet property="quizzAttemptsByUserLoggedIn" destination="W3N-RM-mUL" id="wUr-aD-TRU"/>
+                        <outlet property="sunbscritonStatusOfUserLoggedIn" destination="MsF-hX-ALA" id="4Uw-Y3-guc"/>
                         <outlet property="swiftQuizzesCollection" destination="WCt-M9-bql" id="YIS-bz-rv0"/>
                         <outlet property="xcodeQuizzesCollection" destination="yhb-ng-OhK" id="mIK-7Z-1Kp"/>
                         <segue destination="Job-P4-5OW" kind="show" identifier="segueSelectedtoAttempt" id="zf2-vg-Ywi"/>
@@ -948,7 +987,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNV-Yl-25e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5174" y="-90"/>
+            <point key="canvasLocation" x="5049" y="-50"/>
         </scene>
         <!--HomeNavController-->
         <scene sceneID="nwU-US-Cze">

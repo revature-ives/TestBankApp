@@ -10,6 +10,33 @@ import SQLite3
 
 class SelctionQuizzViewController: UIViewController {
     
+    
+    
+    
+    
+    //User loggedIn Information
+    //IB outlets
+    
+    
+    @IBOutlet weak var nameUserLoggedIn: UILabel!
+    
+    @IBOutlet weak var quizzAttemptsByUserLoggedIn: UILabel!
+    
+    
+    @IBOutlet weak var sunbscritonStatusOfUserLoggedIn: UILabel!
+    
+    
+    func setUserLOggedInInformation() {
+        
+        nameUserLoggedIn.text = GlobalVariables.userLoguedIn.name
+       // quizzAttemptsByUserLoggedIn
+        sunbscritonStatusOfUserLoggedIn.text = GlobalVariables.userLoguedIn.subscribed
+        
+    }
+    
+    
+    
+    
     //IB outlets
     
     @IBOutlet weak var iosQuizzesCollection: UICollectionView!
@@ -20,6 +47,8 @@ class SelctionQuizzViewController: UIViewController {
     
     
     @IBOutlet weak var xcodeQuizzesCollection: UICollectionView!
+    
+    
     
     
     
@@ -55,6 +84,7 @@ class SelctionQuizzViewController: UIViewController {
     //PopulateLisk whit mock data
     func fillLists(){
         iosQuizzes.append(quizzIOS1)
+        iosQuizzes.append(quizzIOS2)
         iosQuizzes.append(quizzIOS3)
         iosQuizzes.append(quizzIOS4)
         iosQuizzes.append(quizzIOS5)
@@ -83,10 +113,14 @@ class SelctionQuizzViewController: UIViewController {
         xcodeQuizzesCollection.delegate = self
         xcodeQuizzesCollection.dataSource = self
         
+        
+        //Set user logged in information
+        setUserLOggedInInformation()
+        
         //Open database
         var f1 = databaseHelper.prepareDatabaseFile()
         
-       // print("Data base phat is :", f1)
+        print("Data base phat is :", f1)
        // var url = URL(string: f1)
         //Open the Data base or create it
     

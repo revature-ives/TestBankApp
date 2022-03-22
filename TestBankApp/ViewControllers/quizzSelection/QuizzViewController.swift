@@ -33,6 +33,11 @@ class QuizzViewController: UIViewController {
     
     @IBOutlet weak var answerThreeButton: UIButton!
     
+    //Submit button
+    
+    @IBOutlet weak var submitQuizzButton: UIButton!
+    
+    
     
     //Get the user loggedin
     
@@ -51,35 +56,11 @@ class QuizzViewController: UIViewController {
     
     var questionsList = [Question] ()
     
-    //Mock Data
- /*
-    var question1 = Question(id: 1, question: "What is ios?", opt1: " is a device", opt2: "is an Operating system", opt3: "is Framework", ans: "opt1", quizId: 1)
-    var question2 = Question(id: 2, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 1)
-    var question3 = Question(id: 3, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 1)
-    var question4 = Question(id: 4, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 1)
-    var question5 = Question(id: 5, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 1)
-    var question6 = Question(id: 6, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
-    var question7 = Question(id: 7, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
-    var question8 = Question(id: 8, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
-    var question9 = Question(id: 9, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
-    var question10 = Question(id: 10, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
-    var question11 = Question(id: 11, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
-    var question12 = Question(id: 12, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
-    var question13 = Question(id: 13, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
-    var question14 = Question(id: 14, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
-    var question115 = Question(id: 15, question: "What is ios", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
+ 
     
-    func fillMockData(){
-        
-        questionsList.append(question1)
-        questionsList.append(question2)
-        questionsList.append(question3)
-        questionsList.append(question4)
-        questionsList.append(question5)
-        
-    }*/
+    //questionsCount
     
-    //populate quizz
+    var questionsCount = 1
     
     
     
@@ -91,16 +72,16 @@ class QuizzViewController: UIViewController {
     var quizzScore = 0
     
     //Quizz to display
-    func displayQuizz(){
+    func displayQuizz(questionNumber: Int){
         
      //   fillMockData()
         
-        questionLabel.text = questionsList[0].question
-        answerOneLabel.text = questionsList[0].option1
-        answerTwoLabel.text = questionsList[0].option2
-        answerThreeLabel.text = questionsList[0].option3
+        questionLabel.text = questionsList[questionNumber].question
+        answerOneLabel.text = questionsList[questionNumber].option1
+        answerTwoLabel.text = questionsList[questionNumber].option2
+        answerThreeLabel.text = questionsList[questionNumber].option3
         
-        rightanswer = questionsList[0].answer
+        rightanswer = questionsList[questionNumber].answer
         
         
         
@@ -133,7 +114,10 @@ class QuizzViewController: UIViewController {
        
        // print(questionsList)
         
-        displayQuizz()
+        displayQuizz(questionNumber: 0)
+        
+        //Hide subbmit button
+        submitQuizzButton.isHidden = true
         
     }
     
@@ -190,11 +174,33 @@ class QuizzViewController: UIViewController {
     }
     
     //Navigation
-    
+    //when user pressed next button
     
     @IBAction func nextButtonPressed(_ sender: Any) {
         
+        if questionsCount == 3{
+            submitQuizzButton.isHidden = false
+        }
+        
+        if questionsCount < 4 {
+        questionsCount += 1
+        resetButtons(answerOneButton, answerTwoButton, answerThreeButton)
+        displayQuizz(questionNumber: questionsCount)
+            print(questionsCount)
+        }
+        
+        
     }
+    
+    
+    //When user press submit button
+    
+    @IBAction func submitQuizzPressedAction(_ sender: Any) {
+        
+        
+    }
+    
+    
     
     
     //Select a butto amswer
@@ -205,12 +211,26 @@ class QuizzViewController: UIViewController {
         unselected2.backgroundColor = UIColor.white
     }
     
+    //Reset answer buttons when a next question is display
+    
+    fileprivate func resetButtons(_ selected : UIButton,_ unselected1 : UIButton,_ unselected2: UIButton
+    ) {
+        selected.backgroundColor = UIColor.white
+        unselected1.backgroundColor = UIColor.white
+        unselected2.backgroundColor = UIColor.white
+    }
     
     //funcntion to check if the button selected is the right answer
     
     func chechAnswer(){
-        let answer = questionsList[0].answer
+        let answer = questionsList[questionsCount].answer
     }
+    
+    func displaySubmitButton(){
+        
+    }
+    
+    //function to go back selection quiz
     
 
 }

@@ -71,6 +71,9 @@ class LoginViewController: UIViewController {
                         return
                     }
                     
+                    //Set the global vaariable user to the loggedin user
+                    GlobalVariables.userLoguedIn = userToLogin
+                    
                     let homeViewController = self.storyboard?.instantiateViewController(identifier: "User Nav Controller") as? UINavigationController
                     
                     window.rootViewController = homeViewController
