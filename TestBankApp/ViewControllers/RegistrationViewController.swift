@@ -114,7 +114,7 @@ class RegistrationViewController: UIViewController {
             let password = regPasswordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
                 // Create the user
-            databaseHelper.addUserToDataBase(name: uname!, password: password, subscribed: subscription, ranking: "0", mail: email)
+            databaseHelper.addUserToDataBase(name: uname!, password: password, subscribed: subscription, ranking: "0", mail: email, blocked: "false")
             transitionLogin()
             //}
            // else {

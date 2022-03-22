@@ -53,23 +53,42 @@ class DBHelper {
         return documentUrl.path
     }
     
+    //Method to change blocked attribute for a user
+    func blockUser(email: String){
+        let userEmail = email as! NSString
+        let query = "UPDATE Users SET Blocked = 'true' WHERE Email = '\(userEmail)'"
+        var stmt: OpaquePointer?
+        if sqlite3_prepare_v2(DBHelper.dataBase, query,-1, &stmt, nil) == SQLITE_OK{
+            if sqlite3_step(stmt) == SQLITE_DONE{
+            print("successfully blocked user")
+        }else{
+            print("could not block user. ")
+            }
+        }else{
+            print("Update statement not prepared.")
+        }
+        sqlite3_finalize(stmt)
+        }
+    
+    
     
     //Method to add users to database
     
     
-    func addUserToDataBase(name: String,password: String,subscribed: String,ranking: String,mail: String){
+    func addUserToDataBase(name: String,password: String,subscribed: String,ranking: String,mail: String,blocked: String){
         let userName = name as! NSString
         let userPassword = password as! NSString
         let userSubscribed = subscribed as! NSString
         let userRankin = ranking as! NSString
         let userMail = mail as! NSString
+        let userBlocked = blocked as! NSString
         
         
         
         
         var stmt: OpaquePointer?
        // let query = "insert into Users (name, cours) values (?,?)"
-        let query = "INSERT INTO Users (Name,Password, Rakin,Subscribed,Email) VALUES (?,?,?,?,?)"
+        let query = "INSERT INTO Users (Name,Password, Rakin,Subscribed,Email,Blocked) VALUES (?,?,?,?,?,?)"
        
         
         if sqlite3_prepare_v2(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK{
@@ -100,8 +119,10 @@ class DBHelper {
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             
         }
-        
-        
+        if sqlite3_bind_text(stmt, 6, userBlocked.utf8String, -1, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }
         if sqlite3_step(stmt) != SQLITE_DONE {
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             print(err)
@@ -252,12 +273,13 @@ class DBHelper {
             let Rakin = String(cString: sqlite3_column_text(stmt, 3))
             let subscribed = String(cString: sqlite3_column_text(stmt, 4))
             let email = String(cString: sqlite3_column_text(stmt, 5))
+            let blocked = String(cString: sqlite3_column_text(stmt, 6))
             
-            usersList.append(User(id: Int(id), name: name, password: password, subscribed: subscribed, ranking: Rakin, email: email))
+            usersList.append(User(id: Int(id), name: name, password: password, subscribed: subscribed, ranking: Rakin, email: email, blocked: blocked))
         }
         
         for list in usersList{
-            print("ID is \(list.id) the name is \(list.name) password \(list.password) subscribed \(list.subscribed) rankin \(list.ranking) emai is : \(list.email)")
+            print("ID is \(list.id) the name is \(list.name) password \(list.password) subscribed \(list.subscribed) rankin \(list.ranking) emai is : \(list.email) blocked is \(list.blocked)")
         }
         
     }

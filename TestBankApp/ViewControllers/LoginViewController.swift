@@ -44,13 +44,13 @@ class LoginViewController: UIViewController {
         // Remove whitespace and new lines from email and password textfield values
        let email = loginEmailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = loginPasswordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        var userToLogin = User(id: 0, name: "", password: "", subscribed: "", ranking: "", email: "")
+        var userToLogin = User(id: 0, name: "", password: "", subscribed: "", ranking: "", email: "", blocked: "")
         
         //allows us to pull user list from database helper
         databaseHelper.fetchUserByEmail(emailToFetch: email)
         
         for list in databaseHelper.usersList{
-            userToLogin = User(id: list.id, name: list.name, password: list.password, subscribed: list.subscribed, ranking: list.ranking, email: list.email)
+            userToLogin = User(id: list.id, name: list.name, password: list.password, subscribed: list.subscribed, ranking: list.ranking, email: list.email, blocked: list.blocked)
         }
         
             // Email or Password is left blank
@@ -60,7 +60,10 @@ class LoginViewController: UIViewController {
             } else if !Validate.isValidEmail(email: email) {
                 showError("Please make sure your email is formatted correctly.")
             
-            } else {
+            } else if userToLogin.blocked == "true"{
+                showError("You are BLOCKED")
+            }else{
+                
                 // User password matches, then go to logged-in home screen
                 if userToLogin.password == password {
                     
