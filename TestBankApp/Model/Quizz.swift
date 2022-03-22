@@ -9,8 +9,8 @@ import Foundation
 import Foundation
 
 struct Quizz {
-    let id : Int
-    let technology : String;
+    var id : Int
+    var technology : String;
   
     
     

@@ -8,8 +8,8 @@
 import Foundation
 
 class User{
-    let id: Int
-    let name: String
+    var id: Int
+    var name: String
     var password : String
     var subscribed : String
     var ranking : String

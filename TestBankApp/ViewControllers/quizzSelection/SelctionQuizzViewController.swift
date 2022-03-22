@@ -84,9 +84,9 @@ class SelctionQuizzViewController: UIViewController {
         xcodeQuizzesCollection.dataSource = self
         
         //Open database
-      /*  var f1 = databaseHelper.prepareDatabaseFile()
+        var f1 = databaseHelper.prepareDatabaseFile()
         
-        print("Data base phat is :", f1)
+       // print("Data base phat is :", f1)
        // var url = URL(string: f1)
         //Open the Data base or create it
     
@@ -97,10 +97,10 @@ class SelctionQuizzViewController: UIViewController {
         //Load Lists of Quizzes
         
        // databaseHelper.fetchUserByEmail(emailToFetch: "swift")
-        //databaseHelper.fetchUserByEmail(emailToFetch: "ives@gmail.com")
+        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "IOS")
       //  iosQuizzes = databaseHelper.quizzesList
        // print(iosQuizzes)
-       */
+       
         
         
         //Call method to fill whit mock data
@@ -168,8 +168,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
                       
                       cell.quizzImage.backgroundColor = UIColor.cyan
-                      cell.idLabel.backgroundColor = UIColor.orange
-                      
+                      cell.idLabel.text = String(iosQuizzes[indexPath.item].id)
                       return cell
 
                  //Swift
@@ -197,41 +196,46 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
     
     
     
+    fileprivate func setGlobalQuizzId(_ indexPath: IndexPath) {
+        print("the quiz selected whit id ",iosQuizzes[indexPath.item].id)
+        GlobalVariables.quizzSelected.id = iosQuizzes[indexPath.item].id
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
 
              //Xcode
                case xcodeQuizzesCollection:
                    let cell = collectionView.cellForItem(at: indexPath) as! QuizzXcodeCollectionViewCell
-
-            print(indexPath.item)
+                   setGlobalQuizzId(indexPath)
                      
                    //transition to Quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
-                   print("xcode quizz selected")
+                 
                //IOS
                case iosQuizzesCollection:
-                   let cell = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
-
+                 
+                 let cell = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
+                 setGlobalQuizzId(indexPath)
+            
                    //transition to quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
-                   print("ios quizz selected")
+                 
 
               //Swift
                case swiftQuizzesCollection:
 
                    let cell = collectionView.cellForItem(at: indexPath) as! QuizzSwiftCollectionViewCell
-
+                   setGlobalQuizzId(indexPath)
                    //transition to quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
-                   print("swift quizz selected")
+                   
 
 
 
                default:
                    let cell = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
-
-
+                   //setGlobalQuizzId(indexPath)
                }
     }
     

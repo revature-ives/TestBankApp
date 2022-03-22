@@ -42,7 +42,7 @@ class DBHelper {
 
         // check if file already exists on simulator
         if fileManager.fileExists(atPath: (documentUrl.path)) {
-            print("document file exists!")
+           // print("document file exists!")
             return documentUrl.path
         }
         else if fileManager.fileExists(atPath: (bundleUrl?.path)!) {
@@ -266,9 +266,9 @@ class DBHelper {
     //This method still have a bug
     func fetchQuizessByTechnoilogy(technologyToFetch: String){
         
-        let tech = technologyToFetch as! NSString
+      /*  let tech = technologyToFetch as! NSString
         
-        let query = "SELECT * FROM Quizzes WHERE technology = '\(tech)'"
+        let query = "SELECT * FROM Quizzes WHERE Technology = '\(tech)'"
         
         var stmt: OpaquePointer?
         
@@ -301,8 +301,44 @@ class DBHelper {
         
         for list in quizzesList{
             print(" quizz id \(list.id) tech is : \(list.technology)")
-        }
+        }*/
         
+        //Mock Data to Test
+        
+        let quizzIOS1 = Quizz(id: 1, tech: "IOS")
+        let quizzIOS2 = Quizz(id: 2, tech: "IOS")
+        let quizzIOS3 = Quizz(id: 3, tech: "IOS")
+        let quizzIOS4 = Quizz(id: 4, tech: "IOS")
+        let quizzIOS5 = Quizz(id: 5, tech: "IOS")
+        let quizzST1 = Quizz(id: 6, tech: "swift")
+        let quizzST2 = Quizz(id: 7, tech: "swift")
+        let quizzST3 = Quizz(id: 8, tech: "swift")
+        let quizzST4 = Quizz(id: 9, tech: "swift")
+        let quizzST5 = Quizz(id: 10, tech: "swift")
+        let quizzX1 = Quizz(id: 11, tech: "xcode")
+        let quizzX2 = Quizz(id: 12, tech: "xcode")
+        let quizzX3 = Quizz(id: 13, tech: "xcode")
+        let quizzX4 = Quizz(id: 14, tech: "xcode")
+        let quizzX5 = Quizz(id: 15, tech: "xcode")
+        
+        //PopulateLisk whit mock data
+     /*   func fillLists(){
+            iosQuizzes.append(quizzIOS1)
+            iosQuizzes.append(quizzIOS3)
+            iosQuizzes.append(quizzIOS4)
+            iosQuizzes.append(quizzIOS5)
+            swiftQuizzes.append(quizzST1)
+            swiftQuizzes.append(quizzST2)
+            swiftQuizzes.append(quizzST3)
+            swiftQuizzes.append(quizzST4)
+            swiftQuizzes.append(quizzST5)
+            xcodeQuizzes.append(quizzX1)
+            xcodeQuizzes.append(quizzX2)
+            xcodeQuizzes.append(quizzX3)
+            xcodeQuizzes.append(quizzX4)
+            xcodeQuizzes.append(quizzX5)
+            
+        }*/
     }
     
     
@@ -334,4 +370,206 @@ class DBHelper {
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func Questions(quizId: Int){
+        
+      /*  //let emailFetch = emailToFetch as! NSString
+        
+        let query = "SELECT * FROM Question"
+        
+        var stmt: OpaquePointer?
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -2, &stmt, nil) != SQLITE_OK {
+            
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+            
+        }
+        
+        //Bind the requeste email
+        
+       /* let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
+        if sqlite3_bind_text(stmt,Int32(index),emailFetch.utf8String,-1,nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }*/
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW) {
+            
+            let id = sqlite3_column_int(stmt, 0)
+            let questionAsked = String(cString: sqlite3_column_text(stmt, 1))
+            let answer1 = String(cString: sqlite3_column_text(stmt, 2))
+            let answer2 = String(cString: sqlite3_column_text(stmt, 3))
+            let answer3 = String(cString: sqlite3_column_text(stmt, 4))
+            let rightAnswer = String(cString: sqlite3_column_text(stmt, 5))
+            let userId = sqlite3_column_int(stmt, 6)
+            
+            
+            questionsList.append(Question(id: Int(id), question: questionAsked, opt1: answer1, opt2: answer2, opt3: answer3, ans: rightAnswer,quizId: Int(userId)))
+        }
+        
+        for list in questionsList{
+            print("ID is \(list.id) the question asked is \(list.question) option1 \(list.option1)  option 2  \(list.option2) option3   \(list.option3) answeris: \(list.answer)")
+        }*/
+        
+        
+      //  Mock data
+        let question1 = Question(id: 1, question: "What is ios?", opt1: " is a device", opt2: "is an Operating system", opt3: "is Framework", ans: "opt1", quizId: 1)
+        let question2 = Question(id: 2, question: "What is AVFoundantion", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 1)
+        let question3 = Question(id: 3, question: "What is CoreData", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 1)
+        let question4 = Question(id: 4, question: "What is GCD", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt3", quizId: 1)
+        let question5 = Question(id: 5, question: "What is CocoaTouch", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 1)
+        let question6 = Question(id: 6, question: "What is Let", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
+        let question7 = Question(id: 7, question: "What is var", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt3", quizId: 2)
+        let question8 = Question(id: 8, question: "What is optional", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
+        let question9 = Question(id: 9, question: "What is protocol", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 2)
+        let question10 = Question(id: 10, question: "What is dictionary", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 2)
+        let question11 = Question(id: 11, question: "What is navigator", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
+        let question12 = Question(id: 12, question: "What is debuguer", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt3", quizId: 3)
+        let question13 = Question(id: 13, question: "What is storyboard", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
+        let question14 = Question(id: 14, question: "What is simulator", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 3)
+        let question15 = Question(id: 15, question: "What is git", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 3)
+       
+        
+        let question16 = Question(id: 16, question: "What ios?", opt1: " is a device", opt2: "is an Operating system", opt3: "is Framework", ans: "opt1", quizId: 4)
+        let question17 = Question(id: 17, question: "What AVFoundantion", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 4)
+        let question18 = Question(id: 18, question: "What  CoreData", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 4)
+        let question19 = Question(id: 19, question: "What  GCD", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt3", quizId: 4)
+        let question20 = Question(id: 20, question: "What  CocoaTouch", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 5)
+        let question21 = Question(id: 21, question: "What  Let", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 5)
+        let question22 = Question(id: 22, question: "What  var", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt3", quizId: 5)
+        let question23 = Question(id: 23, question: "What  optional", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 6)
+        let question24 = Question(id: 24, question: "What  protocol", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 6)
+        let question25 = Question(id: 25, question: "What  dictionary", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 6)
+        let question26 = Question(id: 26, question: "What  navigator", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 7)
+        let question27 = Question(id: 27, question: "What  debuguer", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt3", quizId: 7)
+        let question28 = Question(id: 28, question: "What  storyboard", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 7)
+        let question29 = Question(id: 29, question: "What  simulator", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 8)
+        let question30 = Question(id: 30, question: "What  git", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 8)
+       
+        
+        let question31 = Question(id: 31, question: "What  navi  gator", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 8)
+        let question32 = Question(id: 32, question: "What  debu  guer", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt3", quizId: 8)
+        let question33 = Question(id: 33, question: "What  story  board", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 9)
+        let question34 = Question(id: 34, question: "What  simul  ator", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 9)
+        let question35 = Question(id: 15, question: "What  git", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 8)
+        
+        
+        
+        
+        
+        
+        
+        let questionDefaoult = Question(id: 16, question: "What is this", opt1: " why", opt2: "how", opt3: "is acar", ans: "opt3", quizId: 0)
+        
+        
+        
+        
+      
+        
+        
+       
+        
+        switch quizId{
+        case 1:
+            questionsList.append(question1)
+            questionsList.append(question2)
+            questionsList.append(question3)
+            questionsList.append(question4)
+            questionsList.append(question15)
+        case 2:
+            questionsList.append(question5)
+            questionsList.append(question6)
+            questionsList.append(question7)
+            questionsList.append(question8)
+            questionsList.append(question9)
+        case 3:
+        
+            questionsList.append(question10)
+            questionsList.append(question11)
+            questionsList.append(question12)
+            questionsList.append(question13)
+            questionsList.append(question14)
+            
+        case 4:
+            questionsList.append(question15)
+            questionsList.append(question16)
+            questionsList.append(question17)
+            questionsList.append(question18)
+            questionsList.append(question19)
+        case 5:
+            questionsList.append(question20)
+            questionsList.append(question21)
+            questionsList.append(question22)
+            questionsList.append(question23)
+            questionsList.append(question24)
+        case 6:
+        
+            questionsList.append(question25)
+            questionsList.append(question26)
+            questionsList.append(question27)
+            questionsList.append(question28)
+            questionsList.append(question29)
+            
+        case 7:
+            questionsList.append(question30)
+            questionsList.append(question31)
+            questionsList.append(question32)
+            questionsList.append(question33)
+            questionsList.append(question34)
+        case 8:
+        
+            questionsList.append(question35)
+            questionsList.append(question11)
+            questionsList.append(question12)
+            questionsList.append(question13)
+            questionsList.append(question14)
+            
+            
+            
+            
+            
+        default:
+            questionsList.append(questionDefaoult)
+            questionsList.append(questionDefaoult)
+            questionsList.append(questionDefaoult)
+            questionsList.append(questionDefaoult)
+            questionsList.append(questionDefaoult)
+            
+            
+        }
+    }
+    
 }
