@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2yH-U2-NlP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9p-sR-Lw8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -231,10 +231,10 @@
             </objects>
             <point key="canvasLocation" x="4857.971014492754" y="649.55357142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin Block View Controller-->
         <scene sceneID="p30-q5-Ktr">
             <objects>
-                <viewController id="jT6-lc-BLG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Admin Block" id="jT6-lc-BLG" customClass="AdminBlockViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2RR-yO-y5F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,12 +251,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="BLOCK"/>
+                                <connections>
+                                    <action selector="blockUser:" destination="jT6-lc-BLG" eventType="touchUpInside" id="IKD-Dc-0zG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UMA-SN-pF0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZTG-ve-9dN"/>
+                    <connections>
+                        <outlet property="BlockButtonOutlet" destination="hRi-Eu-ddK" id="CfI-1I-yLL"/>
+                        <outlet property="blockUserTF" destination="HfA-Fm-z4i" id="dMi-Rj-RIC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHu-V4-Iud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -380,7 +387,7 @@
         <!--User Login-->
         <scene sceneID="phv-us-pJt">
             <objects>
-                <viewController title="User Login" id="0EL-aR-J2I" customClass="LoginViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="User Login" title="User Login" id="0EL-aR-J2I" customClass="LoginViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMz-Bp-Wax">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

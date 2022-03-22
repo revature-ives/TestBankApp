@@ -32,6 +32,7 @@
 		8449CB2827E4E5ED003BD60F /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */; };
 		8449CBA227E78D21003BD60F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CBA127E78D21003BD60F /* Utilities.swift */; };
 		8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CBA327E792AD003BD60F /* HomeViewController.swift */; };
+		8449CC4E27E952FB003BD60F /* AdminBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginViewController.swift; sourceTree = "<group>"; };
 		8449CBA127E78D21003BD60F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8449CBA327E792AD003BD60F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBlockViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				8449CB2527E4DC13003BD60F /* LoginViewController.swift */,
 				8449CB2727E4E5ED003BD60F /* AdminLoginViewController.swift */,
 				8449CBA327E792AD003BD60F /* HomeViewController.swift */,
+				8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */,
 				456595B927E8EE0200FAEE6B /* QuizzXcodeCollectionViewCell.swift in Sources */,
 				4524FFF227E37CA700DC43F9 /* Admin.swift in Sources */,
+				8449CC4E27E952FB003BD60F /* AdminBlockViewController.swift in Sources */,
 				456595B527E8EC5F00FAEE6B /* QuizIOSCollectionViewCell.swift in Sources */,
 				8449CB2627E4DC13003BD60F /* LoginViewController.swift in Sources */,
 				451AB5FC27E63CAB0071295E /* DBHelper.swift in Sources */,

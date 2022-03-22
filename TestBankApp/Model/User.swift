@@ -14,15 +14,16 @@ class User{
     var subscribed : String
     var ranking : String
     var email: String
+    var blocked: String
     
-    
-    init(id: Int,name: String,password: String,subscribed: String,ranking: String,email: String){
+    init(id: Int,name: String,password: String,subscribed: String,ranking: String,email: String, blocked: String){
         self.id = id
         self.name = name
         self.password = password
         self.subscribed = subscribed
         self.ranking = ranking
         self.email = email
+        self.blocked = blocked
         //self.quizzez = quizzes
     }
     
