@@ -367,6 +367,28 @@ class DBHelper {
         }*/*/
     }
     
+    func retrieveLastQuizInfo(){
+        let query = "select * from Quizzes order by ID desc limit 1"
+        var stmt : OpaquePointer?
+        
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -2, &stmt, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+        }
+        
+            
+            
+            while(sqlite3_step(stmt) == SQLITE_ROW) {
+                
+                let id = sqlite3_column_int(stmt, 0)
+                let techy = String(cString: sqlite3_column_text(stmt, 1))
+                
+                
+                quizzesList.append(Quizz(id: Int(id), tech: techy))
+            }
+        }
     
     
     
@@ -691,6 +713,8 @@ class DBHelper {
         print("data save")
         
     }
+    
+    
     
     
     
