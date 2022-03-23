@@ -292,7 +292,7 @@ class DBHelper {
     //This method still have a bug
     func fetchQuizessByTechnoilogy(technologyToFetch: String){
         
-      /*  let tech = technologyToFetch as! NSString
+       let tech = technologyToFetch as! NSString
         
         let query = "SELECT * FROM Quizzes WHERE Technology = '\(tech)'"
         
@@ -327,9 +327,9 @@ class DBHelper {
         
         for list in quizzesList{
             print(" quizz id \(list.id) tech is : \(list.technology)")
-        }*/
+        }
         
-        //Mock Data to Test
+     /*   //Mock Data to Test
         
         let quizzIOS1 = Quizz(id: 1, tech: "IOS")
         let quizzIOS2 = Quizz(id: 2, tech: "IOS")
@@ -364,7 +364,7 @@ class DBHelper {
             xcodeQuizzes.append(quizzX4)
             xcodeQuizzes.append(quizzX5)
             
-        }*/
+        }*/*/
     }
     
     
@@ -395,31 +395,11 @@ class DBHelper {
         }
         
         
+        
+       
+        
+        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -428,27 +408,27 @@ class DBHelper {
     
     func Questions(quizId: Int){
         
-      /*  //let emailFetch = emailToFetch as! NSString
+           let idOfQuizzToTake = quizId as! Int
         
-        let query = "SELECT * FROM Question"
+           let query = "SELECT * FROM Question WHERE QuizzID == '\(quizId)'"
         
-        var stmt: OpaquePointer?
+          var stmt: OpaquePointer?
         
-        if sqlite3_prepare(DBHelper.dataBase, query, -2, &stmt, nil) != SQLITE_OK {
+          if sqlite3_prepare(DBHelper.dataBase, query, -2, &stmt, nil) != SQLITE_OK {
             
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             print(err)
             return
             
-        }
+          }
         
         //Bind the requeste email
         
-       /* let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
-        if sqlite3_bind_text(stmt,Int32(index),emailFetch.utf8String,-1,nil) != SQLITE_OK{
+         let index : Int = Int (sqlite3_bind_parameter_index(stmt, "idOfQuizzToTake"))
+         if sqlite3_bind_int(stmt,Int32(index),Int32(idOfQuizzToTake)) != SQLITE_OK{
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             
-        }*/
+        }
         
         
         
@@ -468,10 +448,10 @@ class DBHelper {
         
         for list in questionsList{
             print("ID is \(list.id) the question asked is \(list.question) option1 \(list.option1)  option 2  \(list.option2) option3   \(list.option3) answeris: \(list.answer)")
-        }*/
+        }
         
         
-      //  Mock data
+     /* //  Mock data
         let question1 = Question(id: 1, question: "What is ios?", opt1: " is a device", opt2: "is an Operating system", opt3: "is Framework", ans: "opt1", quizId: 1)
         let question2 = Question(id: 2, question: "What is AVFoundantion", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt2", quizId: 1)
         let question3 = Question(id: 3, question: "What is CoreData", opt1: " is a device", opt2: "is oa OP", opt3: "is acar", ans: "opt1", quizId: 1)
@@ -649,7 +629,69 @@ class DBHelper {
             questionsList.append(questionDefaoult)
             
             
-        }
+        }*/
     }
+    
+    
+    //Add query to insert a quizz taken by a user logged in
+    
+    func addQuizzTaken(userId: Int,quizzId: Int, dateTaked: String, score: Int){
+        
+        
+        let userIdLogged = userId as! Int
+        let idOfQuizzSelected = quizzId as! Int
+        let dateQuizzTaked = dateTaked as! NSString
+        let scoreGot = score as! Int
+       // let userMail = mail as! NSString
+       // let userBlocked = blocked as! NSString
+        
+        
+        
+        
+        var stmt: OpaquePointer?
+       // let query = "insert into Users (name, cours) values (?,?)"
+        let query = "INSERT INTO Users_Quizzes (UserID,QuizzID, DateTaken,Score) VALUES (?,?,?,?)"
+       
+        
+        if sqlite3_prepare_v2(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        
+        if sqlite3_bind_int(stmt, 1, Int32(userIdLogged)) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }
+        
+        if sqlite3_bind_int(stmt, 2, Int32(idOfQuizzSelected)) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }
+       
+        
+        if sqlite3_bind_text(stmt, 3, dateQuizzTaked.utf8String, -1, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }
+        
+        if sqlite3_bind_int(stmt, 4, Int32(scoreGot)) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }
+      
+        
+        
+        
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        
+        
+        print("data save")
+        
+    }
+    
+    
     
 }

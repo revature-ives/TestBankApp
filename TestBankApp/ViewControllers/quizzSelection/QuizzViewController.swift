@@ -23,7 +23,16 @@ class QuizzViewController: UIViewController {
     
     @IBOutlet weak var answerThreeLabel: UILabel!
     
+   
+    
+    @IBOutlet weak var quizScoreLabel: UILabel!
+    
+    
+    
+    
     //Answer buttons
+    
+    
     
    
     @IBOutlet weak var answerOneButton: UIButton!
@@ -112,7 +121,7 @@ class QuizzViewController: UIViewController {
         
         questionsList = databaseHelper.questionsList
        
-       // print(questionsList)
+        print(questionsList)
         
         displayQuizz(questionNumber: 0)
         
@@ -131,6 +140,7 @@ class QuizzViewController: UIViewController {
     fileprivate func updateScore() {
         amountToUpdate = 1
         quizzScore += amountToUpdate
+        
     }
     
     fileprivate func checkRightAnswer(_ option: String) {
@@ -186,8 +196,11 @@ class QuizzViewController: UIViewController {
         questionsCount += 1
         resetButtons(answerOneButton, answerTwoButton, answerThreeButton)
         displayQuizz(questionNumber: questionsCount)
-            print(questionsCount)
-        }
+            print("question number ",questionsCount)
+            
+            GlobalVariables.globalQuizzScore += quizzScore
+            quizScoreLabel.text = String(GlobalVariables.globalQuizzScore)        }
+        
         
         
     }
@@ -196,6 +209,10 @@ class QuizzViewController: UIViewController {
     //When user press submit button
     
     @IBAction func submitQuizzPressedAction(_ sender: Any) {
+        print(GlobalVariables.globalQuizzScore)
+        
+        databaseHelper.addQuizzTaken(userId: GlobalVariables.userLoguedIn.id, quizzId: quizSelectedID, dateTaked: "3/18/2021 ", score: 3)
+        
         
         
     }
@@ -226,9 +243,7 @@ class QuizzViewController: UIViewController {
         let answer = questionsList[questionsCount].answer
     }
     
-    func displaySubmitButton(){
-        
-    }
+    
     
     //function to go back selection quiz
     

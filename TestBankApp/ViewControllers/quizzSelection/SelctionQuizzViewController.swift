@@ -115,6 +115,9 @@ class SelctionQuizzViewController: UIViewController {
         
         
         //Set user logged in information
+        
+        
+        
         setUserLOggedInInformation()
         
         //Open database
@@ -132,13 +135,16 @@ class SelctionQuizzViewController: UIViewController {
         
        // databaseHelper.fetchUserByEmail(emailToFetch: "swift")
         databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "IOS")
-      //  iosQuizzes = databaseHelper.quizzesList
-       // print(iosQuizzes)
-       
-        
-        
+       iosQuizzes = databaseHelper.quizzesList
+        print(iosQuizzes)
+        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "Swift")
+       swiftQuizzes = databaseHelper.quizzesList
+        print(iosQuizzes)
+        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "xcode")
+       xcodeQuizzes = databaseHelper.quizzesList
+        print(iosQuizzes)
         //Call method to fill whit mock data
-        fillLists()
+       // fillLists()
     }
     
 
@@ -240,7 +246,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
 
              //Xcode
                case xcodeQuizzesCollection:
-                   let cell = collectionView.cellForItem(at: indexPath) as! QuizzXcodeCollectionViewCell
+            let cell = collectionView.cellForItem(at: indexPath) as! QuizzXcodeCollectionViewCell
                    setGlobalQuizzId(indexPath)
                      
                    //transition to Quizz builder
@@ -259,7 +265,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
               //Swift
                case swiftQuizzesCollection:
 
-                   let cell = collectionView.cellForItem(at: indexPath) as! QuizzSwiftCollectionViewCell
+            let cell = collectionView.cellForItem(at: indexPath) as! QuizzSwiftCollectionViewCell
                    setGlobalQuizzId(indexPath)
                    //transition to quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
