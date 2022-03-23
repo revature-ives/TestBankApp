@@ -37,6 +37,7 @@
 		8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CBA327E792AD003BD60F /* HomeViewController.swift */; };
 		8449CC4E27E952FB003BD60F /* AdminBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */; };
 		8449CC5827EB7064003BD60F /* AdminQuizCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC5727EB7064003BD60F /* AdminQuizCreateViewController.swift */; };
+		8449CC5A27EB9C28003BD60F /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		8449CBA327E792AD003BD60F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBlockViewController.swift; sourceTree = "<group>"; };
 		8449CC5727EB7064003BD60F /* AdminQuizCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminQuizCreateViewController.swift; sourceTree = "<group>"; };
+		8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */,
 				456595F427EA571200FAEE6B /* ResultViewController.swift */,
 				8449CC5727EB7064003BD60F /* AdminQuizCreateViewController.swift */,
+				8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				4524FF2327DFEA4600DC43F9 /* TestBankApp.xcdatamodeld in Sources */,
 				8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */,
 				456595B727E8EDEB00FAEE6B /* QuizzSwiftCollectionViewCell.swift in Sources */,
+				8449CC5A27EB9C28003BD60F /* FeedbackViewController.swift in Sources */,
 				4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */,
 				456595B327E8E71100FAEE6B /* SelctionQuizzViewController.swift in Sources */,
 				8449CB2227E4CE57003BD60F /* RegistrationViewController.swift in Sources */,

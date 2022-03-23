@@ -138,6 +138,43 @@ class DBHelper {
     }
     
     
+    //Method to add feedback to the database
+    func addFeedback(feedback: String, userID: Int){
+        
+        let feed = feedback as! NSString
+        let id = userID
+        
+        
+        
+        var stmt: OpaquePointer?
+        
+       
+        let query = "INSERT INTO Feedback (UserID,Feedback) VALUES (?,?)"
+       
+        
+        if sqlite3_prepare_v2(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        
+        if sqlite3_bind_int(stmt, 1, Int32(id)) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        
+        if sqlite3_bind_text(stmt, 2, feed.utf8String, -1, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        
+        
+        print("Feedback added to database")
+        
+    }
     
     //Method to add a quizz to the database
     func addQuizz(technology: String){
