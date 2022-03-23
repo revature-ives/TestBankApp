@@ -62,7 +62,7 @@ class SelctionQuizzViewController: UIViewController {
      var iosQuizzes = [Quizz]()
      var swiftQuizzes = [Quizz]()
      var xcodeQuizzes = [Quizz]()
-    
+    var resetQuizzes = [Quizz]()
     //Mock Data to Test
     
     let quizzIOS1 = Quizz(id: 1, tech: "IOS")
@@ -123,7 +123,7 @@ class SelctionQuizzViewController: UIViewController {
         //Open database
         var f1 = databaseHelper.prepareDatabaseFile()
         
-        print("Data base phat is :", f1)
+       // print("Data base phat is :", f1)
        // var url = URL(string: f1)
         //Open the Data base or create it
     
@@ -136,13 +136,23 @@ class SelctionQuizzViewController: UIViewController {
        // databaseHelper.fetchUserByEmail(emailToFetch: "swift")
         databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "IOS")
        iosQuizzes = databaseHelper.quizzesList
-        print(iosQuizzes)
-        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "Swift")
-       swiftQuizzes = databaseHelper.quizzesList
-        print(iosQuizzes)
+       // print("IOS QUIZZES")
+      //  print("   ")
+       // print(iosQuizzes)
+        databaseHelper.quizzesList = resetQuizzes
+        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "swift")
+        swiftQuizzes = databaseHelper.quizzesList
+       // print("SWIFT QUIZZES")
+       // print("   ")
+       // print(swiftQuizzes)
+        
+        databaseHelper.quizzesList = resetQuizzes
         databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "xcode")
+        
        xcodeQuizzes = databaseHelper.quizzesList
-        print(iosQuizzes)
+       // print("XCODE QUIZZES")
+       // print("   ")
+       // print(xcodeQuizzes)
         //Call method to fill whit mock data
        // fillLists()
     }
@@ -158,10 +168,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
        
        
         switch collectionView {
-                   //count of xcode quizzess
-                  case xcodeQuizzesCollection:
-                      return xcodeQuizzes.count
-                      //  return 10
+                  
                   //count of ios quizzes
                   case iosQuizzesCollection:
                       return iosQuizzes.count
@@ -170,7 +177,10 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                   case swiftQuizzesCollection:
                       return swiftQuizzes.count
                      // return 6
-
+                //count of xcode quizzess
+                 case xcodeQuizzesCollection:
+                     return xcodeQuizzes.count
+               //  return 10
                   default:
                       return 1
                   }
@@ -194,33 +204,40 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
         //Creating the cell for quizzes
                   switch collectionView {
 
-                //Xcode
+                      //IOS
+                      case iosQuizzesCollection:
+                          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
+                          //print("ios quizz \(iosQuizzes[indexPath.item].id)  and tehc is  \(iosQuizzes[indexPath.item].technology)")
+                          return cell
+                      
+                      
+                      //Swift
+                       case swiftQuizzesCollection:
+                           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzSwiftCollectionViewCell
+                           
+                         //  print("swift quizz \(swiftQuizzes[indexPath.item].id)  and tehc is  \(swiftQuizzes[indexPath.item].technology)")
+                           return cell
+                      
+                  
+                      
+                      //Xcode
                   case xcodeQuizzesCollection:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellXcodeQuizz", for: indexPath) as! QuizzXcodeCollectionViewCell
 
-                      
+                    //  print("xcode quizz \(xcodeQuizzes[indexPath.item].id)  and tehc is  \(xcodeQuizzes[indexPath.item].technology)")
                          
                       return cell
 
 
-                  //IOS
-                  case iosQuizzesCollection:
-                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
-                      
-                      cell.quizzImage.backgroundColor = UIColor.cyan
-                      cell.idLabel.text = String(iosQuizzes[indexPath.item].id)
-                      return cell
+                  
 
-                 //Swift
-                  case swiftQuizzesCollection:
-                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzSwiftCollectionViewCell
-                      return cell
+                 
 
 
 
                   default:
                       
-                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzSwiftCollectionViewCell
+                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
                       return cell
                   }
 
@@ -237,7 +254,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
     
     
     fileprivate func setGlobalQuizzId(_ indexPath: IndexPath) {
-        print("the quiz selected whit id ",iosQuizzes[indexPath.item].id)
+        //print("the quiz selected whit id ",iosQuizzes[indexPath.item].id)
         GlobalVariables.quizzSelected.id = iosQuizzes[indexPath.item].id
     }
     
@@ -274,8 +291,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
 
 
                default:
-                   let cell = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
-                   //setGlobalQuizzId(indexPath)
+                 //  let cell = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
+                   //setGlobalQuizzId(indexPath)\
+                  print("no data")
                }
     }
     

@@ -13,6 +13,9 @@ class GlobalVariables {
     static var quizzSelected : Quizz = Quizz(id: 0, tech: "")
     
     
+    static var answer1Score = 0
+    static var answer2Score = 0
+    static var answer3Score = 0
     
     static var globalQuizzScore : Int = 0
     

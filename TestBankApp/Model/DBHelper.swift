@@ -362,9 +362,9 @@ class DBHelper {
             quizzesList.append(Quizz(id: Int(id), tech: techy))
         }
         
-        for list in quizzesList{
+     /*   for list in quizzesList{
             print(" quizz id \(list.id) tech is : \(list.technology)")
-        }
+        }*/
         
      /*   //Mock Data to Test
         
@@ -505,10 +505,10 @@ class DBHelper {
             questionsList.append(Question(id: Int(id), question: questionAsked, opt1: answer1, opt2: answer2, opt3: answer3, ans: rightAnswer,quizId: Int(userId)))
         }
         
-        for list in questionsList{
+      /*  for list in questionsList{
             print("ID is \(list.id) the question asked is \(list.question) option1 \(list.option1)  option 2  \(list.option2) option3   \(list.option3) answeris: \(list.answer)")
         }
-        
+        */
         
      /* //  Mock data
         let question1 = Question(id: 1, question: "What is ios?", opt1: " is a device", opt2: "is an Operating system", opt3: "is Framework", ans: "opt1", quizId: 1)

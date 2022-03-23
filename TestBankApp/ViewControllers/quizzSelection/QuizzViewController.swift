@@ -10,6 +10,13 @@ import SQLite3
 
 class QuizzViewController: UIViewController {
     
+    
+    //Information labels
+    
+    @IBOutlet weak var questionScore: UILabel!
+    
+    
+    @IBOutlet weak var questionCount: UILabel!
     //Question label
 
     @IBOutlet weak var questionLabel: UILabel!
@@ -69,7 +76,7 @@ class QuizzViewController: UIViewController {
     
     //questionsCount
     
-    var questionsCount = 1
+    var questionsCount = 0
     
     
     
@@ -104,10 +111,18 @@ class QuizzViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //labels information
+        
+        questionScore.text = "0"
+        questionCount.text = "1"
+        quizScoreLabel.text = "0"
+        
+        
+        
         //Open database
        let f1 = databaseHelper.prepareDatabaseFile()
         
-       // print("Data base phat is :", f1)
+        print("Data base phat is :", f1)
        // var url = URL(string: f1)
         //Open the Data base or create it
     
@@ -121,7 +136,7 @@ class QuizzViewController: UIViewController {
         
         questionsList = databaseHelper.questionsList
        
-        print(questionsList)
+        //print(questionsList)
         
         displayQuizz(questionNumber: 0)
         
@@ -140,6 +155,7 @@ class QuizzViewController: UIViewController {
     fileprivate func updateScore() {
         amountToUpdate = 1
         quizzScore += amountToUpdate
+       
         
     }
     
@@ -148,6 +164,10 @@ class QuizzViewController: UIViewController {
         if option == rightanswer && amountToUpdate == 0{
             
             updateScore()
+            
+            //display score
+           
+            
             print("Right answer \(option) you get one more point and your new score for the quizz is \(quizzScore)")
         }else if option != rightanswer && amountToUpdate == 1 {
             quizzScore = quizzScore - amountToUpdate
@@ -162,7 +182,7 @@ class QuizzViewController: UIViewController {
         let option = "opt1"
         checkRightAnswer(option)
         selectButton(answerOneButton, answerTwoButton, answerThreeButton)
-        
+        questionScore.text = String(quizzScore)
     }
     
     
@@ -170,7 +190,10 @@ class QuizzViewController: UIViewController {
         let option = "opt2"
         
         checkRightAnswer(option)
-        selectButton(answerTwoButton, answerOneButton, answerThreeButton)    }
+        selectButton(answerTwoButton, answerOneButton, answerThreeButton)
+        questionScore.text = String(quizzScore)
+        
+    }
     
     
     
@@ -180,14 +203,19 @@ class QuizzViewController: UIViewController {
         
         checkRightAnswer(option)
         selectButton(answerThreeButton, answerTwoButton, answerOneButton)
+        questionScore.text = String(quizzScore)
         
     }
     
     //Navigation
     //when user pressed next button
+    //bug whit the count of questions
     
     @IBAction func nextButtonPressed(_ sender: Any) {
         
+        
+        
+        //decide if is the last question to show the submit button
         if questionsCount == 3{
             submitQuizzButton.isHidden = false
         }
@@ -199,7 +227,11 @@ class QuizzViewController: UIViewController {
             print("question number ",questionsCount)
             
             GlobalVariables.globalQuizzScore += quizzScore
-            quizScoreLabel.text = String(GlobalVariables.globalQuizzScore)        }
+            print(GlobalVariables.globalQuizzScore)
+            quizScoreLabel.text = String(GlobalVariables.globalQuizzScore)
+            questionCount.text = String(questionsCount + 1)
+            
+        }
         
         
         
