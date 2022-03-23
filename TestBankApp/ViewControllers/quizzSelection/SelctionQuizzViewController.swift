@@ -63,43 +63,7 @@ class SelctionQuizzViewController: UIViewController {
      var swiftQuizzes = [Quizz]()
      var xcodeQuizzes = [Quizz]()
     var resetQuizzes = [Quizz]()
-    //Mock Data to Test
-    
-    let quizzIOS1 = Quizz(id: 1, tech: "IOS")
-    let quizzIOS2 = Quizz(id: 2, tech: "IOS")
-    let quizzIOS3 = Quizz(id: 3, tech: "IOS")
-    let quizzIOS4 = Quizz(id: 4, tech: "IOS")
-    let quizzIOS5 = Quizz(id: 5, tech: "IOS")
-    let quizzST1 = Quizz(id: 6, tech: "swift")
-    let quizzST2 = Quizz(id: 7, tech: "swift")
-    let quizzST3 = Quizz(id: 8, tech: "swift")
-    let quizzST4 = Quizz(id: 9, tech: "swift")
-    let quizzST5 = Quizz(id: 10, tech: "swift")
-    let quizzX1 = Quizz(id: 11, tech: "xcode")
-    let quizzX2 = Quizz(id: 12, tech: "xcode")
-    let quizzX3 = Quizz(id: 13, tech: "xcode")
-    let quizzX4 = Quizz(id: 14, tech: "xcode")
-    let quizzX5 = Quizz(id: 15, tech: "xcode")
-    
-    //PopulateLisk whit mock data
-    func fillLists(){
-        iosQuizzes.append(quizzIOS1)
-        iosQuizzes.append(quizzIOS2)
-        iosQuizzes.append(quizzIOS3)
-        iosQuizzes.append(quizzIOS4)
-        iosQuizzes.append(quizzIOS5)
-        swiftQuizzes.append(quizzST1)
-        swiftQuizzes.append(quizzST2)
-        swiftQuizzes.append(quizzST3)
-        swiftQuizzes.append(quizzST4)
-        swiftQuizzes.append(quizzST5)
-        xcodeQuizzes.append(quizzX1)
-        xcodeQuizzes.append(quizzX2)
-        xcodeQuizzes.append(quizzX3)
-        xcodeQuizzes.append(quizzX4)
-        xcodeQuizzes.append(quizzX5)
-        
-    }
+   
     
     
     override func viewDidLoad() {
@@ -150,11 +114,7 @@ class SelctionQuizzViewController: UIViewController {
         databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "xcode")
         
        xcodeQuizzes = databaseHelper.quizzesList
-       // print("XCODE QUIZZES")
-       // print("   ")
-       // print(xcodeQuizzes)
-        //Call method to fill whit mock data
-       // fillLists()
+      
     }
     
 
@@ -253,9 +213,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
     
     
     
-    fileprivate func setGlobalQuizzId(_ indexPath: IndexPath) {
-        //print("the quiz selected whit id ",iosQuizzes[indexPath.item].id)
-        GlobalVariables.quizzSelected.id = iosQuizzes[indexPath.item].id
+    fileprivate func setGlobalQuizzId(_ indexPath: IndexPath,quizzesList: [Quizz]) {
+        print("the quiz selected whit id ",quizzesList[indexPath.item].id)
+        GlobalVariables.quizzSelected.id = quizzesList[indexPath.item].id
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -264,7 +224,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
              //Xcode
                case xcodeQuizzesCollection:
             let cell = collectionView.cellForItem(at: indexPath) as! QuizzXcodeCollectionViewCell
-                   setGlobalQuizzId(indexPath)
+                   setGlobalQuizzId(indexPath, quizzesList: xcodeQuizzes)
                      
                    //transition to Quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
@@ -273,7 +233,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                case iosQuizzesCollection:
                  
                  let cell = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
-                 setGlobalQuizzId(indexPath)
+                 setGlobalQuizzId(indexPath, quizzesList: iosQuizzes)
             
                    //transition to quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
@@ -283,7 +243,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                case swiftQuizzesCollection:
 
             let cell = collectionView.cellForItem(at: indexPath) as! QuizzSwiftCollectionViewCell
-                   setGlobalQuizzId(indexPath)
+                   setGlobalQuizzId(indexPath, quizzesList: swiftQuizzes)
                    //transition to quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
                    
