@@ -242,9 +242,9 @@
                         <outlet property="QuizBuildLabel" destination="w59-p7-llo" id="i5E-cb-7ns"/>
                         <outlet property="QuizNameTF" destination="2dU-Aj-c7L" id="Tgg-UV-MEK"/>
                         <outlet property="SubmitButtonOutlet" destination="8tH-V5-BIG" id="WyA-ne-UCy"/>
-                        <outlet property="answer1" destination="mdG-Uy-Ccx" id="afG-58-DkQ"/>
-                        <outlet property="answer2" destination="F9b-Qa-y6W" id="hx7-RU-QTn"/>
-                        <outlet property="answer3" destination="9Rc-rM-AGN" id="tlB-he-Mji"/>
+                        <outlet property="answer1TF" destination="mdG-Uy-Ccx" id="G9A-9Q-A6R"/>
+                        <outlet property="answer2TF" destination="F9b-Qa-y6W" id="OXX-Rd-21A"/>
+                        <outlet property="answer3TF" destination="9Rc-rM-AGN" id="VF2-DP-3ak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yD8-9A-z9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1020,7 +1020,7 @@
         <!--HomeNavController-->
         <scene sceneID="nwU-US-Cze">
             <objects>
-                <navigationController title="HomeNavController" automaticallyAdjustsScrollViewInsets="NO" id="i9p-sR-Lw8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Home Nav Controller" title="HomeNavController" automaticallyAdjustsScrollViewInsets="NO" id="i9p-sR-Lw8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ntr-bM-jJo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
