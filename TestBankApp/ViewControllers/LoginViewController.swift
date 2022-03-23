@@ -74,9 +74,9 @@ class LoginViewController: UIViewController {
                     //Set the global vaariable user to the loggedin user
                     GlobalVariables.userLoguedIn = userToLogin
                     
-                    let homeViewController = self.storyboard?.instantiateViewController(identifier: "User Nav Controller") as? UINavigationController
+                    let userViewController = self.storyboard?.instantiateViewController(identifier: "User Nav Controller") as? UINavigationController
                     
-                    window.rootViewController = homeViewController
+                    window.rootViewController = userViewController
                     window.makeKeyAndVisible()
                     
                     UIView.transition(with: window, duration: 0.50, options: .transitionCrossDissolve, animations: nil, completion: nil)
