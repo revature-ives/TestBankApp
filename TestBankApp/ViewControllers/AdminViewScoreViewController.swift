@@ -32,6 +32,11 @@ class AdminViewScoreViewController: UIViewController, UITableViewDelegate, UITab
          if sqlite3_open(f1, &DBHelper.dataBase) != SQLITE_OK{
              print("Can not open data base")
          }
+        
+        Utilities.styleFilledButton(viewScoresBtnOutlet)
+        Utilities.styleTextField(userEmailTF, placeHolderString: "User Email")
+        
+        
     }
     
 
