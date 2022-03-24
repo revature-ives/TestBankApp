@@ -17,6 +17,9 @@ class ResultViewController: UIViewController {
     var databaseHelper = DBHelper()
     var database = DBHelper.dataBase
     
+    var quizzesTakenByUserLoggedIn = [TakenQuizz]()
+    var scoresOfquizzesTaken = [Int()]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,11 +38,22 @@ class ResultViewController: UIViewController {
         }
          
         
-        print(databaseHelper.fetchQuizzTakenByUser(userID: GlobalVariables.userLoguedIn.id))
+         databaseHelper.fetchQuizzTakenByUser(userID: GlobalVariables.userLoguedIn.id)
+        quizzesTakenByUserLoggedIn = databaseHelper.quizzesTakenByUser
+        scoresOfquizzesTaken = databaseHelper.scoresForuser
+        print("this is the socers: ",scoresOfquizzesTaken)
+        averageScoreLabel.text = String(calculateAverageScore())
         
-        
-
+        databaseHelper.updateRankin(userIDtoUpdate: GlobalVariables.userLoguedIn.id, newRanking: calculateAverageScore())
     }
+    
+    //Function to calculate the average scores for user logged in
+    
+    func calculateAverageScore() -> Double{
+        var averageScore = Double(scoresOfquizzesTaken.reduce(0, +))/Double(scoresOfquizzesTaken.count)
+        return averageScore
+    }
+    
     
     
     @IBAction func returnToQuizzSelection(_ sender: Any) {

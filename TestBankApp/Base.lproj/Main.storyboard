@@ -733,6 +733,7 @@
                         <outlet property="answerThreeLabel" destination="x1X-bw-WD5" id="Jry-Fa-6oW"/>
                         <outlet property="answerTwoButton" destination="eEO-8T-Ag3" id="1Zz-ND-Dq1"/>
                         <outlet property="answerTwoLabel" destination="oXg-3K-NkJ" id="60c-xd-CP7"/>
+                        <outlet property="nextButton" destination="6Zs-xR-wNM" id="UXf-Bo-cLI"/>
                         <outlet property="questionCount" destination="Wwl-rD-pvW" id="J1j-Kb-y7q"/>
                         <outlet property="questionLabel" destination="j2u-eH-J3z" id="Myv-eQ-EY5"/>
                         <outlet property="questionScore" destination="XVq-w2-eN3" id="SrN-jK-16c"/>
@@ -791,10 +792,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twt-ab-h76">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twt-ab-h76">
                                 <rect key="frame" x="85" y="413" width="230" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
