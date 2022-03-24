@@ -63,7 +63,7 @@ class Utilities {
         
         //(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
         
-        button.layer.cornerRadius = 25.0
+        button.layer.cornerRadius = 16.0
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         button.tintColor = UIColor.black
 

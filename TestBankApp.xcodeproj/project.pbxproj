@@ -42,6 +42,7 @@
 		8449CC6427EBF42A003BD60F /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6327EBF42A003BD60F /* Scores.swift */; };
 		8449CC6627EBF433003BD60F /* AdminViewScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */; };
 		8449CC6827EBF439003BD60F /* AdminViewScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */; };
+		8449CC6A27ECDD31003BD60F /* AdminMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6927ECDD30003BD60F /* AdminMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		8449CC6327EBF42A003BD60F /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
 		8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewScoreViewController.swift; sourceTree = "<group>"; };
 		8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewScoresTableViewCell.swift; sourceTree = "<group>"; };
+		8449CC6927ECDD30003BD60F /* AdminMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */,
 				8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */,
 				8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */,
+				8449CC6927ECDD30003BD60F /* AdminMenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				451AB60127E6CF170071295E /* QuizzCollectionViewCell.swift in Sources */,
 				8449CC5827EB7064003BD60F /* AdminQuizCreateViewController.swift in Sources */,
 				451AB5FE27E6BB120071295E /* QuizzTechSelectionViewController.swift in Sources */,
+				8449CC6A27ECDD31003BD60F /* AdminMenuViewController.swift in Sources */,
 				4524FFEC27E37B7500DC43F9 /* User.swift in Sources */,
 				8449CC6827EBF439003BD60F /* AdminViewScoresTableViewCell.swift in Sources */,
 				4524FFF027E37C5900DC43F9 /* Question.swift in Sources */,
