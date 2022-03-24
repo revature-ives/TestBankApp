@@ -23,6 +23,9 @@ class DBHelper {
     var questionsList = [Question]()
     var quizzesTakenByUser = [TakenQuizz]()
     var scoresList = [Scores]()
+    
+    
+    var scoresForuser = [Int]()
     //This lists are to test the funcionality whit mock data
     var questionsListIOS = [Question]()
     var questionsListSwift = [Question]()
@@ -552,9 +555,10 @@ class DBHelper {
         //Bind the requeste email
         
         let index : Int = Int (sqlite3_bind_parameter_index(stmt, "userIDtoFetch"))
+        //print("this is the index: " ,index)
         if sqlite3_bind_int(stmt,Int32(index),Int32(userIDtoFetch)) != SQLITE_OK{
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
-            
+            print("error in biding index")
         }
         
         
@@ -563,11 +567,13 @@ class DBHelper {
             
             let userId = sqlite3_column_int(stmt, 0)
             let quizzId = sqlite3_column_int(stmt, 1)
-            let dateTaked = String(cString: sqlite3_column_text(stmt, 3))
-            let score = sqlite3_column_int(stmt, 4)
+            let dateTaked = String(cString: sqlite3_column_text(stmt, 2))
+            let score = sqlite3_column_int(stmt, 3)
             
             
             quizzesTakenByUser.append(TakenQuizz(userid: userID, quizzid:Int(quizzId), datetaked: dateTaked, scored: Int(score)))
+            scoresForuser.append(Int(score))
+            
         }
         
         for list in quizzesTakenByUser{
@@ -616,6 +622,51 @@ class DBHelper {
         }
     
     }
-
+    
+    //Fech all users and populater a list whit all the average score
+  
+    
+    //function to update the rankin
+    
+    func updateRankin(userIDtoUpdate: Int, newRanking: Double){
+        let userId = userIDtoUpdate as! Int
+        let rankin = newRanking as! Double
+        let rankinText = String(rankin)
+        
+        
+        
+        
+        var stmt: OpaquePointer?
+       
+        let query = "UPDATE Users SET Rakin = 5 WHERE ID = '\(userId)' "
+       
+        
+        if sqlite3_prepare_v2(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        
+        let index : Int = Int (sqlite3_bind_parameter_index(stmt, "userId"))
+        print("this is the index to update: ",index)
+        if sqlite3_bind_int(stmt,Int32(index),Int32(userId)) != SQLITE_OK{
+           let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+        
+       if sqlite3_bind_text(stmt, 3, rankinText, -1, nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+          
+            
+        }
+        
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+        }
+       
+        
+        
+        print("data save")    }
+  
     
 }

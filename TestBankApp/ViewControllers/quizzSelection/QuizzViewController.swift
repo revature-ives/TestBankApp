@@ -53,6 +53,7 @@ class QuizzViewController: UIViewController {
     
     @IBOutlet weak var submitQuizzButton: UIButton!
     
+    @IBOutlet weak var nextButton: UIButton!
     
     
     //Get the user loggedin
@@ -83,7 +84,7 @@ class QuizzViewController: UIViewController {
     //Right answer
     var rightanswer = " "
     
-    //Score of the quiz
+    //Score of the quESTION
     //If the answer if right increment the count of score in 1
     var quizzScore = 0
     
@@ -220,6 +221,7 @@ class QuizzViewController: UIViewController {
         //decide if is the last question to show the submit button
         if questionsCount == 3{
             submitQuizzButton.isHidden = false
+            nextButton.isHidden = true
         }
         
         if questionsCount < 4 {
