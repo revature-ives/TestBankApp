@@ -20,6 +20,8 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         //Display the score of actual quiz
         scoreQuizDisplayLabel.text = String(GlobalVariables.globalQuizzScore)
         

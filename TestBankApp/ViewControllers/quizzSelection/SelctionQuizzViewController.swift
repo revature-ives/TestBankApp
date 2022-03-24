@@ -69,6 +69,8 @@ class SelctionQuizzViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         //Set delegates and datasources to self
         iosQuizzesCollection.delegate = self
         iosQuizzesCollection.dataSource = self
@@ -76,6 +78,19 @@ class SelctionQuizzViewController: UIViewController {
         swiftQuizzesCollection.dataSource = self
         xcodeQuizzesCollection.delegate = self
         xcodeQuizzesCollection.dataSource = self
+        
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 40))
+        view.addSubview(navBar)
+        
+    
+        let navItem = UINavigationItem(title: "")
+        var leftBarBackButton : UIBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(goToRoot))
+        navItem.leftBarButtonItem = leftBarBackButton
+        
+        navBar.setItems([navItem], animated: false)
+        navBar.backgroundColor = UIColor.clear
+        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navBar.shadowImage = UIImage()
         
         
         //Set user logged in information
@@ -116,6 +131,22 @@ class SelctionQuizzViewController: UIViewController {
        xcodeQuizzes = databaseHelper.quizzesList
        
       
+    }
+    
+    @objc func goToRoot(){
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate, let window = sceneDelegate.window else {
+            return
+        }
+        
+        
+        
+        let userViewController = self.storyboard?.instantiateViewController(identifier: "User Nav Controller") as? UINavigationController
+        
+        window.rootViewController = userViewController
+        window.makeKeyAndVisible()
+        
+        UIView.transition(with: window, duration: 0.20, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
