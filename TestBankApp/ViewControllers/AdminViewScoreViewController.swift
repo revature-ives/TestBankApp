@@ -14,7 +14,6 @@ class AdminViewScoreViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var viewScoresBtnOutlet: UIButton!
     @IBOutlet weak var userEmailTF: UITextField!
     @IBOutlet weak var scoresTableView: UITableView!
-    
     var databaseHelper = DBHelper()
     var scoreList = [Scores]()
     var scoresArray : [String] = [""]
@@ -63,15 +62,29 @@ class AdminViewScoreViewController: UIViewController, UITableViewDelegate, UITab
              }
              
              //userScoresDisplayLabel.text = scoresArray.joined(separator: ",")
-             
+        self.scoresTableView.reloadData()
          }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return scoreList.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Score View Cell", for: indexPath) as! AdminViewScoresTableViewCell
+        for list in scoreList{
+            cell.userIDLabel.text = " ID: \(list.quizID)"
+            cell.quizIDLabel.text = " Quiz: \(list.quizID)"
+            cell.dateTakenLabel.text = "Date: \(list.dateTaken)"
+            cell.scoresLabel.text = "Score: \(list.score)"
+        }
+                
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     
