@@ -79,7 +79,7 @@ class SelctionQuizzViewController: UIViewController {
         
         
         //Set user logged in information
-        
+        quizzAttemptsByUserLoggedIn.text = "0"
         
         
         setUserLOggedInInformation()
@@ -114,9 +114,41 @@ class SelctionQuizzViewController: UIViewController {
         databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "xcode")
         
        xcodeQuizzes = databaseHelper.quizzesList
+       
       
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        quizzAttempts()
+        quizzAttemptsByUserLoggedIn.text = String(GlobalVariables.quizzAttempts)
+    }
+    
+    
+    
+    //function to check the accounts of quizz attempts
+    func quizzAttempts(){
+        
+        //check if the user is subscribe
+        if GlobalVariables.userLoguedIn.subscribed == "no" && GlobalVariables.quizzAttempts >= 2{
+            
+            showAlertView(msg: "You complete your attemps for today ")
+            iosQuizzesCollection.allowsSelection = false
+            
+        }
+        
+        
+    }
+    
+    
+    //function to display alert
+    
+    func showAlertView(msg: String){
+        let alertController = UIAlertController(title: "Free User Attempts", message: msg, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(okButton)
+        present(alertController, animated: true, completion: nil)
+    }
 
 
 }
@@ -219,6 +251,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        quizzAttempts()
+        
         switch collectionView {
 
              //Xcode

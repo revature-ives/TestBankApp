@@ -18,6 +18,7 @@ class GlobalVariables {
     static var answer3Score = 0
     
     static var globalQuizzScore : Int = 0
+    static var quizzAttempts : Int = 0
     
     //static var at
     

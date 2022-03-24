@@ -10,6 +10,8 @@ import SQLite3
 
 class ResultViewController: UIViewController {
     
+    @IBOutlet weak var averageScoreLabel: UILabel!
+    @IBOutlet weak var scoreQuizDisplayLabel: UILabel!
     
     //Data Model
     var databaseHelper = DBHelper()
@@ -17,6 +19,9 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Display the score of actual quiz
+        scoreQuizDisplayLabel.text = String(GlobalVariables.globalQuizzScore)
         
         //Open database
         var f1 = databaseHelper.prepareDatabaseFile()
@@ -38,6 +43,11 @@ class ResultViewController: UIViewController {
     
     
     @IBAction func returnToQuizzSelection(_ sender: Any) {
+        
+        //Incremeting the count of quizz attempts
+        GlobalVariables.quizzAttempts += 1
+        
+        //Calling the transition method
         transitionToQuizzSelection()
     }
     
