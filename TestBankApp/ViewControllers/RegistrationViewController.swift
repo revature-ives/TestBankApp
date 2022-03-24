@@ -17,7 +17,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var registrationButtonOut: UIButton!
     
-    var subscription : String = "false"
+    var subscription : String = "no"
     
     
     var databaseHelper = DBHelper()
@@ -89,9 +89,9 @@ class RegistrationViewController: UIViewController {
     @IBAction func subSwitch(_ sender: UISwitch) {
         
         if sender.isOn {
-            subscription = "true"
+            subscription = "yes"
         }else{
-            subscription = "false"
+            subscription = "no"
         }
     }
     
