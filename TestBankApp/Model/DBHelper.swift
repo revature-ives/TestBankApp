@@ -22,7 +22,7 @@ class DBHelper {
     var quizzesList = [Quizz]()
     var questionsList = [Question]()
     var quizzesTakenByUser = [TakenQuizz]()
-    
+    var scoresList = [Scores]()
     //This lists are to test the funcionality whit mock data
     var questionsListIOS = [Question]()
     var questionsListSwift = [Question]()
@@ -576,7 +576,46 @@ class DBHelper {
         
     }
     
+    func viewUserScores(userID: Int){
+        
+           let id = userID
+        
+           let query = "SELECT * FROM Users_Quizzes WHERE UserID == '\(id)'"
+        
+          var stmt: OpaquePointer?
+        
+          if sqlite3_prepare(DBHelper.dataBase, query, -2, &stmt, nil) != SQLITE_OK {
+            
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+            
+          }
+        
+        //Bind the requeste email
+        
+         let index : Int = Int (sqlite3_bind_parameter_index(stmt, "id"))
+         if sqlite3_bind_int(stmt,Int32(index),Int32(id)) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+             print(err)
+            
+        }
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW) {
+            
+            let userID = sqlite3_column_int(stmt, 0)
+            let quizID = sqlite3_column_int(stmt, 1)
+            let dateTaken = String(cString: sqlite3_column_text(stmt, 2))
+            let score = sqlite3_column_int(stmt, 3)
+            
+            
+            
+            scoresList.append(Scores(userID: Int(userID), quizID: Int(quizID), dateTaken: dateTaken, score: Int(score)))
+        }
     
-    
+    }
+
     
 }

@@ -39,6 +39,9 @@
 		8449CC4E27E952FB003BD60F /* AdminBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */; };
 		8449CC5827EB7064003BD60F /* AdminQuizCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC5727EB7064003BD60F /* AdminQuizCreateViewController.swift */; };
 		8449CC5A27EB9C28003BD60F /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */; };
+		8449CC6427EBF42A003BD60F /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6327EBF42A003BD60F /* Scores.swift */; };
+		8449CC6627EBF433003BD60F /* AdminViewScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */; };
+		8449CC6827EBF439003BD60F /* AdminViewScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		8449CC4D27E952FA003BD60F /* AdminBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBlockViewController.swift; sourceTree = "<group>"; };
 		8449CC5727EB7064003BD60F /* AdminQuizCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminQuizCreateViewController.swift; sourceTree = "<group>"; };
 		8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		8449CC6327EBF42A003BD60F /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
+		8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewScoreViewController.swift; sourceTree = "<group>"; };
+		8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewScoresTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 				4524FFF127E37CA700DC43F9 /* Admin.swift */,
 				451AB5FB27E63CAB0071295E /* DBHelper.swift */,
 				456595F227E9554800FAEE6B /* GlobalVariables.swift */,
+				8449CC6327EBF42A003BD60F /* Scores.swift */,
 				456595F627EBBDC900FAEE6B /* TakenQuizz.swift */,
 			);
 			path = Model;
@@ -173,6 +180,8 @@
 				456595F427EA571200FAEE6B /* ResultViewController.swift */,
 				8449CC5727EB7064003BD60F /* AdminQuizCreateViewController.swift */,
 				8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */,
+				8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */,
+				8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -253,6 +262,8 @@
 				456595F727EBBDC900FAEE6B /* TakenQuizz.swift in Sources */,
 				456595F127E951BA00FAEE6B /* QuizzViewController.swift in Sources */,
 				4524FF1D27DFEA4600DC43F9 /* ViewController.swift in Sources */,
+				8449CC6627EBF433003BD60F /* AdminViewScoreViewController.swift in Sources */,
+				8449CC6427EBF42A003BD60F /* Scores.swift in Sources */,
 				4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */,
 				4524FF2327DFEA4600DC43F9 /* TestBankApp.xcdatamodeld in Sources */,
 				8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */,
@@ -269,6 +280,7 @@
 				8449CC5827EB7064003BD60F /* AdminQuizCreateViewController.swift in Sources */,
 				451AB5FE27E6BB120071295E /* QuizzTechSelectionViewController.swift in Sources */,
 				4524FFEC27E37B7500DC43F9 /* User.swift in Sources */,
+				8449CC6827EBF439003BD60F /* AdminViewScoresTableViewCell.swift in Sources */,
 				4524FFF027E37C5900DC43F9 /* Question.swift in Sources */,
 				4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */,
 				456595B927E8EE0200FAEE6B /* QuizzXcodeCollectionViewCell.swift in Sources */,
