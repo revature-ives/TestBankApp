@@ -552,7 +552,7 @@
         <!--User Welcome Screen-->
         <scene sceneID="eye-rB-vgM">
             <objects>
-                <viewController title="User Welcome Screen" id="cxO-go-KcO" sceneMemberID="viewController">
+                <viewController title="User Welcome Screen" id="cxO-go-KcO" customClass="UserMenuViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V1j-3r-DHc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -579,7 +579,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome User!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdi-aF-3sh">
                                 <rect key="frame" x="80" y="229" width="255" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -588,6 +588,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="dqA-Fp-r00"/>
+                    <connections>
+                        <outlet property="takeQuizzesOutlet" destination="7Se-bQ-oZr" id="H01-wP-4Eg"/>
+                        <outlet property="viewRankingsOutlet" destination="Ch5-zQ-dJc" id="M0J-mu-09M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQQ-4U-T1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -864,8 +868,12 @@
                                     <action selector="StartFeedback:" destination="fPI-RJ-MWa" eventType="touchUpInside" id="Pxs-f8-H1V"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestBankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-dj-WCl">
+                                <rect key="frame" x="294" y="710" width="100" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-Yg-RbI">
-                                <rect key="frame" x="129" y="619" width="147" height="31"/>
+                                <rect key="frame" x="129" y="518" width="147" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
@@ -885,7 +893,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgu-1C-lh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8062" y="-794"/>
+            <point key="canvasLocation" x="8060.8695652173919" y="-794.19642857142856"/>
         </scene>
         <!--Selction Quizz View Controller-->
         <scene sceneID="2LX-AZ-ERB">
@@ -926,7 +934,7 @@
                                                     <color key="backgroundColor" red="0.32030687270000002" green="0.43529411759999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrJ-Mz-zUg">
-                                                    <rect key="frame" x="23" y="8" width="82" height="84"/>
+                                                    <rect key="frame" x="-20" y="-26" width="82" height="84"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -965,7 +973,7 @@
                                                     <color key="backgroundColor" red="0.98039215690000003" green="0.71372549019999998" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyR-ak-5Jb">
-                                                    <rect key="frame" x="25" y="8" width="95" height="103"/>
+                                                    <rect key="frame" x="-24" y="-37" width="95" height="103"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>

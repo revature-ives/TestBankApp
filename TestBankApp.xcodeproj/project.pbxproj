@@ -43,6 +43,7 @@
 		8449CC6627EBF433003BD60F /* AdminViewScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */; };
 		8449CC6827EBF439003BD60F /* AdminViewScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */; };
 		8449CC6A27ECDD31003BD60F /* AdminMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6927ECDD30003BD60F /* AdminMenuViewController.swift */; };
+		8449CC6C27ECFC55003BD60F /* UserMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449CC6B27ECFC54003BD60F /* UserMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewScoreViewController.swift; sourceTree = "<group>"; };
 		8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewScoresTableViewCell.swift; sourceTree = "<group>"; };
 		8449CC6927ECDD30003BD60F /* AdminMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuViewController.swift; sourceTree = "<group>"; };
+		8449CC6B27ECFC54003BD60F /* UserMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */,
 				8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */,
 				8449CC6927ECDD30003BD60F /* AdminMenuViewController.swift */,
+				8449CC6B27ECFC54003BD60F /* UserMenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				4524FFEE27E37BFE00DC43F9 /* Quizz.swift in Sources */,
 				4524FF2327DFEA4600DC43F9 /* TestBankApp.xcdatamodeld in Sources */,
 				8449CBA427E792AD003BD60F /* HomeViewController.swift in Sources */,
+				8449CC6C27ECFC55003BD60F /* UserMenuViewController.swift in Sources */,
 				456595B727E8EDEB00FAEE6B /* QuizzSwiftCollectionViewCell.swift in Sources */,
 				8449CC5A27EB9C28003BD60F /* FeedbackViewController.swift in Sources */,
 				4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */,
