@@ -34,7 +34,7 @@ class FeedbackViewController: UIViewController {
         // print("Data base phat is :", f1)
         // var url = URL(string: f1)
          //Open the Data base or create it
-     
+        label.text = ""
          if sqlite3_open(f1, &DBHelper.dataBase) != SQLITE_OK{
              print("Can not open data base")
          }
@@ -131,6 +131,7 @@ class FeedbackViewController: UIViewController {
             label.text = "Thank you for your Feedback!"
             submitButtonOutlet.setTitle("To Home", for: .normal)
             feedbackButtonOutlet.isHidden = true
+            SubmitButtonCount += 1
             
         }else if SubmitButtonCount == 1 {
             
