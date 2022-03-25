@@ -23,7 +23,10 @@ class SelctionQuizzViewController: UIViewController {
     @IBOutlet weak var quizzAttemptsByUserLoggedIn: UILabel!
     
     
+    
+   
     @IBOutlet weak var sunbscritonStatusOfUserLoggedIn: UILabel!
+    
     
     
     func setUserLOggedInInformation() {
@@ -184,7 +187,7 @@ class SelctionQuizzViewController: UIViewController {
 
 }
 
-extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
@@ -211,8 +214,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
         
     }
     
-    
-    
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewwLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -231,6 +235,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                       case iosQuizzesCollection:
                           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
                           //print("ios quizz \(iosQuizzes[indexPath.item].id)  and tehc is  \(iosQuizzes[indexPath.item].technology)")
+                      for list in iosQuizzes{
+                          cell.idLabel.text = "Quiz \(list.id)"
+                      }
                           return cell
                       
                       
@@ -239,6 +246,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzSwiftCollectionViewCell
                            
                          //  print("swift quizz \(swiftQuizzes[indexPath.item].id)  and tehc is  \(swiftQuizzes[indexPath.item].technology)")
+                      for list in swiftQuizzes{
+                          cell.quizzIDlabel.text = "Quiz \(list.id)"
+                      }
                            return cell
                       
                   
@@ -248,6 +258,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellXcodeQuizz", for: indexPath) as! QuizzXcodeCollectionViewCell
 
                     //  print("xcode quizz \(xcodeQuizzes[indexPath.item].id)  and tehc is  \(xcodeQuizzes[indexPath.item].technology)")
+                      for list in xcodeQuizzes{
+                          cell.quizzIDLabel.text = "Quiz \(list.id)"
+                      }
                          
                       return cell
 
