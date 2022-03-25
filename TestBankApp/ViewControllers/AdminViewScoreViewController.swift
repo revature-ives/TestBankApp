@@ -78,12 +78,11 @@ class AdminViewScoreViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Score View Cell", for: indexPath) as! AdminViewScoresTableViewCell
-        for list in scoreList{
-            cell.userIDLabel.text = " ID: \(list.quizID)"
-            cell.quizIDLabel.text = " Quiz: \(list.quizID)"
-            cell.dateTakenLabel.text = "Date: \(list.dateTaken)"
-            cell.scoresLabel.text = "Score: \(list.score)"
-        }
+        
+        cell.userIDLabel.text = " ID: \(scoreList[indexPath.item].userID)"
+        cell.quizIDLabel.text = " Quiz: \(scoreList[indexPath.item].quizID)"
+        cell.dateTakenLabel.text = "Date: \(scoreList[indexPath.item].dateTaken)"
+        cell.scoresLabel.text = "Score: \(scoreList[indexPath.item].score)"
                 
         return cell
     }
