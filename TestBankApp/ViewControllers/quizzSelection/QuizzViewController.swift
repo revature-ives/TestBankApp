@@ -13,6 +13,7 @@ class QuizzViewController: UIViewController {
     
     //Information labels
     
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var questionScore: UILabel!
     
     
@@ -55,6 +56,11 @@ class QuizzViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
+    
+    
+    //timer
+    var seconds = 30
+    var timerr = Timer()
     
     //Get the user loggedin
     
@@ -104,9 +110,19 @@ class QuizzViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+       timerr = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizzViewController.counter), userInfo: nil, repeats: true)
+    }
     
-    
-    
+    @objc func counter(){
+        seconds -= 1
+        timerLabel.text = String(seconds)
+        if(seconds == 0){
+            timerr.invalidate()
+            submitQuizzButton.isHidden = false
+            nextButton.isHidden = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
