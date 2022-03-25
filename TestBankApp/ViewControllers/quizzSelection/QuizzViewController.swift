@@ -130,8 +130,21 @@ class QuizzViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: false)
         
         // Do any additional setup after loading the view.
-        //labels information
         
+        //styling labels
+        Utilities.styleLabel(answerOneLabel)
+        Utilities.styleLabel(answerTwoLabel)
+        Utilities.styleLabel(answerThreeLabel)
+        
+        
+        //styling buttons
+        Utilities.styleHollowButton(answerOneButton)
+        Utilities.styleHollowButton(answerTwoButton)
+        Utilities.styleHollowButton(answerThreeButton)
+        Utilities.styleFilledButton(submitQuizzButton)
+        Utilities.styleFilledButton(nextButton)
+        
+        //labels information
         questionScore.text = "0"
         questionCount.text = "1"
         quizScoreLabel.text = "0"
@@ -277,18 +290,28 @@ class QuizzViewController: UIViewController {
     //Select a butto amswer
     fileprivate func selectButton(_ selected : UIButton,_ unselected1 : UIButton,_ unselected2: UIButton
     ) {
-        selected.backgroundColor = UIColor.darkGray
-        unselected1.backgroundColor = UIColor.white
-        unselected2.backgroundColor = UIColor.white
+        //Style selected
+        Utilities.styleFilledButton(selected)
+        
+        //Style unselected 1
+        Utilities.styleHollowButton(unselected1)
+        
+        //Style unselected 2
+        Utilities.styleHollowButton(unselected2)
     }
     
     //Reset answer buttons when a next question is display
     
     fileprivate func resetButtons(_ selected : UIButton,_ unselected1 : UIButton,_ unselected2: UIButton
     ) {
-        selected.backgroundColor = UIColor.white
-        unselected1.backgroundColor = UIColor.white
-        unselected2.backgroundColor = UIColor.white
+        //Style selected
+        Utilities.styleHollowButton(selected)
+        
+        //Style unselected 1
+        Utilities.styleHollowButton(unselected1)
+        
+        //Style unselected 2
+        Utilities.styleHollowButton(unselected2)
     }
     
     //funcntion to check if the button selected is the right answer

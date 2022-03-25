@@ -23,6 +23,7 @@ class SelctionQuizzViewController: UIViewController {
     @IBOutlet weak var quizzAttemptsByUserLoggedIn: UILabel!
     
     
+    @IBOutlet weak var backgroundButton: UIButton!
     
    
     @IBOutlet weak var sunbscritonStatusOfUserLoggedIn: UILabel!
@@ -71,6 +72,9 @@ class SelctionQuizzViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Utilities.styleFilledButton(backgroundButton)
+        backgroundButton.setTitle("", for: .normal)
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         
@@ -235,9 +239,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                       case iosQuizzesCollection:
                           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
                           //print("ios quizz \(iosQuizzes[indexPath.item].id)  and tehc is  \(iosQuizzes[indexPath.item].technology)")
-                      for list in iosQuizzes{
-                          cell.idLabel.text = "Quiz \(list.id)"
-                      }
+                      
+                      cell.idLabel.text = "Quiz \(iosQuizzes[indexPath.item].id)"
+                      
                           return cell
                       
                       
@@ -246,9 +250,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzSwiftCollectionViewCell
                            
                          //  print("swift quizz \(swiftQuizzes[indexPath.item].id)  and tehc is  \(swiftQuizzes[indexPath.item].technology)")
-                      for list in swiftQuizzes{
-                          cell.quizzIDlabel.text = "Quiz \(list.id)"
-                      }
+                        
+                      cell.quizzIDlabel.text = "Quiz \(swiftQuizzes[indexPath.item].id)"
+                      
                            return cell
                       
                   
@@ -258,9 +262,9 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellXcodeQuizz", for: indexPath) as! QuizzXcodeCollectionViewCell
 
                     //  print("xcode quizz \(xcodeQuizzes[indexPath.item].id)  and tehc is  \(xcodeQuizzes[indexPath.item].technology)")
-                      for list in xcodeQuizzes{
-                          cell.quizzIDLabel.text = "Quiz \(list.id)"
-                      }
+                      
+                      cell.quizzIDLabel.text = "Quiz \(xcodeQuizzes[indexPath.item].id)"
+                      
                          
                       return cell
 
