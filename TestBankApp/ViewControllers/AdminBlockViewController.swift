@@ -29,6 +29,9 @@ class AdminBlockViewController: UIViewController {
             print("Can not open data base")
         }
         
+        Utilities.styleFilledButton(BlockButtonOutlet)
+        Utilities.styleTextField(blockUserTF, placeHolderString: "User Email")
+        
     }
     
     @IBAction func blockUser(_ sender: Any) {

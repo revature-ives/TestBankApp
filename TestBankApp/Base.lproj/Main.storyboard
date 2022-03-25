@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9p-sR-Lw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9p-sR-Lw8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -122,15 +122,15 @@
         <!--Admin Welcome Screen-->
         <scene sceneID="cdN-Wp-K55">
             <objects>
-                <viewController storyboardIdentifier="Admin Welcome Screen" title="Admin Welcome Screen" id="Jaa-Jq-Mej" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Admin Welcome Screen" title="Admin Welcome Screen" id="Jaa-Jq-Mej" customClass="AdminMenuViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DSL-5a-9LP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome Admin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AU-pT-lf1">
-                                <rect key="frame" x="81" y="160" width="254" height="65"/>
+                                <rect key="frame" x="63" y="175" width="285" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -161,11 +161,20 @@
                                     <segue destination="jT6-lc-BLG" kind="show" id="PZY-Ey-4Ge"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestMeLogoBanner" translatesAutoresizingMaskIntoConstraints="NO" id="DcS-XP-axr">
+                                <rect key="frame" x="-7" y="39" width="421" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ogc-Du-Ufi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="bBH-yl-5Wc"/>
+                    <connections>
+                        <outlet property="blockUsersOutlet" destination="1pO-gE-tbI" id="ebA-xF-IGD"/>
+                        <outlet property="buildQuizOutlet" destination="cCL-VL-DKZ" id="Rt2-IW-wqJ"/>
+                        <outlet property="viewUserScoresOutlet" destination="2Tt-IN-28H" id="sxG-7L-ZhB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzC-71-B3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,6 +240,10 @@
                                     <action selector="CreateQuiz:" destination="Rj4-2w-29R" eventType="touchUpInside" id="Ro6-by-c2E"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestBankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LCs-ve-sRe">
+                                <rect key="frame" x="290" y="698" width="104" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ufO-DU-1TL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -266,7 +279,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-Eu-ddK">
-                                <rect key="frame" x="146" y="411" width="123" height="79"/>
+                                <rect key="frame" x="144" y="257" width="123" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -275,6 +288,10 @@
                                     <action selector="blockUser:" destination="jT6-lc-BLG" eventType="touchUpInside" id="IKD-Dc-0zG"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestBankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="cO7-4C-E0Q">
+                                <rect key="frame" x="290" y="723" width="104" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UMA-SN-pF0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -287,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHu-V4-Iud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3246" y="1418"/>
+            <point key="canvasLocation" x="3244.9275362318845" y="1417.6339285714284"/>
         </scene>
         <!--View Scores-->
         <scene sceneID="XgC-My-fBR">
@@ -367,6 +384,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestBankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vvo-SH-Qge">
+                                <rect key="frame" x="296" y="707" width="98" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fHE-6t-tS0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -531,7 +552,7 @@
         <!--User Welcome Screen-->
         <scene sceneID="eye-rB-vgM">
             <objects>
-                <viewController title="User Welcome Screen" id="cxO-go-KcO" sceneMemberID="viewController">
+                <viewController title="User Welcome Screen" id="cxO-go-KcO" customClass="UserMenuViewController" customModule="TestBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V1j-3r-DHc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -558,7 +579,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome User!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdi-aF-3sh">
                                 <rect key="frame" x="80" y="229" width="255" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -567,6 +588,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="dqA-Fp-r00"/>
+                    <connections>
+                        <outlet property="takeQuizzesOutlet" destination="7Se-bQ-oZr" id="H01-wP-4Eg"/>
+                        <outlet property="viewRankingsOutlet" destination="Ch5-zQ-dJc" id="M0J-mu-09M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQQ-4U-T1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -888,8 +913,12 @@
                                     <action selector="StartFeedback:" destination="fPI-RJ-MWa" eventType="touchUpInside" id="Pxs-f8-H1V"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TestBankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-dj-WCl">
+                                <rect key="frame" x="294" y="710" width="100" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-Yg-RbI">
-                                <rect key="frame" x="129" y="619" width="147" height="31"/>
+                                <rect key="frame" x="129" y="518" width="147" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
@@ -909,7 +938,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgu-1C-lh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8062" y="-794"/>
+            <point key="canvasLocation" x="8060.8695652173919" y="-794.19642857142856"/>
         </scene>
         <!--Selction Quizz View Controller-->
         <scene sceneID="2LX-AZ-ERB">
@@ -950,7 +979,7 @@
                                                     <color key="backgroundColor" red="0.32030687270000002" green="0.43529411759999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrJ-Mz-zUg">
-                                                    <rect key="frame" x="23" y="8" width="82" height="84"/>
+                                                    <rect key="frame" x="-20" y="-26" width="82" height="84"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -989,7 +1018,7 @@
                                                     <color key="backgroundColor" red="0.98039215690000003" green="0.71372549019999998" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyR-ak-5Jb">
-                                                    <rect key="frame" x="25" y="8" width="95" height="103"/>
+                                                    <rect key="frame" x="-24" y="-37" width="95" height="103"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>

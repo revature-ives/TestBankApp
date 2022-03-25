@@ -42,6 +42,14 @@ class AdminQuizCreateViewController: UIViewController {
          if sqlite3_open(f1, &DBHelper.dataBase) != SQLITE_OK{
              print("Can not open data base")
          }
+        
+        Utilities.styleTextField(answer3TF, placeHolderString: "answer 3")
+        Utilities.styleTextField(answer2TF, placeHolderString: "answer 2")
+        Utilities.styleTextField(answer1TF, placeHolderString: "answer 1")
+        Utilities.styleTextField(QuizNameTF, placeHolderString: "iOS,swift,xcode")
+        Utilities.styleTextField(CorrectAnswerTF, placeHolderString: "correct answer (ex.opt1)")
+        Utilities.styleFilledButton(SubmitButtonOutlet)
+        
     }
     
 

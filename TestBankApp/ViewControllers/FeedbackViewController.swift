@@ -38,6 +38,9 @@ class FeedbackViewController: UIViewController {
          if sqlite3_open(f1, &DBHelper.dataBase) != SQLITE_OK{
              print("Can not open data base")
          }
+        
+        Utilities.styleFilledButton(submitButtonOutlet)
+        Utilities.styleFilledButton(feedbackButtonOutlet)
     }
 
     func startSpeechRec(){
@@ -68,22 +71,22 @@ class FeedbackViewController: UIViewController {
             let msg = resp?.bestTranscription.formattedString
             self.label.text = msg!
             
-            var str : String = ""
-            for seg in resp!.bestTranscription.segments{
-                let indexTo = msg!.index(msg!.startIndex, offsetBy: seg.substringRange.location)
-                str = String(msg![indexTo...])
-            }
+           // var str : String = ""
+           // for seg in resp!.bestTranscription.segments{
+              //  let indexTo = msg!.index(msg!.startIndex, offsetBy: seg.substringRange.location)
+               // str = String(msg![indexTo...])
+           // }
             
-            switch str{
-            case "blue":
-                self.view.backgroundColor = .blue
-            case "yellow":
-                self.view.backgroundColor = .yellow
-            default:
-                self.view.backgroundColor = .white
-            }
+            //switch str{
+            //case "blue":
+            //    self.view.backgroundColor = .blue
+           // case "yellow":
+            //    self.view.backgroundColor = .yellow
+           // default:
+            //   self.view.backgroundColor = .white
+           // }
             
-        })
+       })
         
     }
     

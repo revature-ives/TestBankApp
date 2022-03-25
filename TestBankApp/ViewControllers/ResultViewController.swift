@@ -30,12 +30,15 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         //set ranking table view datasource and delegate
         rankingsTable.delegate = self
         rankingsTable.dataSource = self
         
         
-        
+
+        self.navigationItem.setHidesBackButton(true, animated: false)
+         
         //Display the score of actual quiz
         scoreQuizDisplayLabel.text = String(GlobalVariables.globalQuizzScore)
         
