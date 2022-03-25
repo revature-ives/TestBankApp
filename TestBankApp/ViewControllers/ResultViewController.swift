@@ -27,6 +27,9 @@ class ResultViewController: UIViewController {
     var scoresOfquizzesTaken = [Int()]
     var rankinUsersList = [User]()
     
+    
+    var positionInRanking = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,12 +65,16 @@ class ResultViewController: UIViewController {
         
         databaseHelper.updateRankin(userIDtoUpdate: GlobalVariables.userLoguedIn.id, newRanking: calculateAverageScore())
         
-        
+        GlobalVariables.globalQuizzScore = 0
         //display rnakings
         rankinUsersList = databaseHelper.calculateRanking()
         
         print(databaseHelper.calculateRanking())
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        displayCupon()
     }
     
     //Function to calculate the average scores for user logged in
@@ -111,7 +118,34 @@ class ResultViewController: UIViewController {
         window.rootViewController = FeedbackViewController
         window.makeKeyAndVisible()
         
-        UIView.transition(with: window, duration: 0.25, options: .transitionFlipFromRight, animations: nil, completion: nil)    }
+        UIView.transition(with: window, duration: 0.25, options: .transitionFlipFromRight, animations: nil, completion: nil)
+        
+    }
+    
+    
+    func displayCupon(){
+        if rankinUsersList[0 ].id == GlobalVariables.userLoguedIn.id{
+            showAlertView(msg: "you number 1 win cupon 60 days free")
+            
+        } else if rankinUsersList[1].id == GlobalVariables.userLoguedIn.id{
+            
+            showAlertView(msg: "you number 2 30 days free")
+            
+        }else if rankinUsersList[1].id == GlobalVariables.userLoguedIn.id{
+            
+           showAlertView(msg: "you number 3 15 days free")
+        }
+        
+    }
+    
+    func showAlertView(msg: String){
+        let alertController = UIAlertController(title: "Top Rankings", message: msg, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(okButton)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
@@ -124,6 +158,8 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.positionLabel.text = String(indexPath.item + 1)
         cell.namelabel.text = rankinUsersList[indexPath.item].name
+       
+        
         cell.averageScoreLabel.text = rankinUsersList[indexPath.item].ranking
         
         return cell

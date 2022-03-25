@@ -82,7 +82,7 @@ class DBHelper {
     //Method to add users to database
     
     
-    func addUserToDataBase(name: String,password: String,subscribed: String,ranking: String,mail: String,blocked: String){
+    func addUserToDataBase(name: String,password: String,ranking: String,subscribed: String,mail: String,blocked: String){
         let userName = name as! NSString
         let userPassword = password as! NSString
         let userSubscribed = subscribed as! NSString
@@ -112,13 +112,13 @@ class DBHelper {
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             
         }
-        
-        if sqlite3_bind_text(stmt, 3, userSubscribed.utf8String, -1, nil) != SQLITE_OK{
+    
+        if sqlite3_bind_text(stmt, 3, userRankin.utf8String, -1, nil) != SQLITE_OK{
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             
         }
         
-        if sqlite3_bind_text(stmt, 4, userRankin.utf8String, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 4, userSubscribed.utf8String, -1, nil) != SQLITE_OK{
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
             
         }
