@@ -24,7 +24,7 @@ class DBHelper {
     var quizzesTakenByUser = [TakenQuizz]()
     var scoresList = [Scores]()
     
-    
+    var rankingsList = [User]()
     var scoresForuser = [Int]()
     //This lists are to test the funcionality whit mock data
     var questionsListIOS = [Question]()
@@ -628,7 +628,7 @@ class DBHelper {
     
     //function to update the rankin
     
-    func updateRankin(userIDtoUpdate: Int, newRanking: Double){
+    func updateRankin(userIDtoUpdate: Int, newRanking: Double) {
         let userId = userIDtoUpdate as! Int
         let rankin = newRanking as! Double
         let rankinText = String(rankin)
@@ -637,8 +637,9 @@ class DBHelper {
         
         
         var stmt: OpaquePointer?
-       
-        let query = "UPDATE Users SET Rakin = 5 WHERE ID = '\(userId)' "
+        
+       // "UPDATE Users SET Blocked = 'true' WHERE Email = '\(userEmail)'"
+        let query = "UPDATE Users SET Rakin = '\(newRanking)' WHERE ID = '\(userId)' "
        
         
         if sqlite3_prepare_v2(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK{
@@ -646,7 +647,7 @@ class DBHelper {
             print(err)
         }
         
-        let index : Int = Int (sqlite3_bind_parameter_index(stmt, "userId"))
+     /*   let index : Int = Int (sqlite3_bind_parameter_index(stmt, "userId"))
         print("this is the index to update: ",index)
         if sqlite3_bind_int(stmt,Int32(index),Int32(userId)) != SQLITE_OK{
            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
@@ -657,7 +658,7 @@ class DBHelper {
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
           
             
-        }
+        }*/
         
         if sqlite3_step(stmt) != SQLITE_DONE {
             let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
@@ -666,7 +667,58 @@ class DBHelper {
        
         
         
-        print("data save")    }
+        print("data save")
+        
+    }
+    
+    func calculateRanking() -> [User] {
+       
+        
+        let query = "SELECT * FROM Users ORDER BY Rakin DESC"
+        
+        var stmt: OpaquePointer?
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK {
+            
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return rankingsList
+            
+        }
+        
+        //Bind the requeste email
+        
+       /* let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
+        if sqlite3_bind_text(stmt,Int32(index),emailFetch.utf8String,-1,nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }*/
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW) {
+            
+            let id = sqlite3_column_int(stmt, 0)
+            let name = String(cString: sqlite3_column_text(stmt, 1))
+            let password = String(cString: sqlite3_column_text(stmt, 2))
+            let Rakin = String(cString: sqlite3_column_text(stmt, 3))
+            let subscribed = String(cString: sqlite3_column_text(stmt, 4))
+            let email = String(cString: sqlite3_column_text(stmt, 5))
+            let blocked = String(cString: sqlite3_column_text(stmt, 6))
+            
+            rankingsList.append(User(id: Int(id), name: name, password: password, subscribed: subscribed, ranking: Rakin, email: email, blocked: blocked))
+        }
+        
+        for list in usersList{
+            print("ID is \(list.id) the name is \(list.name) password \(list.password) subscribed \(list.subscribed) rankin \(list.ranking) emai is : \(list.email) blocked is \(list.blocked)")
+        }
+            
+            
+          
+        return rankingsList
+            
+        
+    }
   
     
 }

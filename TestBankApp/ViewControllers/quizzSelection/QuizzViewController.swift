@@ -118,6 +118,8 @@ class QuizzViewController: UIViewController {
         questionCount.text = "1"
         quizScoreLabel.text = "0"
         
+        //cretae a timer
+        
         
         
         //Open database

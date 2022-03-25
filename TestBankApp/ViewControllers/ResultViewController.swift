@@ -13,15 +13,28 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var averageScoreLabel: UILabel!
     @IBOutlet weak var scoreQuizDisplayLabel: UILabel!
     
+    @IBOutlet weak var rankingsLabel: UILabel!
+    
+    @IBOutlet weak var rankingsTable: UITableView!
+    
+    
+    
     //Data Model
     var databaseHelper = DBHelper()
     var database = DBHelper.dataBase
     
     var quizzesTakenByUserLoggedIn = [TakenQuizz]()
     var scoresOfquizzesTaken = [Int()]
+    var rankinUsersList = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set ranking table view datasource and delegate
+        rankingsTable.delegate = self
+        rankingsTable.dataSource = self
+        
+        
         
         //Display the score of actual quiz
         scoreQuizDisplayLabel.text = String(GlobalVariables.globalQuizzScore)
@@ -45,6 +58,13 @@ class ResultViewController: UIViewController {
         averageScoreLabel.text = String(calculateAverageScore())
         
         databaseHelper.updateRankin(userIDtoUpdate: GlobalVariables.userLoguedIn.id, newRanking: calculateAverageScore())
+        
+        
+        //display rnakings
+        rankinUsersList = databaseHelper.calculateRanking()
+        
+        print(databaseHelper.calculateRanking())
+        
     }
     
     //Function to calculate the average scores for user logged in
@@ -89,4 +109,23 @@ class ResultViewController: UIViewController {
         window.makeKeyAndVisible()
         
         UIView.transition(with: window, duration: 0.25, options: .transitionFlipFromRight, animations: nil, completion: nil)    }
+}
+
+extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        rankinUsersList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rankinCell", for: indexPath) as! RankingTableViewCell
+        
+        cell.positionLabel.text = String(indexPath.item + 1)
+        cell.namelabel.text = rankinUsersList[indexPath.item].name
+        cell.averageScoreLabel.text = rankinUsersList[indexPath.item].ranking
+        
+        return cell
+
+    }
+    
+    
 }
