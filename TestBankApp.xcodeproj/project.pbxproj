@@ -14,7 +14,7 @@
 		4524FF1927DFEA4600DC43F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FF1827DFEA4600DC43F9 /* AppDelegate.swift */; };
 		4524FF1B27DFEA4600DC43F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FF1A27DFEA4600DC43F9 /* SceneDelegate.swift */; };
 		4524FF1D27DFEA4600DC43F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524FF1C27DFEA4600DC43F9 /* ViewController.swift */; };
-		4524FF2027DFEA4600DC43F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4524FF1E27DFEA4600DC43F9 /* Main.storyboard */; };
+		4524FF2027DFEA4600DC43F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4524FF1E27DFEA4600DC43F9 /* Main.storyboard */; settings = {ASSET_TAGS = ("G8g-CO-377", ); }; };
 		4524FF2327DFEA4600DC43F9 /* TestBankApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4524FF2127DFEA4600DC43F9 /* TestBankApp.xcdatamodeld */; };
 		4524FF2527DFEA4600DC43F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4524FF2427DFEA4600DC43F9 /* Assets.xcassets */; };
 		4524FF2827DFEA4600DC43F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4524FF2627DFEA4600DC43F9 /* LaunchScreen.storyboard */; };
@@ -188,12 +188,9 @@
 				8449CC5927EB9C28003BD60F /* FeedbackViewController.swift */,
 				8449CC6527EBF433003BD60F /* AdminViewScoreViewController.swift */,
 				8449CC6727EBF439003BD60F /* AdminViewScoresTableViewCell.swift */,
-
 				456595FE27ED2C3300FAEE6B /* RankingTableViewCell.swift */,
-
 				8449CC6927ECDD30003BD60F /* AdminMenuViewController.swift */,
 				8449CC6B27ECFC54003BD60F /* UserMenuViewController.swift */,
-
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -225,6 +222,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					"G8g-CO-377",
+				);
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
