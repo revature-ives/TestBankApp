@@ -70,6 +70,14 @@ class Utilities {
         //UIColor.white
     }
     
+    static func styleLabel(_ label:UILabel){
+        label.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 0.7)
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 16.0
+        label.tintColor = UIColor.black
+        
+    }
+    
     static func styleFilledButtonRed(_ button:UIButton){
         // Filled rounded corner style
         button.backgroundColor = UIColor.init(red: 255/255, green: 40/255, blue: 29/255, alpha: 0.8)
@@ -89,10 +97,10 @@ class Utilities {
         
         // Hollow rounded corner style
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.init(red: 226/255, green: 92/255, blue: 176/255, alpha: 0.45).cgColor
+        button.layer.borderColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 0.7).cgColor
             //UIColor.black.cgColor
-        button.backgroundColor = UIColor.init(red: 226/255, green: 92/255, blue: 176/255, alpha: 0.7)
-        button.layer.cornerRadius = 25.0
+        button.backgroundColor = UIColor.white
+        button.layer.cornerRadius = 16.0
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         button.tintColor = UIColor.black
     }

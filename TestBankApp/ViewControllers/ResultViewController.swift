@@ -15,9 +15,12 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var rankingsLabel: UILabel!
     
+    @IBOutlet weak var quizScoreLabel: UILabel!
     @IBOutlet weak var rankingsTable: UITableView!
     
+    @IBOutlet weak var returnToQuizzes: UIButton!
     
+    @IBOutlet weak var goToFeedback: UIButton!
     
     //Data Model
     var databaseHelper = DBHelper()
@@ -38,6 +41,10 @@ class ResultViewController: UIViewController {
         rankingsTable.delegate = self
         rankingsTable.dataSource = self
         
+        
+        Utilities.styleLabel(quizScoreLabel)
+        Utilities.styleFilledButton(returnToQuizzes)
+        Utilities.styleFilledButton(goToFeedback)
         
 
         self.navigationItem.setHidesBackButton(true, animated: false)
