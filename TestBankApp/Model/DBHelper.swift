@@ -23,7 +23,13 @@ class DBHelper {
     var questionsList = [Question]()
     var quizzesTakenByUser = [TakenQuizz]()
     var scoresList = [Scores]()
+   
     
+    
+    var rankingTupleByTechXcode = [(name: String,rankin: String)] ()
+    var rankingTupleByTechSwift = [(name: String,rankin: String)] ()
+    var rankingTupleByTechIOS = [(name: String,rankin: String)] ()
+    var rankingListByTechnology = [User]()
     var rankingsList = [User]()
     var scoresForuser = [Int]()
     //This lists are to test the funcionality whit mock data
@@ -719,6 +725,133 @@ class DBHelper {
             
         
     }
-  
     
+    
+    func rankingBytechnologyIOS(){
+        
+        let query = "select Users.Name,Users.Rakin from Users_Quizzes INNER JOIN Quizzes on Users_Quizzes.QuizzID = Quizzes.ID  INNER  JOIN Users on Users_Quizzes.UserID=Users.ID  where Quizzes.Technology='IOS' order by Users.Rakin DESC"
+        
+        var stmt: OpaquePointer?
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK {
+            
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+            
+        }
+        
+        //Bind the requeste email
+        
+       /* let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
+        if sqlite3_bind_text(stmt,Int32(index),emailFetch.utf8String,-1,nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }*/
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW) {
+            
+           
+            let name1 = String(cString: sqlite3_column_text(stmt, 0))
+            
+            let rakin1 = String(cString: sqlite3_column_text(stmt, 1))
+            
+            
+            rankingTupleByTechIOS.append((name1,rakin1))
+           
+        }
+        
+       
+            
+            
+          
+        
+            
+        
+        
+    }
+  
+    func rankingBytechnologySwift(){
+        
+        let query = "select Users.Name,Users.Rakin from Users_Quizzes INNER JOIN Quizzes on Users_Quizzes.QuizzID = Quizzes.ID  INNER  JOIN Users on Users_Quizzes.UserID=Users.ID  where Quizzes.Technology='swift' order by Users.Rakin DESC"
+        
+        var stmt: OpaquePointer?
+        
+        if sqlite3_prepare(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK {
+            
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            print(err)
+            return
+            
+        }
+        
+        //Bind the requeste email
+        
+       /* let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
+        if sqlite3_bind_text(stmt,Int32(index),emailFetch.utf8String,-1,nil) != SQLITE_OK{
+            let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+            
+        }*/
+        
+        
+        
+        while(sqlite3_step(stmt) == SQLITE_ROW) {
+            
+           
+            let name1 = String(cString: sqlite3_column_text(stmt, 0))
+            
+            let rakin1 = String(cString: sqlite3_column_text(stmt, 1))
+            
+            
+            rankingTupleByTechSwift.append((name1,rakin1))
+           
+        }
+    }
+        
+        func rankingBytechnologyXcode(){
+            
+            let query = "select Users.Name,Users.Rakin from Users_Quizzes INNER JOIN Quizzes on Users_Quizzes.QuizzID = Quizzes.ID  INNER  JOIN Users on Users_Quizzes.UserID=Users.ID  where Quizzes.Technology='xcode' order by Users.Rakin DESC"
+            
+            var stmt: OpaquePointer?
+            
+            if sqlite3_prepare(DBHelper.dataBase, query, -1, &stmt, nil) != SQLITE_OK {
+                
+                let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+                print(err)
+                return
+                
+            }
+            
+            //Bind the requeste email
+            
+           /* let index : Int = Int (sqlite3_bind_parameter_index(stmt, "emailFetch"))
+            if sqlite3_bind_text(stmt,Int32(index),emailFetch.utf8String,-1,nil) != SQLITE_OK{
+                let err = String(cString: sqlite3_errmsg(DBHelper.dataBase)!)
+                
+            }*/
+            
+            
+            
+            while(sqlite3_step(stmt) == SQLITE_ROW) {
+                
+               
+                let name1 = String(cString: sqlite3_column_text(stmt, 0))
+                
+                let rakin1 = String(cString: sqlite3_column_text(stmt, 1))
+                
+                
+                rankingTupleByTechXcode.append((name1,rakin1))
+               
+            }
+            
+          
+        
+            
+        
+        
+    
+        
+    }
 }
