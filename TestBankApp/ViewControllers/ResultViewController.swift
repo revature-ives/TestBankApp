@@ -13,7 +13,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var averageScoreLabel: UILabel!
     @IBOutlet weak var scoreQuizDisplayLabel: UILabel!
     
-    @IBOutlet weak var rankingsLabel: UILabel!
+   
     
     @IBOutlet weak var quizScoreLabel: UILabel!
     @IBOutlet weak var rankingsTable: UITableView!

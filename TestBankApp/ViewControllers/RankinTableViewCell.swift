@@ -1,23 +1,19 @@
 //
-//  RankingTableViewCell.swift
+//  RankinTableViewCell.swift
 //  TestBankApp
 //
-//  Created by Ives Murillo on 3/24/22.
+//  Created by Ives Murillo on 3/26/22.
 //
 
 import UIKit
 
-class RankingTableViewCell: UITableViewCell {
+class RankinTableViewCell: UITableViewCell {
     
-     
-    @IBOutlet weak var positionLabel: UILabel!
     
-    @IBOutlet weak var namelabel: UILabel!
-    
+    @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var averageScoreLabel: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

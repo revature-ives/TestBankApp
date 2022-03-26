@@ -10,7 +10,8 @@ import UIKit
 class QuizzCollectionViewCell: UICollectionViewCell {
     
     
-    @IBOutlet weak var quizzCellImage: UIImageView!
+    @IBOutlet weak var rankinglabel: UILabel!
+    
     
     
     @IBOutlet weak var quizzIDLabel: UILabel!
