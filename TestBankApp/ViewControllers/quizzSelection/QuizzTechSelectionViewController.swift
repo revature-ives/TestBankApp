@@ -198,8 +198,8 @@ extension QuizzTechSelectionViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rankingTableCell", for: indexPath) as! RankinTableViewCell
         
-        cell.nameLabel.text = rankingsIOS[indexPath.item].0
-        cell.averageScoreLabel.text = rankingsIOS[indexPath.item].1
+       // cell.nameLabel.text = rankingsIOS[indexPath.item].0
+       // cell.averageScoreLabel.text = rankingsIOS[indexPath.item].1
         
         return cell
     }

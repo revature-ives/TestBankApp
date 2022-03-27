@@ -597,10 +597,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-zQ-dJc">
-                                <rect key="frame" x="137" y="493" width="141" height="31"/>
+                                <rect key="frame" x="139" y="477" width="141" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="View Ratings"/>
+                                <connections>
+                                    <segue destination="JcU-PY-M5Z" kind="show" id="uzd-Dn-wup"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Ba-0V-jKn"/>
