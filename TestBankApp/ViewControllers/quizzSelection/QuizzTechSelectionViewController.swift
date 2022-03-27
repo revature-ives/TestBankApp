@@ -33,6 +33,7 @@ class QuizzTechSelectionViewController: UIViewController {
     
     @IBOutlet weak var technologyLabel: UILabel!
     
+    @IBOutlet weak var quizzesTakenLabel: UILabel!
     @IBOutlet weak var quizzSelectionCollection: UICollectionView!
     
     @IBOutlet weak var rankingsTable: UITableView!
@@ -41,7 +42,9 @@ class QuizzTechSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Style the labels
+        Utilities.styleLabel(technologyLabel)
+        Utilities.styleLabel(quizzesTakenLabel)
         
         //Assing picker view delegates
         technologyPicker.dataSource = self
