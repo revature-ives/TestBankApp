@@ -278,7 +278,10 @@ class QuizzViewController: UIViewController {
     @IBAction func submitQuizzPressedAction(_ sender: Any) {
         print("the score of the quizz just taken is : ",GlobalVariables.globalQuizzScore)
         
-        databaseHelper.addQuizzTaken(userId: GlobalVariables.userLoguedIn.id, quizzId: quizSelectedID, dateTaked: "3/18/2021 ", score: GlobalVariables.globalQuizzScore)
+        
+        var date = Date()
+        
+        databaseHelper.addQuizzTaken(userId: GlobalVariables.userLoguedIn.id, quizzId: quizSelectedID, dateTaked: date.description, score: GlobalVariables.globalQuizzScore)
         
         
         

@@ -167,6 +167,7 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
             cell.quizzIDLabel.text = ("ID: \(String(iosQuizzesTaked[indexPath.item].quizzID))")
             //set tech logo
             cell.rankinglabel.text = ("score: \(String(iosQuizzesTaked[indexPath.item].score))")
+            cell.dateTakedLabel.text = iosQuizzesTaked[indexPath.item].dateTakeb
             quizzSelectionCollection.reloadData()
             print("list ranking to display ios")
              return cell
@@ -174,6 +175,7 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
             cell.quizzIDLabel.text = ("ID: \(String(swiftQuizzesTaked[indexPath.item].quizzID))")
             //set tech logo
             cell.rankinglabel.text = ("score: \(String(swiftQuizzesTaked[indexPath.item].score))")
+            cell.dateTakedLabel.text = swiftQuizzesTaked[indexPath.item].dateTakeb
             print("list ranking to display swift")
             quizzSelectionCollection.reloadData()
             return cell
@@ -181,6 +183,7 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
             
             cell.quizzIDLabel.text = ("ID: \(String(xcodeQuizzesTaked[indexPath.item].quizzID))")
             cell.rankinglabel.text = ("score: \(String(xcodeQuizzesTaked[indexPath.item].score))")
+            cell.dateTakedLabel.text = xcodeQuizzesTaked[indexPath.item].dateTakeb
             print("list ranking to display xcode")
             quizzSelectionCollection.reloadData()
             return cell

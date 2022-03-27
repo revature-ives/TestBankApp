@@ -1201,17 +1201,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1r-WG-gfh">
-                                                    <rect key="frame" x="20" y="8" width="224" height="48"/>
+                                                    <rect key="frame" x="20" y="0.0" width="224" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="textColor" systemColor="systemGreenColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPz-rM-ZrI">
-                                                    <rect key="frame" x="20" y="74" width="224" height="38"/>
+                                                    <rect key="frame" x="19" y="56" width="224" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="textColor" red="0.1477991196" green="0.55778905310000004" blue="0.14740927619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zD-R7-ey1">
+                                                    <rect key="frame" x="140" y="99" width="96" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1219,6 +1226,7 @@
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <size key="customSize" width="262" height="128"/>
                                         <connections>
+                                            <outlet property="dateTakedLabel" destination="5zD-R7-ey1" id="in8-Qb-IIX"/>
                                             <outlet property="quizzIDLabel" destination="W1r-WG-gfh" id="sbA-HK-wVo"/>
                                             <outlet property="rankinglabel" destination="EPz-rM-ZrI" id="rET-JP-jym"/>
                                         </connections>

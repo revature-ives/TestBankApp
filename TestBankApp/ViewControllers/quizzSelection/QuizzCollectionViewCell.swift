@@ -13,6 +13,7 @@ class QuizzCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rankinglabel: UILabel!
     
     
+    @IBOutlet weak var dateTakedLabel: UILabel!
     
     @IBOutlet weak var quizzIDLabel: UILabel!
     
