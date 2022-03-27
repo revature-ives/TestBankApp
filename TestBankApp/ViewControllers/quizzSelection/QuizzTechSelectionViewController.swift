@@ -108,6 +108,7 @@ extension QuizzTechSelectionViewController: UIPickerViewDelegate, UIPickerViewDa
         indexTechSelected = technologiesList[row]
         print("tehc selected : ",indexTechSelected)
         quizzSelectionCollection.reloadData()
+        rankingsTable.reloadData()
         technologyLabel.text = technologiesList[row]
         thecnologyLogo.image = UIImage(named: technologiesList[row])
     }
@@ -134,7 +135,9 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
         default:
            
             return 0
-        }    }
+        }
+        
+    }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -192,16 +195,62 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
 
 extension QuizzTechSelectionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rankingsIOS.count
+        switch indexTechSelected {
+        case "IOS":
+            print("this ios")
+            return rankingsIOS.count
+          
+          
+        case "Swift":
+            print("this swift")
+            return rankingsSwift.count
+        case "X-code":
+            print("this xcode")
+            return rankingsXcode.count
+        default:
+            print("this 0")
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rankingTableCell", for: indexPath) as! RankinTableViewCell
         
-       // cell.nameLabel.text = rankingsIOS[indexPath.item].0
-       // cell.averageScoreLabel.text = rankingsIOS[indexPath.item].1
+         
         
-        return cell
+        switch indexTechSelected {
+        case "IOS":
+           
+            cell.nameLabel.text = rankingsIOS[indexPath.item].0
+          
+          cell.averageScoreLabel.text = rankingsIOS[indexPath.item].1
+          
+            
+            
+          return cell
+        case "Swift":
+            
+            cell.nameLabel.text = rankingsSwift[indexPath.item].0
+          
+            cell.averageScoreLabel.text = rankingsSwift[indexPath.item].1
+            
+            return cell
+            
+            
+        case "X-code":
+            
+            cell.nameLabel.text = rankingsXcode[indexPath.item].0
+          
+            cell.averageScoreLabel.text = rankingsXcode[indexPath.item].1
+            return cell
+            
+        default:
+            cell.nameLabel.text = rankingsIOS[indexPath.item].0
+          
+          cell.averageScoreLabel.text = rankingsIOS[indexPath.item].1
+            return cell
+        }
     }
     
     
