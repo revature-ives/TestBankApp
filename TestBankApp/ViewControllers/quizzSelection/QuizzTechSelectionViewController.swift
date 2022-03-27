@@ -19,6 +19,10 @@ class QuizzTechSelectionViewController: UIViewController {
     var rankingsSwift = [(String,String)]()
     
     
+    // data for collection
+    var iosQuizzesTaked = [TakenQuizz]()
+    var swiftQuizzesTaked = [TakenQuizz]()
+    var xcodeQuizzesTaked = [TakenQuizz]()
     
     var databaseHelper = DBHelper()
     var database = DBHelper.dataBase
@@ -46,7 +50,7 @@ class QuizzTechSelectionViewController: UIViewController {
         //Asaing collection delegates
         quizzSelectionCollection.dataSource = self
         quizzSelectionCollection.delegate = self
-        quizzSelectionCollection.isHidden = true
+        quizzSelectionCollection.isHidden = false
         
         rankingsTable.delegate = self
         rankingsTable.dataSource = self
@@ -78,6 +82,17 @@ class QuizzTechSelectionViewController: UIViewController {
        
         rankingsXcode = databaseHelper.rankingTupleByTechXcode
         
+        //Load quizess taken by UserLogged in
+        
+        databaseHelper.viewQuizzScoreByIdandTech(userID: GlobalVariables.userLoguedIn.id, tech: "IOS")
+        iosQuizzesTaked = databaseHelper.quizzesTakenByUser
+        databaseHelper.quizzesTakenByUser = [TakenQuizz]()
+        databaseHelper.viewQuizzScoreByIdandTech(userID: GlobalVariables.userLoguedIn.id, tech: "swift")
+        swiftQuizzesTaked = databaseHelper.quizzesTakenByUser
+        databaseHelper.quizzesTakenByUser = [TakenQuizz]()
+        databaseHelper.viewQuizzScoreByIdandTech(userID: GlobalVariables.userLoguedIn.id, tech: "xcode")
+        xcodeQuizzesTaked = databaseHelper.quizzesTakenByUser
+        databaseHelper.quizzesTakenByUser = [TakenQuizz]()
     }
 
     
@@ -125,14 +140,14 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
         switch indexTechSelected {
         case "IOS":
            
-            return rankingsIOS.count
+            return iosQuizzesTaked.count
           
         case "Swift":
             
-            return rankingsSwift.count
+            return swiftQuizzesTaked.count
         case "X-code":
             
-            return rankingsXcode.count
+            return xcodeQuizzesTaked.count
         default:
            
             return 0
@@ -149,23 +164,23 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
            
         
             //set id of the quiz
-            cell.quizzIDLabel.text = rankingsIOS[indexPath.item].0
+            cell.quizzIDLabel.text = ("ID: \(String(iosQuizzesTaked[indexPath.item].quizzID))")
             //set tech logo
-            cell.rankinglabel.text = rankingsIOS[indexPath.item].1
+            cell.rankinglabel.text = ("score: \(String(iosQuizzesTaked[indexPath.item].score))")
             quizzSelectionCollection.reloadData()
             print("list ranking to display ios")
              return cell
         case "Swift":
-            cell.quizzIDLabel.text = rankingsSwift[indexPath.item].0
+            cell.quizzIDLabel.text = ("ID: \(String(swiftQuizzesTaked[indexPath.item].quizzID))")
             //set tech logo
-            cell.rankinglabel.text = rankingsSwift[indexPath.item].1
+            cell.rankinglabel.text = ("score: \(String(swiftQuizzesTaked[indexPath.item].score))")
             print("list ranking to display swift")
             quizzSelectionCollection.reloadData()
             return cell
         case "X-code":
-            cell.quizzIDLabel.text = rankingsXcode[indexPath.item].0
-            //set tech logo
-            cell.rankinglabel.text = rankingsXcode[indexPath.item].1
+            
+            cell.quizzIDLabel.text = ("ID: \(String(xcodeQuizzesTaked[indexPath.item].quizzID))")
+            cell.rankinglabel.text = ("score: \(String(xcodeQuizzesTaked[indexPath.item].score))")
             print("list ranking to display xcode")
             quizzSelectionCollection.reloadData()
             return cell
