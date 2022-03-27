@@ -46,6 +46,7 @@ class QuizzTechSelectionViewController: UIViewController {
         //Asaing collection delegates
         quizzSelectionCollection.dataSource = self
         quizzSelectionCollection.delegate = self
+        quizzSelectionCollection.isHidden = true
         
         rankingsTable.delegate = self
         rankingsTable.dataSource = self
