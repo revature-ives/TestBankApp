@@ -8,19 +8,16 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    //Outlet block for the view.
     @IBOutlet weak var HomeLabel: UILabel!
-    
-    @IBOutlet weak var labelBackgroundBtn: UIButton!
     @IBOutlet weak var toAdminLoginBtn: UIButton!
     @IBOutlet weak var toUserLoginBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Styles the Buttons on the screen.
         Utilities.styleFilledButton(toUserLoginBtn)
         Utilities.styleFilledButton(toAdminLoginBtn)
-       //labelBackgroundBtn.setTitle("", for: .normal)
-       //Utilities.styleFilledButton(labelBackgroundBtn)
-        
     }
     
 

@@ -8,15 +8,14 @@
 
 import Foundation
 
-
+//Struct to hold the score data from the database.
 struct Scores {
     var userID : Int
     var quizID: Int
     var dateTaken : String
     var score : Int
   
-    
-    
+    //initializer to set the infromation.
     init(userID: Int,quizID: Int, dateTaken: String, score: Int){
         self.userID = userID
         self.quizID = quizID
