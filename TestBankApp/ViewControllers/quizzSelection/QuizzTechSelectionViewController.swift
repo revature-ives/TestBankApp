@@ -11,22 +11,7 @@ import SQLite3
 class QuizzTechSelectionViewController: UIViewController {
     
     
-    let technologiesList = ["IOS","Swift","X-code"]
-    var indexTechSelected = " "
-    
-    var rankingsIOS = [(String,String)]()
-    var rankingsXcode = [(String,String)]()
-    var rankingsSwift = [(String,String)]()
-    
-    
-    // data for collection
-    var iosQuizzesTaked = [TakenQuizz]()
-    var swiftQuizzesTaked = [TakenQuizz]()
-    var xcodeQuizzesTaked = [TakenQuizz]()
-    
-    var databaseHelper = DBHelper()
-    var database = DBHelper.dataBase
-    //UIB Outlets
+    //MARK: IB Outlets
     
     @IBOutlet weak var technologyPicker: UIPickerView!
     @IBOutlet weak var thecnologyLogo: UIImageView!
@@ -39,6 +24,35 @@ class QuizzTechSelectionViewController: UIViewController {
     @IBOutlet weak var rankingsTable: UITableView!
     
     
+    //MARK: Declaring Vatibales
+    
+    //this list is the technologies available
+    let technologiesList = ["IOS","Swift","X-code"]
+    var indexTechSelected = " "
+    
+    
+    //These are arrays of tuples
+    //These tuples were create to  store the data from users user name and ranking fetch by technology
+    
+    var rankingsIOS = [(String,String)]()
+    var rankingsXcode = [(String,String)]()
+    var rankingsSwift = [(String,String)]()
+    
+    
+    //Thes arrays are to storethe quizzes taken by the user logged in filter bt technology
+    var iosQuizzesTaked = [TakenQuizz]()
+    var swiftQuizzesTaked = [TakenQuizz]()
+    var xcodeQuizzesTaked = [TakenQuizz]()
+    
+    
+    
+    //TODO: Data moderls variables
+    var databaseHelper = DBHelper()
+    var database = DBHelper.dataBase
+
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +60,16 @@ class QuizzTechSelectionViewController: UIViewController {
         Utilities.styleLabel(technologyLabel)
         Utilities.styleLabel(quizzesTakenLabel)
         
+        setDataSourceAndDelegates()
+        
+        technologyLabel.text = "apple"
+        
+        connectAndFetchDatabase()
+    }
+
+  //MARK: AUXILIAR FUNCTIONS
+     //This function set the data soueces and delegates for the pickerview collection view and the table view to self
+    fileprivate func setDataSourceAndDelegates() {
         //Assing picker view delegates
         technologyPicker.dataSource = self
         technologyPicker.delegate = self
@@ -57,32 +81,36 @@ class QuizzTechSelectionViewController: UIViewController {
         
         rankingsTable.delegate = self
         rankingsTable.dataSource = self
-        
-        technologyLabel.text = "apple"
-        
-        var f1 = databaseHelper.prepareDatabaseFile()
-        
-       // print("Data base phat is :", f1)
-       // var url = URL(string: f1)
-        //Open the Data base or create it
+    }
     
+    
+    //this function should be extracte to a class
+    //This function open the data base and call the neccesary methods from DBhelper to populate the differents lits
+    
+    fileprivate func connectAndFetchDatabase() {
+        let f1 = databaseHelper.prepareDatabaseFile()
+        
+        // print("Data base phat is :", f1)
+        // var url = URL(string: f1)
+        //Open the Data base or create it
+        
         if sqlite3_open(f1, &DBHelper.dataBase) != SQLITE_OK{
             print("Can not open data base")
         }
         
         //Load Lists of Quizzes
         
-       // databaseHelper.fetchUserByEmail(emailToFetch: "swift")
+        // databaseHelper.fetchUserByEmail(emailToFetch: "swift")
         databaseHelper.rankingBytechnologyIOS()
-       
+        
         rankingsIOS = databaseHelper.rankingTupleByTechIOS
         
         databaseHelper.rankingBytechnologySwift()
-       
+        
         rankingsSwift = databaseHelper.rankingTupleByTechSwift
         
         databaseHelper.rankingBytechnologyXcode()
-       
+        
         rankingsXcode = databaseHelper.rankingTupleByTechXcode
         
         //Load quizess taken by UserLogged in
@@ -97,15 +125,13 @@ class QuizzTechSelectionViewController: UIViewController {
         xcodeQuizzesTaked = databaseHelper.quizzesTakenByUser
         databaseHelper.quizzesTakenByUser = [TakenQuizz]()
     }
-
-    
-    
-    
-    
     
 
 }
 
+//MARK: Delegates and data sources
+
+//This picker view select the technology
 extension QuizzTechSelectionViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
 
@@ -137,7 +163,7 @@ extension QuizzTechSelectionViewController: UIPickerViewDelegate, UIPickerViewDa
 
 extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
-
+ //thiscollection dislpay the quizzes taken by the user loggedin filter by thechnolgy selected in the picker view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
         switch indexTechSelected {
@@ -206,7 +232,7 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
         print("cell to select quizz tapped")
         
         //Get a cell from the indext path
-        let cell = collectionView.cellForItem(at: indexPath) as! QuizzCollectionViewCell
+        _ = collectionView.cellForItem(at: indexPath) as! QuizzCollectionViewCell
         print(indexPath.item)
         //set the Quizz Id on the la
         
@@ -216,6 +242,10 @@ extension QuizzTechSelectionViewController: UICollectionViewDelegate, UICollecti
 }
 
 extension QuizzTechSelectionViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    //This table view is to display the ranking by technology selected in the picker view
+    //This table use the tuples to display the neccesary information
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch indexTechSelected {
         case "IOS":
@@ -240,13 +270,11 @@ extension QuizzTechSelectionViewController: UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "rankingTableCell", for: indexPath) as! RankinTableViewCell
         
          
-        
         switch indexTechSelected {
         case "IOS":
            
             cell.nameLabel.text = rankingsIOS[indexPath.item].0
-          
-          cell.averageScoreLabel.text = rankingsIOS[indexPath.item].1
+            cell.averageScoreLabel.text = rankingsIOS[indexPath.item].1
           
             
             

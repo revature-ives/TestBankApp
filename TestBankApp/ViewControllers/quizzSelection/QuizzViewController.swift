@@ -11,17 +11,18 @@ import SQLite3
 class QuizzViewController: UIViewController {
     
     
+    //MARK: IB Outlets
+    
     //Information labels
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var questionScore: UILabel!
-    
-    
     @IBOutlet weak var questionCount: UILabel!
+    @IBOutlet weak var quizScoreLabel: UILabel!
+    
     //Question label
 
     @IBOutlet weak var questionLabel: UILabel!
-    
     
     //Answers labels
     
@@ -30,19 +31,10 @@ class QuizzViewController: UIViewController {
     @IBOutlet weak var answerTwoLabel: UILabel!
     
     @IBOutlet weak var answerThreeLabel: UILabel!
-    
-   
-    
-    @IBOutlet weak var quizScoreLabel: UILabel!
-    
-    
-    
+
     
     //Answer buttons
     
-    
-    
-   
     @IBOutlet weak var answerOneButton: UIButton!
     
     @IBOutlet weak var answerTwoButton: UIButton!
@@ -57,72 +49,34 @@ class QuizzViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     
+    //MARK: Declaring variables
     
     //timer
     var seconds = 30
     var timerr = Timer()
     
-    //Get the user loggedin
-    
+    //TODO: Setting global variables
     var userLoggedIn = GlobalVariables.userLoguedIn
-    //Get the id of Quizz selected
     var quizSelectedID = GlobalVariables.quizzSelected.id
-    //Get the questions that belong to the quizz fetching questions by quizzid
     
-    //Get the answer
     
-    //Data model
+    //TODO: Data model
     var databaseHelper = DBHelper()
     var database = DBHelper.dataBase
     
     //List of Questions
-    
     var questionsList = [Question] ()
     
- 
-    
-    //questionsCount
-    
+    //counter of the question per quizz taken
     var questionsCount = 0
     
-    
-    
-    //Right answer
+    //Right answer of actual question
     var rightanswer = " "
     
     //Score of the quESTION
     //If the answer if right increment the count of score in 1
     var quizzScore = 0
     
-    //Quizz to display
-    func displayQuizz(questionNumber: Int){
-        
-     //   fillMockData()
-        
-        questionLabel.text = questionsList[questionNumber].question
-        answerOneLabel.text = questionsList[questionNumber].option1
-        answerTwoLabel.text = questionsList[questionNumber].option2
-        answerThreeLabel.text = questionsList[questionNumber].option3
-        
-        rightanswer = questionsList[questionNumber].answer
-        
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-       timerr = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizzViewController.counter), userInfo: nil, repeats: true)
-    }
-    
-    @objc func counter(){
-        seconds -= 1
-        timerLabel.text = String(seconds)
-        if(seconds == 0){
-            timerr.invalidate()
-            submitQuizzButton.isHidden = false
-            nextButton.isHidden = true
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,10 +134,40 @@ class QuizzViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+       timerr = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizzViewController.counter), userInfo: nil, repeats: true)
+    }
+    
+    //TODO: Display a quiz when a collection item is selected
+    func displayQuizz(questionNumber: Int){
+        
+        questionLabel.text = questionsList[questionNumber].question
+        answerOneLabel.text = questionsList[questionNumber].option1
+        answerTwoLabel.text = questionsList[questionNumber].option2
+        answerThreeLabel.text = questionsList[questionNumber].option3
+        
+        rightanswer = questionsList[questionNumber].answer
+        
+    }
+    
+    //Metho display the counter
+    //display submit button and hide next button
+    @objc func counter(){
+        seconds -= 1    
+        timerLabel.text = String(seconds)
+        if(seconds == 0){
+            timerr.invalidate()
+            submitQuizzButton.isHidden = false
+            nextButton.isHidden = true
+        }
+    }
     
     
-    //Answer Buttons Actions
     
+    
+    
+    
+    //TODO: functions for the logic of answer questions mjfg
     var amountToUpdate = 0
     
     fileprivate func updateScore() {
@@ -276,6 +260,8 @@ class QuizzViewController: UIViewController {
     //When user press submit button
     
     @IBAction func submitQuizzPressedAction(_ sender: Any) {
+        
+     //   GlobalVariables.globalQuizzScore += quizzScore
         print("the score of the quizz just taken is : ",GlobalVariables.globalQuizzScore)
         
         

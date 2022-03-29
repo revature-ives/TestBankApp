@@ -14,10 +14,10 @@
             filePath = "TestBankApp/ViewControllers/quizzSelection/QuizzTechSelectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "QuizzTechSelectionViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

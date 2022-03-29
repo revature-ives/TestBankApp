@@ -10,12 +10,10 @@ import SQLite3
 
 class SelctionQuizzViewController: UIViewController {
     
+
     
-    
-    
-    
-    //User loggedIn Information
-    //IB outlets
+    //MARK: IB Outlets
+   
     
     
     @IBOutlet weak var nameUserLoggedIn: UILabel!
@@ -29,20 +27,6 @@ class SelctionQuizzViewController: UIViewController {
     @IBOutlet weak var sunbscritonStatusOfUserLoggedIn: UILabel!
     
     
-    
-    func setUserLOggedInInformation() {
-        
-        nameUserLoggedIn.text = GlobalVariables.userLoguedIn.name
-       // quizzAttemptsByUserLoggedIn
-        sunbscritonStatusOfUserLoggedIn.text = GlobalVariables.userLoguedIn.subscribed
-        
-    }
-    
-    
-    
-    
-    //IB outlets
-    
     @IBOutlet weak var iosQuizzesCollection: UICollectionView!
     
     
@@ -53,12 +37,8 @@ class SelctionQuizzViewController: UIViewController {
     @IBOutlet weak var xcodeQuizzesCollection: UICollectionView!
     
     
+    //MARK: Model data
     
-    
-    
-    
-    //Model Data
-    //Database
     var databaseHelper = DBHelper()
     var database = DBHelper.dataBase
     
@@ -66,79 +46,112 @@ class SelctionQuizzViewController: UIViewController {
      var iosQuizzes = [Quizz]()
      var swiftQuizzes = [Quizz]()
      var xcodeQuizzes = [Quizz]()
+    //this list is to set the list of quizzes to empty list after populating the list of quizzes
     var resetQuizzes = [Quizz]()
+    
    
+   
+    
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Utilities.styleFilledButton(backgroundButton)
-        backgroundButton.setTitle("", for: .normal)
+        setDelegatesanDataSources()
+        setNvigationControls()
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        quizzAttemptsByUserLoggedIn.text = "0"
+        setUserLOggedInInformation()
+        connectAndFetchDataBase()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //Counting the number of quizzes ateempted and set up the golbar variable
+        quizzAttempts()
+        quizzAttemptsByUserLoggedIn.text = String(GlobalVariables.quizzAttempts)
+    }
+    
+    
+    //MARK: Auxiliar methods
+    
+    fileprivate func setDelegatesanDataSources() {
+        //TODO: Assigning delegates and datasources
         
-        //Set delegates and datasources to self
         iosQuizzesCollection.delegate = self
         iosQuizzesCollection.dataSource = self
         swiftQuizzesCollection.delegate = self
         swiftQuizzesCollection.dataSource = self
         xcodeQuizzesCollection.delegate = self
         xcodeQuizzesCollection.dataSource = self
+    }
+    
+    fileprivate func setNvigationControls() {
+        //TODO: Setting of navigation elements
+        
+        Utilities.styleFilledButton(backgroundButton)
+        backgroundButton.setTitle("", for: .normal)
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 60, width: view.frame.size.width, height: 40))
         view.addSubview(navBar)
         
-    
+        
         let navItem = UINavigationItem(title: "")
-        var leftBarBackButton : UIBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(goToRoot))
+        let leftBarBackButton : UIBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(goToRoot))
         navItem.leftBarButtonItem = leftBarBackButton
         
         navBar.setItems([navItem], animated: false)
         navBar.backgroundColor = UIColor.clear
         navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navBar.shadowImage = UIImage()
-        
-        
-        //Set user logged in information
-        quizzAttemptsByUserLoggedIn.text = "0"
-        
-        
-        setUserLOggedInInformation()
-        
-        //Open database
-        var f1 = databaseHelper.prepareDatabaseFile()
-        
-       // print("Data base phat is :", f1)
-       // var url = URL(string: f1)
-        //Open the Data base or create it
+    }
     
+    
+    fileprivate func connectAndFetchDataBase() {
+        //TODO: Open dat base and populate model data
+        let f1 = databaseHelper.prepareDatabaseFile()
+        
+        
         if sqlite3_open(f1, &DBHelper.dataBase) != SQLITE_OK{
             print("Can not open data base")
         }
         
-        //Load Lists of Quizzes
         
-       // databaseHelper.fetchUserByEmail(emailToFetch: "swift")
         databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "IOS")
-       iosQuizzes = databaseHelper.quizzesList
-       // print("IOS QUIZZES")
-      //  print("   ")
-       // print(iosQuizzes)
+        iosQuizzes = databaseHelper.quizzesList
         databaseHelper.quizzesList = resetQuizzes
+        
         databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "swift")
         swiftQuizzes = databaseHelper.quizzesList
-       // print("SWIFT QUIZZES")
-       // print("   ")
-       // print(swiftQuizzes)
-        
         databaseHelper.quizzesList = resetQuizzes
-        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "xcode")
         
-       xcodeQuizzes = databaseHelper.quizzesList
-       
-      
+        databaseHelper.fetchQuizessByTechnoilogy(technologyToFetch: "xcode")
+        xcodeQuizzes = databaseHelper.quizzesList
+        databaseHelper.quizzesList = resetQuizzes
     }
+    
+    
+    
+    
+    //This function assign volues to the gloval variables ,in that way we dont need to fect the databse all the time we need those values
+    func setUserLOggedInInformation() {
+        
+        nameUserLoggedIn.text = GlobalVariables.userLoguedIn.name
+       // quizzAttemptsByUserLoggedIn
+        sunbscritonStatusOfUserLoggedIn.text = GlobalVariables.userLoguedIn.subscribed
+        
+    }
+    
+    fileprivate func setGlobalQuizzId(_ indexPath: IndexPath,quizzesList: [Quizz]) {
+        print("the quiz selected whit id ",quizzesList[indexPath.item].id)
+        GlobalVariables.quizzSelected.id = quizzesList[indexPath.item].id
+    }
+    
     
     @objc func goToRoot(){
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate, let window = sceneDelegate.window else {
@@ -156,14 +169,9 @@ class SelctionQuizzViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        quizzAttempts()
-        quizzAttemptsByUserLoggedIn.text = String(GlobalVariables.quizzAttempts)
-    }
-    
-    
     
     //function to check the accounts of quizz attempts
+    //if the user is free block the collections views ,no other item can be selected
     func quizzAttempts(){
         
         //check if the user is subscribe
@@ -171,10 +179,9 @@ class SelctionQuizzViewController: UIViewController {
             
             showAlertView(msg: "You complete your attemps for today ")
             iosQuizzesCollection.allowsSelection = false
-            
+            swiftQuizzesCollection.allowsSelection = false
+            xcodeQuizzesCollection.allowsSelection = false
         }
-        
-        
     }
     
     
@@ -187,35 +194,30 @@ class SelctionQuizzViewController: UIViewController {
         alertController.addAction(okButton)
         present(alertController, animated: true, completion: nil)
     }
-
-
 }
+
+//MARK: Collections views
 
 extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        
-       
-       
         switch collectionView {
                   
                   //count of ios quizzes
                   case iosQuizzesCollection:
                       return iosQuizzes.count
-                      //return 8
+                   
                   //count of swift quizzes
                   case swiftQuizzesCollection:
                       return swiftQuizzes.count
-                     // return 6
+                   
                 //count of xcode quizzess
                  case xcodeQuizzesCollection:
                      return xcodeQuizzes.count
-               //  return 10
+               
                   default:
                       return 1
                   }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView,layout collectionViewwLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -224,56 +226,29 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-     //   var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", //for: //indexPath) as! QuizzIOSCollectionViewCell
-        
-        
-        
-        
-       // cell.idLabel.text = "IOS"
-        //return cell
         
         //Creating the cell for quizzes
                   switch collectionView {
 
-                      //IOS
-                      case iosQuizzesCollection:
-                          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
-                          //print("ios quizz \(iosQuizzes[indexPath.item].id)  and tehc is  \(iosQuizzes[indexPath.item].technology)")
-                      
+                //IOS
+                 case iosQuizzesCollection:
+                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIOSQuizz", for: indexPath) as! QuizzIOSCollectionViewCell
                       cell.idLabel.text = "Quiz \(iosQuizzes[indexPath.item].id)"
-                      
-                          return cell
-                      
-                      
-                      //Swift
-                       case swiftQuizzesCollection:
-                           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzSwiftCollectionViewCell
-                           
-                         //  print("swift quizz \(swiftQuizzes[indexPath.item].id)  and tehc is  \(swiftQuizzes[indexPath.item].technology)")
-                        
-                      cell.quizzIDlabel.text = "Quiz \(swiftQuizzes[indexPath.item].id)"
-                      
-                           return cell
-                      
-                  
-                      
-                      //Xcode
-                  case xcodeQuizzesCollection:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellXcodeQuizz", for: indexPath) as! QuizzXcodeCollectionViewCell
-
-                    //  print("xcode quizz \(xcodeQuizzes[indexPath.item].id)  and tehc is  \(xcodeQuizzes[indexPath.item].technology)")
-                      
-                      cell.quizzIDLabel.text = "Quiz \(xcodeQuizzes[indexPath.item].id)"
-                      
-                         
                       return cell
-
-
-                  
-
-                 
-
-
+                      
+                      
+                //Swift
+                 case swiftQuizzesCollection:
+                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellSwiftQuizz", for: indexPath) as! QuizzSwiftCollectionViewCell
+                      cell.quizzIDlabel.text = "Quiz \(swiftQuizzes[indexPath.item].id)"
+                      return cell
+                      
+                  //Xcode
+                  case xcodeQuizzesCollection:
+                      
+                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellXcodeQuizz", for: indexPath) as! QuizzXcodeCollectionViewCell
+                      cell.quizzIDLabel.text = "Quiz \(xcodeQuizzes[indexPath.item].id)"
+                      return cell
 
                   default:
                       
@@ -281,32 +256,18 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                       return cell
                   }
 
-        
-        
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    fileprivate func setGlobalQuizzId(_ indexPath: IndexPath,quizzesList: [Quizz]) {
-        print("the quiz selected whit id ",quizzesList[indexPath.item].id)
-        GlobalVariables.quizzSelected.id = quizzesList[indexPath.item].id
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+          
+
         quizzAttempts()
         
         switch collectionView {
 
              //Xcode
                case xcodeQuizzesCollection:
-            let cell = collectionView.cellForItem(at: indexPath) as! QuizzXcodeCollectionViewCell
+            _ = collectionView.cellForItem(at: indexPath) as! QuizzXcodeCollectionViewCell
                    setGlobalQuizzId(indexPath, quizzesList: xcodeQuizzes)
                      
                    //transition to Quizz builder
@@ -315,8 +276,8 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
                //IOS
                case iosQuizzesCollection:
                  
-                 let cell = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
-                 setGlobalQuizzId(indexPath, quizzesList: iosQuizzes)
+            _ = collectionView.cellForItem(at: indexPath) as! QuizzIOSCollectionViewCell
+                  setGlobalQuizzId(indexPath, quizzesList: iosQuizzes)
             
                    //transition to quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
@@ -325,7 +286,7 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
               //Swift
                case swiftQuizzesCollection:
 
-            let cell = collectionView.cellForItem(at: indexPath) as! QuizzSwiftCollectionViewCell
+            _ = collectionView.cellForItem(at: indexPath) as! QuizzSwiftCollectionViewCell
                    setGlobalQuizzId(indexPath, quizzesList: swiftQuizzes)
                    //transition to quizz builder
                    performSegue(withIdentifier: "segueSelectedtoAttempt", sender: self)
@@ -341,3 +302,4 @@ extension SelctionQuizzViewController: UICollectionViewDelegate, UICollectionVie
     }
     
 }
+
