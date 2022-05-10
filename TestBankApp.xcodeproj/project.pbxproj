@@ -136,16 +136,15 @@
 		4524FF1727DFEA4600DC43F9 /* TestBankApp */ = {
 			isa = PBXGroup;
 			children = (
-				4524FFEA27E37B5C00DC43F9 /* Model */,
+				45547935282A57200085AC46 /* Original */,
+				45547934282A570A0085AC46 /* Refactor */,
 				4524FF1827DFEA4600DC43F9 /* AppDelegate.swift */,
 				4524FF1A27DFEA4600DC43F9 /* SceneDelegate.swift */,
-				8449CB2427E4CEA2003BD60F /* ViewControllers */,
 				4524FF1E27DFEA4600DC43F9 /* Main.storyboard */,
 				4524FF2627DFEA4600DC43F9 /* LaunchScreen.storyboard */,
 				4524FF2927DFEA4600DC43F9 /* Info.plist */,
 				4524FF2427DFEA4600DC43F9 /* Assets.xcassets */,
 				4524FF2127DFEA4600DC43F9 /* TestBankApp.xcdatamodeld */,
-				8449CB2327E4CE62003BD60F /* Utilities */,
 			);
 			path = TestBankApp;
 			sourceTree = "<group>";
@@ -164,6 +163,23 @@
 				456595F627EBBDC900FAEE6B /* TakenQuizz.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		45547934282A570A0085AC46 /* Refactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Refactor;
+			sourceTree = "<group>";
+		};
+		45547935282A57200085AC46 /* Original */ = {
+			isa = PBXGroup;
+			children = (
+				8449CB2327E4CE62003BD60F /* Utilities */,
+				8449CB2427E4CEA2003BD60F /* ViewControllers */,
+				4524FFEA27E37B5C00DC43F9 /* Model */,
+			);
+			path = Original;
 			sourceTree = "<group>";
 		};
 		8449CB2327E4CE62003BD60F /* Utilities */ = {
